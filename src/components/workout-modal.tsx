@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { Check, Dumbbell, Timer, Repeat } from 'lucide-react';
+import { Check, Dumbbell, Timer, Repeat, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,6 +10,7 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
+  DialogClose,
 } from '@/components/ui/dialog';
 import {
   Carousel,
@@ -38,20 +39,20 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
   
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-2xl">
+      <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border">
         <DialogHeader>
-          <DialogTitle className="font-headline text-3xl">Day {dayData.day}: {dayData.title}</DialogTitle>
+          <DialogTitle className="font-headline text-3xl text-white">Tag {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
-            Follow the exercises below. Swipe to navigate between them.
+            Führe die folgenden Übungen durch. Wische, um zwischen ihnen zu navigieren.
           </DialogDescription>
         </DialogHeader>
 
-        <Carousel className="w-full">
+        <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             {dayData.exercises.map((exercise) => (
               <CarouselItem key={exercise.id}>
                 <div className="p-1">
-                  <Card>
+                  <Card className="bg-card border-border/60">
                     <CardContent className="flex flex-col md:flex-row items-center gap-6 p-6">
                       <div className="md:w-1/3 w-full">
                          <Image
@@ -67,12 +68,12 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                         <h3 className="text-2xl font-bold font-headline text-primary">{exercise.name}</h3>
                         <p className="text-muted-foreground">{exercise.description}</p>
                         <div className="flex flex-wrap gap-4 pt-2">
-                           <Badge variant="secondary" className="flex items-center gap-2 text-base">
+                           <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
                               <Timer className="h-4 w-4" />
                               {exercise.duration}
                             </Badge>
                           {exercise.repetitions && (
-                             <Badge variant="secondary" className="flex items-center gap-2 text-base">
+                             <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
                               <Repeat className="h-4 w-4" />
                               {exercise.repetitions}
                             </Badge>
@@ -85,29 +86,34 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="ml-12" />
-          <CarouselNext className="mr-12" />
+          <CarouselPrevious className="ml-12 text-white" />
+          <CarouselNext className="mr-12 text-white" />
         </Carousel>
 
-        <DialogFooter>
-          <Button
-            onClick={handleComplete}
-            className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 disabled:bg-green-600 disabled:opacity-100"
-            size="lg"
-            disabled={isCompleted}
-          >
-            {isCompleted ? (
-              <>
-                <Check className="mr-2 h-5 w-5" />
-                Completed
-              </>
-            ) : (
-              <>
-                <Dumbbell className="mr-2 h-5 w-5" />
-                Mark as Complete
-              </>
-            )}
-          </Button>
+        <DialogFooter className="sm:justify-between gap-2">
+            <DialogClose asChild>
+                <Button type="button" variant="outline" className="w-full sm:w-auto">
+                    Schließen
+                </Button>
+            </DialogClose>
+            <Button
+                onClick={handleComplete}
+                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 disabled:bg-green-600 disabled:opacity-100"
+                size="lg"
+                disabled={isCompleted}
+            >
+                {isCompleted ? (
+                <>
+                    <Check className="mr-2 h-5 w-5" />
+                    Abgeschlossen
+                </>
+                ) : (
+                <>
+                    <Dumbbell className="mr-2 h-5 w-5" />
+                    Als abgeschlossen markieren
+                </>
+                )}
+            </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

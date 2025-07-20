@@ -5,17 +5,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { generateMotivationalMessage } from "@/ai/flows/generate-motivational-message";
-import { Loader2 } from "lucide-react";
+import { Loader2, Lightbulb } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const formSchema = z.object({
-  fitnessGoal: z.string().min(5, { message: "Please share a bit more about your goal." }),
+  fitnessGoal: z.string(),
   preferences: z.string().optional(),
 });
 
@@ -26,22 +23,21 @@ interface MotivationalQuoteProps {
 }
 
 export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps) {
-  const [message, setMessage] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(`"Eine Reise von tausend Meilen beginnt mit einem einzigen Schritt"`);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const form = useForm<MotivationalQuoteFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fitnessGoal: "improve my overall health",
-      preferences: "A friendly and encouraging tone",
+      fitnessGoal: "meine allgemeine Gesundheit verbessern",
+      preferences: "Ein freundlicher und ermutigender Ton",
     },
   });
 
   const onSubmit = async (data: MotivationalQuoteFormValues) => {
     setIsLoading(true);
     setError(null);
-    setMessage(null);
     try {
       const result = await generateMotivationalMessage({
         progressPercentage,
@@ -50,75 +46,45 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
       });
       setMessage(result.message);
     } catch (e) {
-      setError("Sorry, I couldn't generate a message right now. Please try again later.");
+      setError("Entschuldigung, ich konnte im Moment keine Nachricht generieren. Bitte versuche es später erneut.");
       console.error(e);
     }
     setIsLoading(false);
   };
-
+  
   return (
-    <Card className="mt-12 mb-8 shadow-lg">
-      <CardHeader>
-        <CardTitle className="font-headline">Need a Boost?</CardTitle>
-        <CardDescription>
-          Your progress is at {progressPercentage.toFixed(0)}%. Let's generate a personalized motivational message to keep you going!
-        </CardDescription>
+    <Card className="mt-8 bg-accent/90 border-accent shadow-lg text-accent-foreground rounded-lg">
+      <CardHeader className="text-center">
+        <CardTitle className="font-headline text-2xl flex items-center justify-center gap-2">
+           <Lightbulb /> Deine heutige Motivation
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="fitnessGoal"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>My Fitness Goal</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., lose weight, run a 5k" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="preferences"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message Style (Optional)</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="e.g., tough love, gentle and kind" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" disabled={isLoading} className="bg-accent text-accent-foreground hover:bg-accent/90">
-              {isLoading ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Generating...
-                </>
-              ) : (
-                "Motivate Me!"
-              )}
-            </Button>
-          </form>
-        </Form>
+      <CardContent className="text-center">
         {error && (
-          <Alert variant="destructive" className="mt-6">
-            <AlertTitle>Error</AlertTitle>
+          <Alert variant="destructive" className="mt-6 bg-red-900/50 border-red-700 text-white">
+            <AlertTitle>Fehler</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}
-        {message && (
-          <Alert className="mt-6 border-primary/50">
-             <AlertTitle className="font-headline text-primary">Your Daily Motivation</AlertTitle>
-            <AlertDescription className="text-foreground text-base">
-              {message}
-            </AlertDescription>
-          </Alert>
+        {message && !isLoading && (
+            <div className="space-y-2">
+                <p className="text-xl italic">
+                {message}
+                </p>
+                <p className="text-sm text-accent-foreground/80">Jedes Training bringt dich deinem Ziel näher. Gib nicht auf - dein Körper und Geist werden es dir danken!</p>
+            </div>
         )}
+         {isLoading && (
+            <div className="flex items-center justify-center gap-2 text-lg">
+                <Loader2 className="h-6 w-6 animate-spin" />
+                <span>Generiere...</span>
+            </div>
+         )}
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-4">
+            <Button type="submit" variant="outline" className="bg-accent-foreground/10 border-accent-foreground/30 hover:bg-accent-foreground/20" disabled={isLoading}>
+                Neue Motivation erhalten
+            </Button>
+        </form>
       </CardContent>
     </Card>
   );

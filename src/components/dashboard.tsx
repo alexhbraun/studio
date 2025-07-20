@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
+import { BarChart, Flame, TrendingUp, Calendar, Trophy } from 'lucide-react';
+import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { WorkoutCard } from '@/components/workout-card';
 import { WorkoutModal } from '@/components/workout-modal';
 import { MotivationalQuote } from '@/components/motivational-quote';
-import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Dashboard() {
   const [selectedDay, setSelectedDay] = useState<WorkoutDay | null>(null);
@@ -26,24 +28,73 @@ export default function Dashboard() {
     toggleDayCompletion(dayNumber);
   };
 
-  const progressPercentage = (completedDays.length / workouts.length) * 100;
+  const progressPercentage = isLoaded ? (completedDays.length / workouts.length) * 100 : 0;
+  const currentWeek = isLoaded ? Math.floor(completedDays.length / 7) + 1 : 1;
 
   return (
-    <div>
-      <MotivationalQuote progressPercentage={progressPercentage} />
+    <div className="flex flex-col gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="bg-card border-border/60">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Gesamtfortschritt</CardTitle>
+            <TrendingUp className="h-4 w-4 text-primary" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-white">{progressPercentage.toFixed(0)}%</div>
+            <p className="text-xs text-muted-foreground">{completedDays.length} von 30 Tagen</p>
+            <Progress value={progressPercentage} className="mt-2 h-2" />
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-border/60">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Serie</CardTitle>
+            <Flame className="h-4 w-4 text-primary" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-white">0</div>
+            <p className="text-xs text-muted-foreground">Tage in Folge</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-border/60">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Aktuelle Woche</CardTitle>
+            <Calendar className="h-4 w-4 text-primary" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-white">{currentWeek}</div>
+            <p className="text-xs text-muted-foreground">von 5 Programmwochen</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-card border-border/60">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Erfolge</CardTitle>
+            <Trophy className="h-4 w-4 text-primary" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-white">{Math.floor(completedDays.length / 5)}</div>
+            <p className="text-xs text-muted-foreground">Freigeschaltete Abzeichen</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="bg-primary/90 text-primary-foreground rounded-lg p-6 text-center shadow-lg">
+        <h2 className="text-2xl font-bold">Zeit, das Abenteuer zu beginnen!</h2>
+        <p>Jeder Schritt bringt dich deinem Ziel näher. Setze deine Reise zur Gesundheit fort!</p>
+      </div>
       
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
-        {!isLoaded && Array.from({ length: 30 }).map((_, index) => (
-          <Skeleton key={index} className="h-40 w-full rounded-lg" />
-        ))}
-        {isLoaded && workouts.map(day => (
-          <WorkoutCard
-            key={day.day}
-            day={day}
-            isCompleted={isCompleted(day.day)}
-            onClick={() => handleCardClick(day)}
-          />
-        ))}
+      <div>
+        <h2 className="text-3xl font-bold mb-4">Dein 30-Tage Plan</h2>
+        <p className="text-muted-foreground mb-6">Klicke auf eine Tageskarte, um das Training zu starten</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {workouts.map(day => (
+            <WorkoutCard
+              key={day.day}
+              day={day}
+              isCompleted={isCompleted(day.day)}
+              onClick={() => handleCardClick(day)}
+            />
+          ))}
+        </div>
       </div>
 
       {selectedDay && (
@@ -55,6 +106,9 @@ export default function Dashboard() {
           onCompleteDay={() => handleCompleteDay(selectedDay.day)}
         />
       )}
+      
+      <MotivationalQuote progressPercentage={progressPercentage} />
+
     </div>
   );
 }

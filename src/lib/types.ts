@@ -11,5 +11,6 @@ export interface WorkoutExercise {
 export interface WorkoutDay {
   day: number;
   title: string;
+  description: string;
   exercises: WorkoutExercise[];
 }
