@@ -6,9 +6,9 @@ export const workouts: WorkoutDay[] = [
     title: "Der erste Schritt zur Veränderung",
     description: "Sanfte Einführung in das regelmäßige Gehen",
     exercises: [
-      { id: 1, name: "Aufwärm-Gehen", description: "Beginne mit einem langsamen, sanften Gehen, um deine Muskeln aufzuwärmen.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "gentle walk" },
-      { id: 2, name: "Flottes Tempo", description: "Erhöhe dein Tempo auf ein flottes Gehen. Du solltest dich noch unterhalten können.", duration: "10", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "brisk walk" },
-      { id: 3, name: "Abkühl-Gehen", description: "Verlangsame dein Tempo, damit sich deine Herzfrequenz wieder normalisiert.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "slow walk" },
+      { id: 1, name: "Aufwärm-Gehen", description: "Beginne mit einem langsamen, sanften Gehen, um deine Muskeln aufzuwärmen.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman stretching park" },
+      { id: 2, name: "Flottes Tempo", description: "Erhöhe dein Tempo auf ein flottes Gehen. Du solltest dich noch unterhalten können.", duration: "10", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "man power walking" },
+      { id: 3, name: "Abkühl-Gehen", description: "Verlangsame dein Tempo, damit sich deine Herzfrequenz wieder normalisiert.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman walking slowly" },
     ],
   },
   {
