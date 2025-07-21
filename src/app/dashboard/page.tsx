@@ -47,12 +47,14 @@ export default function DashboardPage() {
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
-              <p className="mb-4">
-                Dieses Programm wurde entwickelt, um dir dabei zu helfen, durch die einfachste und natürlichste Form der Bewegung – das Gehen – Gewicht zu verlieren, deine Fitness zu steigern und eine nachhaltige, gesunde Routine aufzubauen. In den nächsten 30 Tagen wirst du durch tägliche, sorgfältig geplante Trainingseinheiten geführt, die sich in Intensität und Dauer schrittweise steigern.
-              </p>
-              <p>
-                Egal, ob du gerade erst anfängst oder deine bestehende Routine auf das nächste Level heben möchtest – dieses Programm ist für dich. Wir konzentrieren uns auf konstante Fortschritte, nicht auf Perfektion. Höre auf deinen Körper, bleib dran und feiere jeden einzelnen Schritt auf deinem Weg zu einem gesünderen Ich. Lasst uns gemeinsam loslegen!
-              </p>
+              <div className="space-y-4">
+                <p>
+                  Willkommen zu deinem 30-Tage-Gehprogramm! Dieses Programm ist dein persönlicher Begleiter auf dem Weg zu einem gesünderen und fitteren Ich. Es wurde sorgfältig konzipiert, um dir zu helfen, durch eine der natürlichsten und zugänglichsten Formen der Bewegung – das Gehen – nachhaltige Ergebnisse zu erzielen. Egal, ob dein Ziel Gewichtsverlust, eine verbesserte Ausdauer oder einfach ein aktiverer Lebensstil ist, hier findest du die Struktur und Motivation, die du brauchst.
+                </p>
+                <p>
+                  In den nächsten 30 Tagen führen wir dich durch tägliche, schrittweise ansteigende Trainingseinheiten. Wir beginnen sanft, um deinen Körper an die neue Routine zu gewöhnen, und steigern dann allmählich die Intensität und Dauer. Der Fokus liegt dabei auf konstantem Fortschritt, nicht auf Perfektion. Es geht darum, dranzubleiben, auf deinen Körper zu hören und jeden einzelnen Schritt auf deinem Weg zu feiern. Bereite dich darauf vor, nicht nur deinen Körper, sondern auch deine Einstellung zu Fitness und Wohlbefinden zu verändern. Lass uns gemeinsam loslegen!
+                </p>
+              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
