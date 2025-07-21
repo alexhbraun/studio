@@ -16,6 +16,21 @@ export default {
       },
     },
     extend: {
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              fontWeight: '700',
+            },
+            h2: {
+              fontWeight: '600',
+            },
+            h3: {
+              fontWeight: '600',
+            },
+          },
+        },
+      }),
       fontFamily: {
         body: ['"PT Sans"', 'sans-serif'],
         headline: ['"PT Sans"', 'sans-serif'],
@@ -144,5 +159,8 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config;
