@@ -10,6 +10,7 @@ interface WorkoutCardProps {
   day: WorkoutDay;
   isCompleted: boolean;
   onClick: () => void;
+  style?: React.CSSProperties;
 }
 
 function getDifficultyBadge(day: number): { text: string; className: string } {
@@ -18,22 +19,23 @@ function getDifficultyBadge(day: number): { text: string; className: string } {
     return { text: 'Schwer', className: 'bg-red-500/20 text-red-300 border-red-500/40 hover:bg-red-500/30' };
 }
 
-export function WorkoutCard({ day, isCompleted, onClick }: WorkoutCardProps) {
+export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardProps) {
   const totalDuration = day.exercises.reduce((acc, curr) => acc + parseInt(curr.duration), 0);
   const difficulty = getDifficultyBadge(day.day);
 
   return (
     <Card
       onClick={onClick}
+      style={style}
       className={cn(
-        "cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/80 bg-card border-border/60 flex flex-col justify-between",
-        isCompleted ? 'border-primary/50' : ''
+        "cursor-pointer transition-all duration-300 group bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up",
+        isCompleted ? 'border-primary/50 pulse-glow-completed' : 'hover:border-primary/80'
       )}
     >
       <CardContent className="p-4 space-y-3">
         <div className="flex justify-between items-start">
             <div className="flex items-center gap-3">
-                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold">{day.day}</div>
+                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{day.day}</div>
                  <h3 className="font-bold text-md">{day.title}</h3>
             </div>
              {isCompleted ? (

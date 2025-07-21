@@ -8,7 +8,7 @@ export default function DashboardPage() {
     <>
       <Header />
       <main className="container mx-auto px-4 py-8 mt-16">
-        <header className="text-center mb-10">
+        <header className="text-center mb-10 animate-fade-in-down">
           <div className="flex justify-center items-center gap-4 mb-2">
             <svg
               width="48"
@@ -26,7 +26,7 @@ export default function DashboardPage() {
                 strokeLinejoin="round"
               />
             </svg>
-            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-primary">
               Abnehm-Gehprogramm
             </h1>
             <Heart className="text-primary h-8 w-8" />
@@ -37,10 +37,10 @@ export default function DashboardPage() {
           </p>
         </header>
         <Dashboard />
-        <footer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="bg-card border-border/60">
+        <footer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">
+          <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-yellow-400">
+              <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Droplets className="h-5 w-5" />
                 Tipp des Tages
               </CardTitle>
@@ -52,9 +52,9 @@ export default function DashboardPage() {
               </p>
             </CardContent>
           </Card>
-          <Card className="bg-card border-border/60">
+          <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-yellow-400">
+              <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Utensils className="h-5 w-5" />
                 Gesunde Ernährung
               </CardTitle>
@@ -66,9 +66,9 @@ export default function DashboardPage() {
               </p>
             </CardContent>
           </Card>
-          <Card className="bg-card border-border/60">
+          <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-yellow-400">
+              <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Bed className="h-5 w-5" />
                 Erholung
               </CardTitle>
