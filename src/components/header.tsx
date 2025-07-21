@@ -28,13 +28,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const SlimWalkLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      // IMPORTANT: Replace this with your actual ImageKit URL
       src="https://ik.imagekit.io/rgqefde41/ChatGPT%20Image%2021%20de%20jul%20de%202025%2012_40_05(1).png?updatedAt=1753097048631" 
       alt="SlimWalk Logo" 
       width={130} 
       height={32}
       className="h-8 w-auto"
-      unoptimized // Use this if your logo is an SVG to maintain quality
     />
   </div>
 );
