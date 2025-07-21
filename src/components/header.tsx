@@ -11,6 +11,7 @@ import {
   User,
   LogOut,
   Heart,
+  Route,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -44,6 +45,13 @@ export function Header() {
         >
           <Home className="h-4 w-4" />
           Dashboard
+        </Link>
+         <Link
+          href="/tracking"
+          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <Route className="h-4 w-4" />
+          Tracking
         </Link>
         <Link
           href="/settings"
