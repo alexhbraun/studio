@@ -11,9 +11,26 @@ export const guideContent: GuideChapter[] = [
     id: 1,
     title: "Einleitung",
     content: `
-      <p class="lead">Willkommen zu Ihrem 30-Tage-Gehprogramm! Dieser Leitfaden ist Ihr Begleiter auf dem Weg zu einem gesünderen und aktiveren Leben.</p>
-      <p>Hier finden Sie alle Informationen, die Sie benötigen, um das Programm erfolgreich zu absolvieren, die Prinzipien dahinter zu verstehen und langfristige Gewohnheiten zu etablieren.</p>
-      <p><i>Inhalt für dieses Kapitel wird noch hinzugefügt.</i></p>
+      <p class="lead">Herzlich willkommen zu <strong>StrideSculpt</strong>, Ihrem persönlichen 30-Tage-Gehprogramm! Sie stehen am Anfang einer aufregenden Reise, die nicht nur Ihren Körper, sondern auch Ihre Denkweise über Fitness und Wohlbefinden verändern wird. Dieser Leitfaden ist Ihr treuer Begleiter, vollgepackt mit Wissen, Motivation und praktischen Tipps, um jeden Schritt zu einem Erfolg zu machen.</p>
+      
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Eine inspirierende Landschaftsansicht mit einem Weg, der in die Ferne führt und den Beginn einer Reise symbolisiert. Das Licht ist warm und einladend." class="w-full" data-ai-hint="path landscape" />
+      </div>
+
+      <h3>Was Sie von diesem Programm erwarten können</h3>
+      <p>In den nächsten 30 Tagen werden Sie entdecken, dass Gehen weit mehr ist als nur eine Fortbewegungsart. Es ist ein kraftvolles Werkzeug zur Transformation. Wir haben dieses Programm sorgfältig entwickelt, um Sie schrittweise zu führen – von sanften Anfängen bis hin zu herausfordernden Einheiten, die Ihre Ausdauer steigern und die Fettverbrennung ankurbeln. Es geht nicht um Perfektion, sondern um Beständigkeit. Es geht darum, auf Ihren Körper zu hören, Fortschritte zu feiern und eine nachhaltige, gesunde Gewohnheit zu etablieren, die Ihnen auch lange nach den 30 Tagen erhalten bleibt.</p>
+
+      <h3>Für wen ist dieses Programm?</h3>
+      <p>Dieses Programm ist für jeden gemacht! Egal, ob Sie nach einer langen Pause wieder in die Bewegung einsteigen, Ihr aktuelles Fitnesslevel verbessern oder eine gelenkschonende Alternative zu intensivem Training suchen. Unsere Mission ist es, Ihnen zu zeigen, wie Sie mit der einfachsten und natürlichsten Form der Bewegung erstaunliche Ergebnisse erzielen können.</p>
+      
+      <h3>So nutzen Sie diesen Leitfaden</h3>
+      <p>Dieser Leitfaden ist in übersichtliche Kapitel unterteilt. Sie können ihn von Anfang bis Ende lesen oder gezielt die Themen nachschlagen, die Sie gerade am meisten interessieren. Wir empfehlen, sich zu Beginn mit den Kapiteln über die richtige Technik und Ernährung vertraut zu machen, um eine solide Grundlage zu schaffen. Kehren Sie jederzeit hierher zurück, wenn Sie eine Frage haben oder einen Motivationsschub benötigen.</p>
+
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+          <img src="https://placehold.co/800x400.png" alt="Eine Person, die glücklich und energiegeladen auf einem malerischen Weg geht, was die Freude und die positiven Ergebnisse des Programms darstellt." class="w-full" data-ai-hint="happy walking" />
+      </div>
+
+      <p>Sind Sie bereit, den ersten Schritt zu tun? Wir sind begeistert, Sie auf diesem Weg zu begleiten. Lassen Sie uns gemeinsam loslegen und eine gesündere, fittere und glücklichere Version Ihrer selbst formen – Schritt für Schritt.</p>
     `,
   },
   {
