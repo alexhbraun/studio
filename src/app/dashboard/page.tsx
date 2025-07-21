@@ -26,7 +26,7 @@ export default function DashboardPage() {
                 strokeLinejoin="round"
               />
             </svg>
-            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-white">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight">
               Abnehm-Gehprogramm
             </h1>
             <Heart className="text-primary h-8 w-8" />

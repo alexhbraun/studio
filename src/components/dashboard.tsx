@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { BarChart, Flame, TrendingUp, Calendar, Trophy } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Trophy } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -40,7 +40,7 @@ export default function Dashboard() {
             <TrendingUp className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{progressPercentage.toFixed(0)}%</div>
+            <div className="text-2xl font-bold">{progressPercentage.toFixed(0)}%</div>
             <p className="text-xs text-muted-foreground">{completedDays.length} von 30 Tagen</p>
             <Progress value={progressPercentage} className="mt-2 h-2" />
           </CardContent>
@@ -51,7 +51,7 @@ export default function Dashboard() {
             <Flame className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">0</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-muted-foreground">Tage in Folge</p>
           </CardContent>
         </Card>
@@ -61,7 +61,7 @@ export default function Dashboard() {
             <Calendar className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{currentWeek}</div>
+            <div className="text-2xl font-bold">{currentWeek}</div>
             <p className="text-xs text-muted-foreground">von 5 Programmwochen</p>
           </CardContent>
         </Card>
@@ -71,7 +71,7 @@ export default function Dashboard() {
             <Trophy className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{Math.floor(completedDays.length / 5)}</div>
+            <div className="text-2xl font-bold">{Math.floor(completedDays.length / 5)}</div>
             <p className="text-xs text-muted-foreground">Freigeschaltete Abzeichen</p>
           </CardContent>
         </Card>

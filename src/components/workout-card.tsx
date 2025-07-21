@@ -33,8 +33,8 @@ export function WorkoutCard({ day, isCompleted, onClick }: WorkoutCardProps) {
       <CardContent className="p-4 space-y-3">
         <div className="flex justify-between items-start">
             <div className="flex items-center gap-3">
-                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold text-white">{day.day}</div>
-                 <h3 className="font-bold text-white text-md">{day.title}</h3>
+                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold">{day.day}</div>
+                 <h3 className="font-bold text-md">{day.title}</h3>
             </div>
              {isCompleted ? (
               <CheckCircle2 className="h-5 w-5 text-primary" />

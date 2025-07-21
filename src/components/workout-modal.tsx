@@ -41,7 +41,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border">
         <DialogHeader>
-          <DialogTitle className="font-headline text-3xl text-white">Tag {dayData.day}: {dayData.title}</DialogTitle>
+          <DialogTitle className="font-headline text-3xl">Tag {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
             Führe die folgenden Übungen durch. Wische, um zwischen ihnen zu navigieren.
           </DialogDescription>
@@ -86,8 +86,8 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="ml-12 text-white" />
-          <CarouselNext className="mr-12 text-white" />
+          <CarouselPrevious className="ml-12" />
+          <CarouselNext className="mr-12" />
         </Carousel>
 
         <DialogFooter className="sm:justify-between gap-2">

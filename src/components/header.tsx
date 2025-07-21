@@ -2,13 +2,14 @@
 "use client";
 
 import Link from 'next/link';
+import { useTheme } from "next-themes"
 import {
   Home,
   Settings,
   Moon,
+  Sun,
   User,
   LogOut,
-  BarChart,
   Heart,
 } from 'lucide-react';
 import {
@@ -23,37 +24,45 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function Header() {
+  const { setTheme, theme } = useTheme()
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b bg-background/95 px-4 backdrop-blur-sm md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2">
         <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
           <Heart className="h-5 w-5" />
         </div>
-        <span className="text-lg font-semibold text-white">
+        <span className="text-lg font-semibold">
           Abnehm-Gehprogramm
         </span>
       </Link>
+      <div className="flex items-center gap-2">
       <nav className="hidden items-center gap-4 md:flex">
         <Link
           href="/dashboard"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white"
+          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Home className="h-4 w-4" />
           Dashboard
         </Link>
         <Link
           href="/settings"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-white"
+          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Settings className="h-4 w-4" />
           Einstellungen
         </Link>
-        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-white">
-          <Moon className="h-5 w-5" />
+      </nav>
+        <Button 
+            variant="ghost" 
+            size="icon" 
+            className="text-muted-foreground hover:text-foreground"
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            >
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
-      </nav>
-      <div className="flex items-center gap-4">
          <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
