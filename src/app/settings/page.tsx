@@ -23,11 +23,14 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
+import { Header } from "@/components/header"
 
 
 export default function SettingsPage() {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-muted/40">
+    <>
+    <Header />
+    <div className="flex min-h-screen w-full flex-col bg-muted/40 pt-16">
        <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
         <div className="mx-auto grid w-full max-w-6xl gap-2">
           <h1 className="text-3xl font-semibold">Einstellungen</h1>
@@ -69,7 +72,7 @@ export default function SettingsPage() {
                 <CardDescription>
                     Legen Sie Ihre primären Fitnessziele fest.
                 </CardDescription>
-              </CardHeader>
+              </Header>
               <CardContent>
                 <form>
                   <Select defaultValue="weight-loss">
@@ -96,7 +99,7 @@ export default function SettingsPage() {
                 <CardDescription>
                   Verwalten Sie Ihre Benachrichtigungseinstellungen.
                 </CardDescription>
-              </CardHeader>
+              </Header>
               <CardContent className="grid gap-6">
                  <div className="flex items-center justify-between space-x-2">
                     <Label htmlFor="daily-reminders" className="flex flex-col space-y-1">
@@ -125,5 +128,6 @@ export default function SettingsPage() {
         </div>
       </main>
     </div>
+    </>
   )
 }

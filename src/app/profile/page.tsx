@@ -3,27 +3,20 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { User, Settings, LogOut } from 'lucide-react';
+import { Header } from '@/components/header';
 
 export default function ProfilePage() {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-muted/40">
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+    <>
+    <Header />
+    <div className="flex min-h-screen w-full flex-col bg-muted/40 pt-16">
+      <div className="flex flex-col sm:gap-4 sm:py-4">
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="mx-auto grid max-w-4xl flex-1 auto-rows-max gap-4">
             <div className="flex items-center gap-4">
               <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
                 Benutzerprofil
               </h1>
-              <div className="hidden items-center gap-2 md:ml-auto md:flex">
-                <Link href="/dashboard">
-                  <Button variant="outline" size="sm">
-                    Zurück zum Dashboard
-                  </Button>
-                </Link>
-                <Link href="/settings">
-                  <Button size="sm">Einstellungen</Button>
-                </Link>
-              </div>
             </div>
             <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
               <div className="grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8">
@@ -77,19 +70,10 @@ export default function ProfilePage() {
                 </Card>
               </div>
             </div>
-             <div className="flex items-center justify-center gap-2 md:hidden">
-                <Link href="/dashboard">
-                  <Button variant="outline" size="sm">
-                    Dashboard
-                  </Button>
-                </Link>
-                <Link href="/settings">
-                  <Button size="sm">Einstellungen</Button>
-                </Link>
-            </div>
           </div>
         </main>
       </div>
     </div>
+    </>
   );
 }
