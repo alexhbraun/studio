@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Confetti from 'react-confetti';
 import { Check, Dumbbell, Timer, Repeat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -80,7 +79,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
-            Realiza los siguientes ejercicios. Desliza para navegar entre ellos.
+            {dayData.description}
           </DialogDescription>
         </DialogHeader>
 
@@ -90,24 +89,14 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               <CarouselItem key={exercise.id}>
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
-                    <CardContent className="grid md:grid-cols-2 items-center justify-center gap-6 p-6 min-h-[400px]">
-                      <div className="flex justify-center items-center">
-                         <Image
-                          src={exercise.image}
-                          alt={exercise.name}
-                          width={300}
-                          height={300}
-                          className="rounded-lg object-cover aspect-square"
-                          data-ai-hint={exercise.imageHint}
-                        />
-                      </div>
-                      <div className="space-y-4 text-center md:text-left flex flex-col items-center justify-center md:items-start">
+                    <CardContent className="flex items-center justify-center p-6 min-h-[300px]">
+                      <div className="space-y-4 text-center flex flex-col items-center justify-center">
                         <h3 className="text-2xl font-bold font-headline text-primary">{exercise.name}</h3>
-                        <p className="text-muted-foreground">{exercise.description}</p>
-                        <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
+                        <p className="text-muted-foreground max-w-md">{exercise.description}</p>
+                        <div className="flex flex-wrap gap-4 pt-2 justify-center">
                            <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
                               <Timer className="h-4 w-4" />
-                              {exercise.duration}
+                              {exercise.duration} minutos
                             </Badge>
                           {exercise.repetitions && (
                              <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
@@ -135,7 +124,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
             </DialogClose>
             <Button
                 onClick={handleComplete}
-                className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-primary/90 disabled:bg-green-600 disabled:opacity-100"
+                className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 disabled:bg-green-600 disabled:opacity-100"
                 size="lg"
                 disabled={isCompleted}
             >
