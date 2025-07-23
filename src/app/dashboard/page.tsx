@@ -39,7 +39,7 @@ export default function DashboardPage() {
   return (
     <>
       <Header />
-      <main className="container mx-auto px-4 py-8 mt-16">
+      <main className="container mx-auto px-4 py-8 mt-32">
         <header className="text-center mb-10 animate-fade-in-down">
           <div className="flex justify-center items-center gap-4 mb-2">
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-primary">

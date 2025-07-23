@@ -46,7 +46,7 @@ export default function GuidePage() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-8 mt-16">
+      <div className="container mx-auto px-4 py-8 mt-32">
         <header className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-primary">
             Manual del Programa

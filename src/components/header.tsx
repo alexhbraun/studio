@@ -28,7 +28,7 @@ const SlimWalkLogo = () => (
       alt="SlimWalk Logo" 
       width={1040} 
       height={256}
-      className="h-32 w-auto"
+      className="h-24 w-auto"
       data-ai-hint="logo"
     />
   </div>
@@ -38,7 +38,7 @@ const SlimWalkLogo = () => (
 export function Header() {
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b bg-background/95 px-4 backdrop-blur-sm md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-28 items-center justify-between border-b bg-background/95 px-4 backdrop-blur-sm md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2">
         <SlimWalkLogo />
       </Link>
