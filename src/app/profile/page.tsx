@@ -1,3 +1,7 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -5,7 +9,38 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { User, Settings, LogOut } from 'lucide-react';
 import { Header } from '@/components/header';
 
+interface UserProfile {
+  name: string;
+  email?: string; // Assuming email is not stored, make it optional
+}
+
 export default function ProfilePage() {
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const [userInitials, setUserInitials] = useState('');
+
+  useEffect(() => {
+    try {
+      const storedProfile = localStorage.getItem('userProfile');
+      if (storedProfile) {
+        const profile = JSON.parse(storedProfile);
+        setUserProfile(profile);
+        const initials = profile.name
+          .split(' ')
+          .map((n: string) => n[0])
+          .join('');
+        setUserInitials(initials.substring(0, 2).toUpperCase());
+      } else {
+        // Fallback for demo purposes
+        setUserProfile({ name: "Max Mustermann" });
+        setUserInitials("MM");
+      }
+    } catch (error) {
+      console.error("Failed to parse user profile from localStorage", error);
+      setUserProfile({ name: "Max Mustermann" });
+      setUserInitials("MM");
+    }
+  }, []);
+
   return (
     <>
     <Header />
@@ -31,12 +66,12 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
                         <Avatar className="h-20 w-20">
-                          <AvatarImage src="/avatar-profile.png" alt="Benutzer" data-ai-hint="user avatar" />
-                          <AvatarFallback>MM</AvatarFallback>
+                          <AvatarImage src="/avatar-profile.png" alt={userProfile?.name} data-ai-hint="user avatar" />
+                          <AvatarFallback>{userInitials}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="text-lg font-semibold">Max Mustermann</p>
-                          <p className="text-sm text-muted-foreground">max.mustermann@ejemplo.com</p>
+                          <p className="text-lg font-semibold">{userProfile?.name || 'Cargando...'}</p>
+                          <p className="text-sm text-muted-foreground">{userProfile?.email || 'email@ejemplo.com'}</p>
                         </div>
                       </div>
                       <div>

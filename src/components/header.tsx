@@ -11,7 +11,6 @@ import {
   LogOut,
   BookMarked,
   Menu,
-  PanelLeft,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -23,12 +22,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
 
 const SlimWalkLogo = () => (
@@ -64,6 +62,25 @@ NavLink.displayName = 'NavLink';
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+  const [userName, setUserName] = React.useState('Usuario');
+  const [userInitials, setUserInitials] = React.useState('U');
+
+  React.useEffect(() => {
+    try {
+      const storedProfile = localStorage.getItem('userProfile');
+      if (storedProfile) {
+        const profile = JSON.parse(storedProfile);
+        setUserName(profile.name);
+        const initials = profile.name
+          .split(' ')
+          .map((n: string) => n[0])
+          .join('');
+        setUserInitials(initials.substring(0, 2).toUpperCase());
+      }
+    } catch (error) {
+      console.error("Failed to parse user profile from localStorage", error);
+    }
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-28 items-center justify-between border-b bg-white px-4 backdrop-blur-sm md:px-6">
@@ -115,13 +132,13 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
               <Avatar>
-                <AvatarFallback>MM</AvatarFallback>
+                <AvatarFallback>{userInitials}</AvatarFallback>
               </Avatar>
               <span className="sr-only">Toggle user menu</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Max Mustermann</DropdownMenuLabel>
+            <DropdownMenuLabel>{userName}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link href="/profile" className="flex items-center gap-2">
