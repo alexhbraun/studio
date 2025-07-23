@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-const PROGRESS_KEY = 'strideSculptProgress';
+const PROGRESS_KEY = 'slimWalkProgress';
 
 export function useProgress() {
   const [completedDays, setCompletedDays] = useState<number[]>([]);

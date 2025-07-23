@@ -11,7 +11,7 @@ export const guideContent: GuideChapter[] = [
     id: 1,
     title: "Introducción",
     content: `
-      <p class="lead">¡Bienvenido a <strong>StrideSculpt</strong>, tu programa personal de caminata de 30 días! Estás al comienzo de un emocionante viaje que cambiará no solo tu cuerpo, sino también tu forma de pensar sobre el fitness y el bienestar. Esta guía es tu fiel compañera, llena de conocimientos, motivación y consejos prácticos para que cada paso sea un éxito.</p>
+      <p class="lead">¡Bienvenido a <strong>SlimWalk</strong>, tu programa personal de caminata de 30 días! Estás al comienzo de un emocionante viaje que cambiará no solo tu cuerpo, sino también tu forma de pensar sobre el fitness y el bienestar. Esta guía es tu fiel compañera, llena de conocimientos, motivación y consejos prácticos para que cada paso sea un éxito.</p>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
         <img src="https://placehold.co/800x400.png" alt="Una inspiradora vista de un paisaje con un camino que se pierde en la distancia, simbolizando el comienzo de un viaje. La luz es cálida y acogedora." class="w-full" data-ai-hint="path landscape" />
