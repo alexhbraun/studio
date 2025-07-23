@@ -14,9 +14,9 @@ interface WorkoutCardProps {
 }
 
 function getDifficultyBadge(day: number): { text: string; className: string } {
-    if (day <= 10) return { text: 'Fácil', className: 'bg-green-500/20 text-green-300 border-green-500/40 hover:bg-green-500/30' };
-    if (day <= 20) return { text: 'Medio', className: 'bg-orange-500/20 text-orange-300 border-orange-500/40 hover:bg-orange-500/30' };
-    return { text: 'Difícil', className: 'bg-red-500/20 text-red-300 border-red-500/40 hover:bg-red-500/30' };
+    if (day <= 10) return { text: 'Fácil', className: 'bg-green-100 text-green-800 border-green-200 hover:bg-green-200/80 dark:bg-green-900/40 dark:text-green-200 dark:border-green-700/60' };
+    if (day <= 20) return { text: 'Medio', className: 'bg-orange-100 text-orange-800 border-orange-200 hover:bg-orange-200/80 dark:bg-orange-900/40 dark:text-orange-200 dark:border-orange-700/60' };
+    return { text: 'Difícil', className: 'bg-red-100 text-red-800 border-red-200 hover:bg-red-200/80 dark:bg-red-900/40 dark:text-red-200 dark:border-red-700/60' };
 }
 
 export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardProps) {
