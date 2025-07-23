@@ -47,26 +47,27 @@ export default function DashboardPage() {
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-             Tu plan personalizado para {weightGoalText} en 30 días está listo.
+             Bienvenido/a a SlimWalk, tu programa de caminata personalizado.
           </p>
         </header>
 
-        <Accordion type="single" collapsible className="w-full mb-8 bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
+        <Accordion type="single" collapsible className="w-full mb-8 bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg" defaultValue="item-1">
           <AccordionItem value="item-1" className="border-b-0">
             <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-6 w-6" />
-                ¡Bienvenido a tu programa!
+                Tu plan de 30 días
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
               <div className="space-y-4">
                 <p>
-                  Estás a punto de comenzar tu propio plan de caminata de 30 días, diseñado especialmente para ayudarte a {weightGoalText} y sentirte mejor contigo mismo/a. A lo largo del mes, te acompañaremos con entrenamientos diarios que aumentan poco a poco en intensidad para que logres resultados reales, sin perder la motivación.
+                  Durante los próximos 30 días, te acompañaremos paso a paso para ayudarte a {weightGoalText} y sentirte más saludable y con más energía. Este programa ha sido diseñado pensando en ti: cada rutina, cada consejo y cada desafío están orientados a que alcances tu meta de manera sostenible y disfrutes del proceso.
                 </p>
                 <p>
-                  Aquí celebramos cada pequeño avance, y nuestro objetivo es ayudarte a alcanzar tu meta de forma sostenible, disfrutando del proceso. Este es tu momento, tu ritmo y tu cambio. ¡Confía en el proceso y celébralo! ¿Listo para transformar tu vida caminando?
+                  No estarás solo/a en este camino. Te brindaremos apoyo, motivación y todas las herramientas necesarias para que celebres cada logro, por pequeño que sea. Recuerda: el cambio se construye día a día. Confía en el proceso, sé paciente contigo mismo/a y permítete disfrutar cada paso.
                 </p>
+                <p className="font-bold text-foreground">¡Este es tu momento, {name}! Tu meta está más cerca de lo que imaginas.</p>
               </div>
             </AccordionContent>
           </AccordionItem>
