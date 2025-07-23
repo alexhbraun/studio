@@ -188,13 +188,40 @@ export const guideContent: GuideChapter[] = [
     id: 6,
     title: "Descanso y Regeneración",
     content: `
-        <h3>Por qué las pausas son tan importantes</h3>
-        <p>Tu cuerpo no se fortalece durante el entrenamiento, sino en las fases de descanso posteriores. La regeneración es un proceso activo y crucial para tu progreso.</p>
-        <h4>El papel del sueño</h4>
-        <p>Un buen descanso es fundamental para la reparación del tejido muscular, la regulación hormonal y la recuperación mental.</p>
-        <h4>Recuperación activa</h4>
-        <p>Actividades ligeras como estiramientos o yoga suave en los días de descanso pueden promover la regeneración.</p>
-        <p><i>Próximamente se añadirán instrucciones para ejercicios de estiramiento y técnicas de relajación.</i></p>
+      <h3>El Arte de la Pausa: Por Qué el Descanso es tu Arma Secreta</h3>
+      <p>En nuestra cultura de "siempre más", es fácil pensar que los resultados solo llegan cuando estamos en movimiento. Pero aquí está la verdad que transformará tu enfoque: <strong>el progreso real no sucede durante el entrenamiento, sino durante el descanso.</strong> La regeneración no es pereza; es una parte activa, inteligente y absolutamente esencial de tu camino hacia un cuerpo más fuerte y en forma.</p>
+
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una persona relajándose en un sofá con una taza de té, en un ambiente tranquilo que evoca paz y recuperación." class="w-full" data-ai-hint="relaxing peaceful" />
+      </div>
+
+      <h4>1. Construyendo Músculos Mientras Duermes</h4>
+      <p>Cuando caminas, especialmente durante las fases más intensas, creas microdesgarros en tus fibras musculares. ¡Esto es algo bueno! Es la señal que le dice a tu cuerpo: "Necesito ser más fuerte". Es durante el descanso, y especialmente durante el sueño profundo, que tu cuerpo hace su magia. Repara estas fibras, pero no solo eso: las reconstruye más fuertes y resistentes que antes. Ignorar el descanso es como demoler un edificio y nunca reconstruirlo.</p>
+      
+      <h4>2. El Sueño: Tu Píldora Mágica para la Recuperación</h4>
+      <p>El sueño es el pilar de la regeneración. Durante el sueño, tu cuerpo libera hormonas de crecimiento que son cruciales para la reparación de tejidos. También es cuando tu cerebro procesa lo aprendido y consolida los hábitos. Apunta a <strong>7-9 horas de sueño de calidad</strong> por noche. Para mejorar tu sueño:</p>
+      <ul>
+        <li>Crea una rutina: acuéstate y levántate a la misma hora todos los días.</li>
+        <li>Haz de tu habitación un santuario oscuro, silencioso y fresco.</li>
+        <li>Evita las pantallas (teléfono, TV) al menos una hora antes de dormir.</li>
+      </ul>
+
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una persona durmiendo plácidamente en una cama cómoda y oscura, simbolizando un sueño profundo y reparador." class="w-full" data-ai-hint="peaceful sleep" />
+      </div>
+
+      <h4>3. Recuperación Activa: Moverse para Recuperarse</h4>
+      <p>Los días de descanso no tienen por qué significar inmovilidad total. La recuperación activa implica realizar actividades de muy baja intensidad que ayudan a estimular el flujo sanguíneo a los músculos. Esto lleva nutrientes frescos a las áreas que lo necesitan y ayuda a eliminar los productos de desecho metabólico, lo que puede reducir el dolor muscular y acelerar la recuperación. Algunas ideas:</p>
+      <ul>
+        <li>Una caminata muy lenta y corta (10-15 minutos).</li>
+        <li>Estiramientos suaves y sostenidos.</li>
+        <li>Yoga restaurativo o meditación.</li>
+      </ul>
+
+      <h4>4. Escucha a tu Cuerpo: El Indicador Más Importante</h4>
+      <p>Tu cuerpo te envía señales constantemente. Aprende a escucharlas. Si te sientes inusualmente fatigado, adolorido o si tu rendimiento decae, podría ser una señal de que necesitas más descanso. Ignorar estas señales puede llevar al sobreentrenamiento, lo que aumenta el riesgo de lesiones y detiene tu progreso. <strong>Ser inteligente con tu recuperación te hará más rápido y más fuerte a largo plazo.</strong></p>
+
+      <p class="mt-6">Recuerda: entrenas para desafiar a tu cuerpo, pero descansas para permitirle cambiar. Abraza tus días de descanso con el mismo entusiasmo que tus días de caminata. Son dos caras de la misma moneda del éxito.</p>
     `
   }
 ];
