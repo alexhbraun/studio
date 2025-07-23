@@ -7,7 +7,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBk5oIWJ_ujhPF71He6LgncqAxdmM29cqQ",
   authDomain: "stridesculpt.firebaseapp.com",
   projectId: "stridesculpt",
-  storageBucket: "stridesculpt.firebasestorage.app",
+  storageBucket: "stridesculpt.appspot.com",
   messagingSenderId: "596337424461",
   appId: "1:596337424461:web:203d266d5d4dce8d41c404",
 };
