@@ -59,7 +59,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
                     <CardContent className="grid md:grid-cols-2 items-center gap-6 p-6 min-h-[400px]">
-                      <div className="flex justify-center">
+                      <div className="flex justify-center items-center">
                          <Image
                           src={exercise.image}
                           alt={exercise.name}
