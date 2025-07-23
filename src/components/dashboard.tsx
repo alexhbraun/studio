@@ -98,15 +98,13 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {selectedDay && (
-        <WorkoutModal
-          isOpen={!!selectedDay}
-          onClose={handleCloseModal}
-          dayData={selectedDay}
-          isCompleted={isCompleted(selectedDay.day)}
-          onCompleteDay={() => handleCompleteDay(selectedDay.day)}
-        />
-      )}
+      <WorkoutModal
+        isOpen={!!selectedDay}
+        onClose={handleCloseModal}
+        dayData={selectedDay}
+        isCompleted={selectedDay ? isCompleted(selectedDay.day) : false}
+        onCompleteDay={() => selectedDay && handleCompleteDay(selectedDay.day)}
+      />
       
       <MotivationalQuote progressPercentage={progressPercentage} />
 

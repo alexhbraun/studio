@@ -27,12 +27,16 @@ import { Card, CardContent } from './ui/card';
 interface WorkoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  dayData: WorkoutDay;
+  dayData: WorkoutDay | null;
   isCompleted: boolean;
   onCompleteDay: () => void;
 }
 
 export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onCompleteDay }: WorkoutModalProps) {
+  if (!dayData) {
+    return null;
+  }
+  
   const handleComplete = () => {
     onCompleteDay();
     onClose();
@@ -55,7 +59,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
                     <CardContent className="flex flex-col md:flex-row items-center justify-center gap-6 p-6 min-h-[350px]">
-                      <div className="md:w-1/2 w-full flex-shrink-0">
+                      <div className="w-full md:w-1/2 flex-shrink-0">
                          <Image
                           src={exercise.image}
                           alt={exercise.name}
@@ -65,7 +69,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                           data-ai-hint={exercise.imageHint}
                         />
                       </div>
-                      <div className="md:w-1/2 w-full space-y-4 text-center md:text-left">
+                      <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
                         <h3 className="text-2xl font-bold font-headline text-primary">{exercise.name}</h3>
                         <p className="text-muted-foreground">{exercise.description}</p>
                         <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
