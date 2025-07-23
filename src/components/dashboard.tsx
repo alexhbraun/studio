@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Trophy } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Trophy, Leaf } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -83,6 +83,15 @@ export default function Dashboard() {
       </div>
       
       <div>
+        <div className="mb-8 p-6 rounded-lg bg-green-100/50 dark:bg-green-900/20 border border-green-200/50 dark:border-green-800/30 text-green-900 dark:text-green-200">
+          <h3 className="font-bold text-lg mb-2 flex items-center gap-2"><Leaf size={20} /> Antes de empezar…</h3>
+          <p className="mb-3"><strong>¡Respira hondo y relájate!</strong><br />Este plan está pensado para acompañarte, no para exigirte ni causarte estrés. Avanza a tu propio ritmo, escucha a tu cuerpo y recuerda que cada paso cuenta.</p>
+          <p className="mb-3">No es necesario completar todos los ejercicios a la perfección ni seguir el plan de manera estricta. Lo más importante es crear el hábito y disfrutar el proceso. Si algún día necesitas hacer menos, descansar o adaptar las caminatas a tus posibilidades, está perfecto.</p>
+          <p className="font-semibold mb-2">Tu bienestar es la prioridad.</p>
+          <p>Confía en ti mismo/a y en tu progreso. Lo importante es avanzar, celebrar cada logro, y sentirte mejor día a día.</p>
+          <p className="mt-3 font-bold">¡Estamos contigo en cada paso!</p>
+        </div>
+
         <h2 className="text-3xl font-bold mb-4">Tu plan de 30 días</h2>
         <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -103,7 +112,7 @@ export default function Dashboard() {
         onClose={handleCloseModal}
         dayData={selectedDay}
         isCompleted={selectedDay ? isCompleted(selectedDay.day) : false}
-        onCompleteDay={() => selectedDay && handleCompleteDay(selectedDay.day)}
+        onCompleteDay={() => selectedDay && handleCompleteDay(selected.day)}
       />
       
       <MotivationalQuote progressPercentage={progressPercentage} />
