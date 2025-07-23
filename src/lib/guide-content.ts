@@ -1,3 +1,4 @@
+
 // src/lib/guide-content.ts
 
 export interface GuideChapter {
@@ -100,14 +101,50 @@ export const guideContent: GuideChapter[] = [
     id: 4,
     title: "La Técnica Correcta",
     content: `
-      <h3>Caminar de forma eficiente y sin lesiones</h3>
-      <p>La postura y técnica correctas pueden marcar la diferencia en la efectividad de tu entrenamiento y en cómo te sientes al hacerlo.</p>
+      <h3>Camina como un profesional: maximiza cada paso</h3>
+      <p>Puede que pienses: "¿Caminar? ¡Lo he estado haciendo toda mi vida!" Pero hay una gran diferencia entre un paseo casual y una caminata poderosa y transformadora. Perfeccionar tu técnica no solo te ayudará a quemar más calorías y tonificar más músculos, sino que también te protegerá de lesiones y hará que cada sesión sea más agradable y efectiva. ¡Vamos a convertir tus pasos en progreso!</p>
+
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una persona caminando con una postura perfecta y erguida en un parque, demostrando la forma correcta." class="w-full" data-ai-hint="correct posture walking" />
+      </div>
+
+      <h4>1. La base: tu postura</h4>
+      <p>Todo comienza con cómo te paras. Una buena postura alinea tu cuerpo para un movimiento eficiente.</p>
       <ul>
-        <li><strong>Postura:</strong> Camina erguido, con los hombros hacia atrás y la mirada al frente.</li>
-        <li><strong>Movimiento de brazos:</strong> Dobla los brazos en un ángulo de 90 grados y balancéalos libremente.</li>
-        <li><strong>Pisada:</strong> Apoya primero el talón y luego rueda el peso sobre toda la planta del pie.</li>
+        <li><strong>Camina alto:</strong> Imagina que un hilo tira suavemente de la coronilla de tu cabeza hacia el cielo. Alarga tu columna vertebral.</li>
+        <li><strong>Hombros relajados:</strong> Lleva los hombros hacia arriba, luego hacia atrás y déjalos caer. Esto abre tu pecho y evita que te encorves.</li>
+        <li><strong>Mirada al frente:</strong> Levanta la barbilla y mira unos 3-6 metros hacia adelante. Esto mantiene tu cuello y espalda alineados y te ayuda a anticipar el terreno.</li>
+        <li><strong>Activa tu abdomen:</strong> Contrae ligeramente los músculos abdominales. Esto estabiliza tu torso y apoya tu espalda baja.</li>
       </ul>
-      <p><i>Próximamente se añadirán guías visuales y correcciones de errores comunes.</i></p>
+
+      <h4>2. El motor: tus pies y piernas</h4>
+      <p>Aquí es donde ocurre la magia del movimiento. La forma en que tus pies tocan el suelo lo es todo.</p>
+      <ul>
+        <li><strong>Talón-punta:</strong> Aterriza suavemente sobre tu talón.</li>
+        <li><strong>Rueda hacia adelante:</strong> Rueda tu peso de manera fluida a través de la planta de tu pie, desde el talón hasta la punta.</li>
+        <li><strong>Impúlsate:</strong> Empuja con fuerza desde los dedos de los pies para impulsarte hacia tu siguiente paso. Sentirás cómo se activan tus pantorrillas y glúteos.</li>
+      </ul>
+
+      <h4>3. El ritmo: tus brazos</h4>
+      <p>¡No dejes que tus brazos cuelguen! Usarlos activamente aumenta la intensidad de tu caminata.</p>
+      <ul>
+        <li><strong>Ángulo de 90 grados:</strong> Dobla los codos en un ángulo de 90 grados.</li>
+        <li><strong>Movimiento coordinado:</strong> Balancéalos desde los hombros (no los codos) en oposición a tus piernas. Cuando tu pierna derecha avanza, tu brazo izquierdo avanza, y viceversa.</li>
+        <li><strong>Manos relajadas:</strong> Mantén las manos ligeramente ahuecadas, no apretadas en puños.</li>
+      </ul>
+      
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Primer plano de los brazos de un caminante en el ángulo correcto, mostrando el movimiento adecuado." class="w-full" data-ai-hint="walking arm swing" />
+      </div>
+
+      <h4>4. El combustible: tu respiración</h4>
+      <p>Respirar correctamente suministra el oxígeno que tus músculos necesitan para funcionar de manera óptima.</p>
+      <ul>
+        <li><strong>Respira rítmicamente:</strong> Inhala por la nariz, llenando tu vientre de aire, y exhala por la boca.</li>
+        <li><strong>Sincroniza con tus pasos:</strong> Intenta encontrar un ritmo. Por ejemplo, inhala durante dos pasos y exhala durante dos o tres pasos.</li>
+      </ul>
+
+      <p class="mt-6">Al principio, puede que tengas que pensar conscientemente en estos elementos. Pero con la práctica, se convertirán en tu nueva forma natural de caminar. Sentirás más poder, más energía y verás mejores resultados. <strong>¡Cada paso es una oportunidad para hacerlo bien!</strong></p>
     `,
   },
   {
