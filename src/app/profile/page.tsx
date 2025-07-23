@@ -1,51 +1,39 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { User, Settings, LogOut } from 'lucide-react';
 import { Header } from '@/components/header';
+import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
 
-interface UserProfile {
-  name: string;
-  email?: string; // Assuming email is not stored, make it optional
-}
-
-export default function ProfilePage() {
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+function ProfileContent() {
+  const { userProfile, signOut } = useAuth();
   const [userInitials, setUserInitials] = useState('');
 
   useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem('userProfile');
-      if (storedProfile) {
-        const profile = JSON.parse(storedProfile);
-        setUserProfile(profile);
-        const initials = profile.name
-          .split(' ')
-          .map((n: string) => n[0])
-          .join('');
-        setUserInitials(initials.substring(0, 2).toUpperCase());
-      } else {
-        // Fallback for demo purposes
-        setUserProfile({ name: "Max Mustermann" });
-        setUserInitials("MM");
-      }
-    } catch (error) {
-      console.error("Failed to parse user profile from localStorage", error);
-      setUserProfile({ name: "Max Mustermann" });
-      setUserInitials("MM");
+    if (userProfile?.name) {
+      const initials = userProfile.name
+        .split(' ')
+        .map((n: string) => n[0])
+        .join('');
+      setUserInitials(initials.substring(0, 2).toUpperCase());
     }
-  }, []);
+  }, [userProfile]);
+
+  if (!userProfile) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p>Cargando perfil...</p>
+      </div>
+    );
+  }
 
   return (
     <>
-    <Header />
-    <div className="flex min-h-screen w-full flex-col bg-muted/40 pt-28">
-      <div className="flex flex-col sm:gap-4 sm:py-4">
+      <Header />
+      <div className="flex min-h-screen w-full flex-col bg-muted/40 pt-28">
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="mx-auto grid max-w-4xl flex-1 auto-rows-max gap-4">
             <div className="flex items-center gap-4">
@@ -66,12 +54,12 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
                         <Avatar className="h-20 w-20">
-                          <AvatarImage src="/avatar-profile.png" alt={userProfile?.name} data-ai-hint="user avatar" />
+                          <AvatarImage src="/avatar-profile.png" alt={userProfile.name} data-ai-hint="user avatar" />
                           <AvatarFallback>{userInitials}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="text-lg font-semibold">{userProfile?.name || 'Cargando...'}</p>
-                          <p className="text-sm text-muted-foreground">{userProfile?.email || 'email@ejemplo.com'}</p>
+                          <p className="text-lg font-semibold">{userProfile.name}</p>
+                          <p className="text-sm text-muted-foreground">{userProfile.email}</p>
                         </div>
                       </div>
                       <div>
@@ -96,11 +84,9 @@ export default function ProfilePage() {
                          <Button variant="outline" className="justify-start gap-2">
                            <Settings className="h-4 w-4" /> Configuración de la cuenta
                         </Button>
-                        <Link href="/login">
-                         <Button variant="destructive" className="w-full justify-start gap-2">
+                         <Button variant="destructive" className="w-full justify-start gap-2" onClick={signOut}>
                            <LogOut className="h-4 w-4" /> Cerrar sesión
                         </Button>
-                        </Link>
                     </CardContent>
                 </Card>
               </div>
@@ -108,7 +94,14 @@ export default function ProfilePage() {
           </div>
         </main>
       </div>
-    </div>
     </>
   );
+}
+
+export default function ProfilePage() {
+    return (
+        <ProtectedRoute>
+            <ProfileContent />
+        </ProtectedRoute>
+    )
 }

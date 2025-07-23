@@ -1,41 +1,27 @@
-
 'use client';
 
-import { useState, useEffect } from 'react';
+import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
 import Dashboard from "@/components/dashboard";
 import { Header } from "@/components/header";
 import { Droplets, Utensils, Bed, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-interface UserProfile {
-  name: string;
-  currentWeight: number;
-  goalWeight: number;
-}
-
-export default function DashboardPage() {
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
-
-  useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem('userProfile');
-      if (storedProfile) {
-        setUserProfile(JSON.parse(storedProfile));
-      } else {
-        // Fallback for demo purposes if nothing is in localStorage
-        setUserProfile({ name: "Usuario", currentWeight: 75, goalWeight: 70 });
-      }
-    } catch (error) {
-      console.error("Failed to parse user profile from localStorage", error);
-      setUserProfile({ name: "Usuario", currentWeight: 75, goalWeight: 70 });
-    }
-  }, []);
-
+function DashboardContent() {
+  const { userProfile } = useAuth();
+  
   const name = userProfile?.name || 'Usuario';
   const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 5;
   const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
 
+  if (!userProfile) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p>Cargando perfil...</p>
+      </div>
+    );
+  }
+  
   return (
     <>
       <Header />
@@ -119,4 +105,12 @@ export default function DashboardPage() {
       </main>
     </>
   );
+}
+
+export default function DashboardPage() {
+    return (
+        <ProtectedRoute>
+            <DashboardContent />
+        </ProtectedRoute>
+    )
 }

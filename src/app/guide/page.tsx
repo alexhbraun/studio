@@ -1,4 +1,3 @@
-// src/app/guide/page.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -7,27 +6,14 @@ import { Header } from '@/components/header';
 import { guideContent, type GuideChapter } from '@/lib/guide-content';
 import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
+import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
 
-interface UserProfile {
-  name: string;
-}
-
-export default function GuidePage() {
+function GuideContent() {
   const [activeChapter, setActiveChapter] = useState<GuideChapter>(guideContent[0]);
-  const [userName, setUserName] = useState<string>('Usuario');
-
-  useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem('userProfile');
-      if (storedProfile) {
-        const profile: UserProfile = JSON.parse(storedProfile);
-        setUserName(profile.name);
-      }
-    } catch (error) {
-      console.error("Failed to parse user profile from localStorage", error);
-    }
-  }, []);
-
+  const { userProfile } = useAuth();
+  
+  const userName = userProfile?.name || 'Usuario';
+  
   const renderContent = (content: any) => {
     if (typeof content === 'string') {
       return <div dangerouslySetInnerHTML={{ __html: content }} />;
@@ -107,4 +93,12 @@ export default function GuidePage() {
       </div>
     </>
   );
+}
+
+export default function GuidePage() {
+    return (
+        <ProtectedRoute>
+            <GuideContent />
+        </ProtectedRoute>
+    )
 }

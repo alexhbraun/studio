@@ -7,9 +7,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
+import { useToast } from '@/hooks/use-toast';
+
 
 const loginSchema = z.object({
   email: z.string().email({ message: 'Por favor, ingrese una dirección de correo electrónico válida.' }),
@@ -20,6 +23,7 @@ type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -28,10 +32,18 @@ export default function LoginPage() {
     },
   });
 
-  const onSubmit = (data: LoginFormValues) => {
-    // For testing, any email/password is accepted.
-    console.log('Login successful with:', data);
-    router.push('/dashboard');
+  const onSubmit = async (data: LoginFormValues) => {
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      router.push('/dashboard');
+    } catch (error: any) {
+      console.error('Login failed:', error);
+      toast({
+        variant: "destructive",
+        title: "Error de inicio de sesión",
+        description: "El correo electrónico o la contraseña son incorrectos. Por favor, inténtalo de nuevo.",
+      });
+    }
   };
 
   return (
@@ -72,8 +84,8 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">
-                Iniciar sesión
+              <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+                {form.formState.isSubmitting ? 'Iniciando sesión...' : 'Iniciar sesión'}
               </Button>
             </form>
           </Form>

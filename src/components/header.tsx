@@ -1,4 +1,4 @@
-
+// src/components/header.tsx
 "use client";
 
 import * as React from 'react';
@@ -28,6 +28,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/hooks/use-auth';
 
 const SlimWalkLogo = () => (
   <div className="flex items-center gap-2">
@@ -62,25 +63,20 @@ NavLink.displayName = 'NavLink';
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
-  const [userName, setUserName] = React.useState('Usuario');
+  const { userProfile, signOut } = useAuth();
   const [userInitials, setUserInitials] = React.useState('U');
 
   React.useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem('userProfile');
-      if (storedProfile) {
-        const profile = JSON.parse(storedProfile);
-        setUserName(profile.name);
-        const initials = profile.name
-          .split(' ')
-          .map((n: string) => n[0])
-          .join('');
-        setUserInitials(initials.substring(0, 2).toUpperCase());
-      }
-    } catch (error) {
-      console.error("Failed to parse user profile from localStorage", error);
+    if (userProfile?.name) {
+      const initials = userProfile.name
+        .split(' ')
+        .map((n: string) => n[0])
+        .join('');
+      setUserInitials(initials.substring(0, 2).toUpperCase());
     }
-  }, []);
+  }, [userProfile]);
+  
+  const userName = userProfile?.name || 'Usuario';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-28 items-center justify-between border-b bg-white px-4 backdrop-blur-sm md:px-6">
@@ -153,11 +149,9 @@ export function Header() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem asChild>
-               <Link href="/login" className="flex items-center gap-2">
+            <DropdownMenuItem onClick={signOut} className="flex items-center gap-2 cursor-pointer">
                 <LogOut className="h-4 w-4" />
                 <span>Cerrar sesión</span>
-              </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

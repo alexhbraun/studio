@@ -9,6 +9,10 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { auth, db } from '@/lib/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { useToast } from '@/hooks/use-toast';
 
 const registerSchema = z.object({
   name: z.string().min(1, { message: 'Por favor, ingrese su nombre.' }),
@@ -22,6 +26,7 @@ type RegisterFormValues = z.infer<typeof registerSchema>;
 
 export default function RegisterPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -33,24 +38,29 @@ export default function RegisterPage() {
     },
   });
 
-  const onSubmit = (data: RegisterFormValues) => {
-    // For testing, registration is automatic.
-    // In a real app, you would save this data to a database.
-    console.log('Registration successful with:', data);
-    
-    // For demo purposes, we'll store it in localStorage to be read by the dashboard.
+  const onSubmit = async (data: RegisterFormValues) => {
     try {
-      const userProfile = {
+      // Create user with Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const user = userCredential.user;
+
+      // Save user profile to Firestore
+      await setDoc(doc(db, "users", user.uid), {
         name: data.name,
+        email: data.email,
         currentWeight: data.currentWeight,
         goalWeight: data.goalWeight,
-      };
-      localStorage.setItem('userProfile', JSON.stringify(userProfile));
-    } catch (error) {
-      console.error("Could not save user profile to localStorage", error);
+      });
+      
+      router.push('/dashboard');
+    } catch (error: any) {
+      console.error("Error during registration:", error);
+      toast({
+        variant: "destructive",
+        title: "Error de registro",
+        description: error.message || "No se pudo crear la cuenta. Por favor, inténtalo de nuevo.",
+      });
     }
-
-    router.push('/dashboard');
   };
 
   return (
@@ -132,8 +142,8 @@ export default function RegisterPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full">
-                Crear cuenta
+              <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+                {form.formState.isSubmitting ? 'Creando cuenta...' : 'Crear cuenta'}
               </Button>
             </form>
           </Form>
