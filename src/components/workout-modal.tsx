@@ -54,8 +54,8 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               <CarouselItem key={exercise.id}>
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
-                    <CardContent className="flex flex-col md:flex-row items-center gap-6 p-6">
-                      <div className="md:w-1/3 w-full">
+                    <CardContent className="flex flex-col md:flex-row items-center justify-center gap-6 p-6">
+                      <div className="md:w-1/3 w-full flex-shrink-0">
                          <Image
                           src={exercise.image}
                           alt={exercise.name}
