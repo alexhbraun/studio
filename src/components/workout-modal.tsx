@@ -40,7 +40,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     };
     
     if (typeof window !== 'undefined') {
-        handleResize(); // Set initial size
+        handleResize();
         window.addEventListener('resize', handleResize);
     }
     
@@ -79,33 +79,31 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex-grow overflow-hidden">
-          <ScrollArea className="h-full pr-4">
-              <div className="space-y-6">
-                  {dayData.exercises.map((exercise) => (
-                  <Card key={exercise.id} className="bg-card/80 border-border/60">
-                      <CardContent className="p-6">
-                      <div className="space-y-3">
-                          <h3 className="text-xl font-bold font-headline text-primary">{exercise.name}</h3>
-                          <p className="text-muted-foreground whitespace-pre-line">{exercise.description}</p>
-                          <div className="flex flex-wrap gap-2 pt-2">
-                          <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                              <Timer className="h-4 w-4" />
-                              {exercise.duration} minutos
-                          </Badge>
-                          {exercise.repetitions && (
-                              <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                              <Repeat className="h-4 w-4" />
-                              {exercise.repetitions}
-                              </Badge>
-                          )}
-                          </div>
-                      </div>
-                      </CardContent>
-                  </Card>
-                  ))}
-              </div>
-          </ScrollArea>
+        <div className="flex-grow overflow-y-auto -mx-6 px-6">
+            <div className="space-y-6">
+                {dayData.exercises.map((exercise) => (
+                <Card key={exercise.id} className="bg-card/80 border-border/60">
+                    <CardContent className="p-6">
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold font-headline text-primary">{exercise.name}</h3>
+                        <p className="text-muted-foreground whitespace-pre-line">{exercise.description}</p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                        <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                            <Timer className="h-4 w-4" />
+                            {exercise.duration} minutos
+                        </Badge>
+                        {exercise.repetitions && (
+                            <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                            <Repeat className="h-4 w-4" />
+                            {exercise.repetitions}
+                            </Badge>
+                        )}
+                        </div>
+                    </div>
+                    </CardContent>
+                </Card>
+                ))}
+            </div>
         </div>
 
         <DialogFooter className="sm:justify-between gap-2 pt-4 flex-shrink-0">
