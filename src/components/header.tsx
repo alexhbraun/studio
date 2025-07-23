@@ -1,4 +1,4 @@
-// src/components/header.tsx
+
 "use client";
 
 import * as React from 'react';
@@ -115,7 +115,6 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
               <Avatar>
-                <AvatarImage src="https://placehold.co/100x100.png" alt="User" data-ai-hint="user avatar" />
                 <AvatarFallback>MM</AvatarFallback>
               </Avatar>
               <span className="sr-only">Toggle user menu</span>
