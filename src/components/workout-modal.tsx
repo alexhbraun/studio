@@ -1,8 +1,10 @@
 
 "use client";
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Check, Dumbbell, Timer, Repeat, X } from 'lucide-react';
+import Confetti from 'react-confetti';
+import { Check, Dumbbell, Timer, Repeat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -33,17 +35,43 @@ interface WorkoutModalProps {
 }
 
 export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onCompleteDay }: WorkoutModalProps) {
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial size
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   if (!dayData) {
     return null;
   }
   
   const handleComplete = () => {
-    onCompleteDay();
-    onClose();
+    if (!isCompleted) {
+      onCompleteDay();
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 5000); // Confetti for 5 seconds
+    }
   };
   
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => {
+      if (!open) {
+        setShowConfetti(false);
+      }
+      onClose();
+    }}>
+        {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} recycle={false} numberOfPieces={400} />}
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border">
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
@@ -58,7 +86,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               <CarouselItem key={exercise.id}>
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
-                    <CardContent className="grid md:grid-cols-2 items-center gap-6 p-6 min-h-[400px]">
+                    <CardContent className="grid md:grid-cols-2 items-center justify-center gap-6 p-6 min-h-[400px]">
                       <div className="flex justify-center items-center">
                          <Image
                           src={exercise.image}
@@ -69,7 +97,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                           data-ai-hint={exercise.imageHint}
                         />
                       </div>
-                      <div className="space-y-4 text-center md:text-left">
+                      <div className="space-y-4 text-center md:text-left flex flex-col items-center justify-center md:items-start">
                         <h3 className="text-2xl font-bold font-headline text-primary">{exercise.name}</h3>
                         <p className="text-muted-foreground">{exercise.description}</p>
                         <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
