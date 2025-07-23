@@ -28,9 +28,8 @@ export default function DashboardPage() {
               />
             </svg>
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-primary">
-              Abnehm-Gehprogramm
+              SlimWalk
             </h1>
-            <Heart className="text-primary h-8 w-8" />
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
             Verändere dein Leben Schritt für Schritt! Jeder Tag ist eine neue

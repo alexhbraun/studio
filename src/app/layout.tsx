@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: 'Abnehm-Gehprogramm',
-  description: '30-Tage Gehprogramm für Gesundheit und Fitness',
+  title: 'SlimWalk',
+  description: 'SlimWalk - Dein 30-Tage Gehprogramm für Gesundheit und Fitness',
 };
 
 export default function RootLayout({
