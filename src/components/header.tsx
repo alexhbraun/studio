@@ -53,28 +53,28 @@ export function Header() {
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Home className="h-4 w-4" />
-          Dashboard
+          Inicio
         </Link>
          <Link
           href="/guide"
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <BookMarked className="h-4 w-4" />
-          Handbuch
+          Manual
         </Link>
          <Link
           href="/tracking"
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Route className="h-4 w-4" />
-          Tracking
+          Seguimiento
         </Link>
         <Link
           href="/settings"
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
         >
           <Settings className="h-4 w-4" />
-          Einstellungen
+          Ajustes
         </Link>
       </nav>
         <Button 
@@ -103,20 +103,20 @@ export function Header() {
             <DropdownMenuItem asChild>
               <Link href="/profile" className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                <span>Profil</span>
+                <span>Perfil</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link href="/settings" className="flex items-center gap-2">
                 <Settings className="h-4 w-4" />
-                <span>Einstellungen</span>
+                <span>Ajustes</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
                <Link href="/login" className="flex items-center gap-2">
                 <LogOut className="h-4 w-4" />
-                <span>Abmelden</span>
+                <span>Cerrar sesión</span>
               </Link>
             </DropdownMenuItem>
           </DropdownMenuContent>

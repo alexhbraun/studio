@@ -23,15 +23,15 @@ interface MotivationalQuoteProps {
 }
 
 export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps) {
-  const [message, setMessage] = useState<string | null>(`"Eine Reise von tausend Meilen beginnt mit einem einzigen Schritt"`);
+  const [message, setMessage] = useState<string | null>(`"Un viaje de mil millas comienza con un solo paso"`);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const form = useForm<MotivationalQuoteFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fitnessGoal: "meine allgemeine Gesundheit verbessern",
-      preferences: "Ein freundlicher und ermutigender Ton",
+      fitnessGoal: "mejorar mi salud en general",
+      preferences: "Un tono amable y alentador",
     },
   });
 
@@ -46,7 +46,7 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
       });
       setMessage(result.message);
     } catch (e) {
-      setError("Entschuldigung, ich konnte im Moment keine Nachricht generieren. Bitte versuche es später erneut.");
+      setError("Lo siento, no pude generar un mensaje en este momento. Por favor, inténtalo de nuevo más tarde.");
       console.error(e);
     }
     setIsLoading(false);
@@ -56,13 +56,13 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
     <Card className="mt-8 bg-accent/90 border-accent shadow-lg text-accent-foreground rounded-lg">
       <CardHeader className="text-center">
         <CardTitle className="font-headline text-2xl flex items-center justify-center gap-2">
-           <Lightbulb /> Deine heutige Motivation
+           <Lightbulb /> Tu motivación de hoy
         </CardTitle>
       </CardHeader>
       <CardContent className="text-center">
         {error && (
           <Alert variant="destructive" className="mt-6 bg-red-900/50 border-red-700 text-white">
-            <AlertTitle>Fehler</AlertTitle>
+            <AlertTitle>Error</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}
@@ -71,18 +71,18 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
                 <p className="text-xl italic">
                 {message}
                 </p>
-                <p className="text-sm text-accent-foreground/80">Jedes Training bringt dich deinem Ziel näher. Gib nicht auf - dein Körper und Geist werden es dir danken!</p>
+                <p className="text-sm text-accent-foreground/80">¡Cada entrenamiento te acerca a tu meta. No te rindas, tu cuerpo y tu mente te lo agradecerán!</p>
             </div>
         )}
          {isLoading && (
             <div className="flex items-center justify-center gap-2 text-lg">
                 <Loader2 className="h-6 w-6 animate-spin" />
-                <span>Generiere...</span>
+                <span>Generando...</span>
             </div>
          )}
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-4">
             <Button type="submit" variant="outline" className="bg-accent-foreground/10 border-accent-foreground/30 hover:bg-accent-foreground/20" disabled={isLoading}>
-                Neue Motivation erhalten
+                Obtener nueva motivación
             </Button>
         </form>
       </CardContent>

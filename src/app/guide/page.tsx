@@ -16,17 +16,17 @@ export default function GuidePage() {
       <div className="container mx-auto px-4 py-8 mt-16">
         <header className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-primary">
-            Programm-Handbuch
+            Manual del Programa
           </h1>
           <p className="text-muted-foreground mt-2 text-lg">
-            Dein umfassender Leitfaden für maximalen Erfolg und Verständnis.
+            Tu guía completa para el máximo éxito y comprensión.
           </p>
         </header>
 
         <div className="grid md:grid-cols-[250px_1fr] gap-8">
           <aside className="h-full">
             <nav className="sticky top-24">
-              <h2 className="text-lg font-semibold mb-3 text-accent">Inhaltsverzeichnis</h2>
+              <h2 className="text-lg font-semibold mb-3 text-accent">Índice</h2>
               <ul>
                 {guideContent.map((chapter) => (
                   <li key={chapter.id}>

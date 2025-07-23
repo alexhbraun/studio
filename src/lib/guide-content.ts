@@ -9,99 +9,99 @@ export interface GuideChapter {
 export const guideContent: GuideChapter[] = [
   {
     id: 1,
-    title: "Einleitung",
+    title: "Introducción",
     content: `
-      <p class="lead">Herzlich willkommen zu <strong>StrideSculpt</strong>, Ihrem persönlichen 30-Tage-Gehprogramm! Sie stehen am Anfang einer aufregenden Reise, die nicht nur Ihren Körper, sondern auch Ihre Denkweise über Fitness und Wohlbefinden verändern wird. Dieser Leitfaden ist Ihr treuer Begleiter, vollgepackt mit Wissen, Motivation und praktischen Tipps, um jeden Schritt zu einem Erfolg zu machen.</p>
+      <p class="lead">¡Bienvenido a <strong>StrideSculpt</strong>, tu programa personal de caminata de 30 días! Estás al comienzo de un emocionante viaje que cambiará no solo tu cuerpo, sino también tu forma de pensar sobre el fitness y el bienestar. Esta guía es tu fiel compañera, llena de conocimientos, motivación y consejos prácticos para que cada paso sea un éxito.</p>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Eine inspirierende Landschaftsansicht mit einem Weg, der in die Ferne führt und den Beginn einer Reise symbolisiert. Das Licht ist warm und einladend." class="w-full" data-ai-hint="path landscape" />
+        <img src="https://placehold.co/800x400.png" alt="Una inspiradora vista de un paisaje con un camino que se pierde en la distancia, simbolizando el comienzo de un viaje. La luz es cálida y acogedora." class="w-full" data-ai-hint="path landscape" />
       </div>
 
-      <h3>Was Sie von diesem Programm erwarten können</h3>
-      <p>In den nächsten 30 Tagen werden Sie entdecken, dass Gehen weit mehr ist als nur eine Fortbewegungsart. Es ist ein kraftvolles Werkzeug zur Transformation. Wir haben dieses Programm sorgfältig entwickelt, um Sie schrittweise zu führen – von sanften Anfängen bis hin zu herausfordernden Einheiten, die Ihre Ausdauer steigern und die Fettverbrennung ankurbeln. Es geht nicht um Perfektion, sondern um Beständigkeit. Es geht darum, auf Ihren Körper zu hören, Fortschritte zu feiern und eine nachhaltige, gesunde Gewohnheit zu etablieren, die Ihnen auch lange nach den 30 Tagen erhalten bleibt.</p>
+      <h3>Qué puedes esperar de este programa</h3>
+      <p>En los próximos 30 días, descubrirás que caminar es mucho más que una forma de moverse. Es una poderosa herramienta de transformación. Hemos desarrollado este programa cuidadosamente para guiarte paso a paso, desde comienzos suaves hasta sesiones desafiantes que aumentarán tu resistencia y activarán la quema de grasa. No se trata de la perfección, sino de la constancia. Se trata de escuchar a tu cuerpo, celebrar el progreso y establecer un hábito saludable y sostenible que te acompañará mucho después de estos 30 días.</p>
 
-      <h3>Für wen ist dieses Programm?</h3>
-      <p>Dieses Programm ist für jeden gemacht! Egal, ob Sie nach einer langen Pause wieder in die Bewegung einsteigen, Ihr aktuelles Fitnesslevel verbessern oder eine gelenkschonende Alternative zu intensivem Training suchen. Unsere Mission ist es, Ihnen zu zeigen, wie Sie mit der einfachsten und natürlichsten Form der Bewegung erstaunliche Ergebnisse erzielen können.</p>
+      <h3>¿Para quién es este programa?</h3>
+      <p>¡Este programa es para todos! Ya sea que estés retomando el ejercicio después de una larga pausa, quieras mejorar tu nivel de condición física actual o busques una alternativa de bajo impacto al entrenamiento intenso. Nuestra misión es mostrarte cómo puedes lograr resultados sorprendentes con la forma de ejercicio más simple y natural.</p>
       
-      <h3>So nutzen Sie diesen Leitfaden</h3>
-      <p>Dieser Leitfaden ist in übersichtliche Kapitel unterteilt. Sie können ihn von Anfang bis Ende lesen oder gezielt die Themen nachschlagen, die Sie gerade am meisten interessieren. Wir empfehlen, sich zu Beginn mit den Kapiteln über die richtige Technik und Ernährung vertraut zu machen, um eine solide Grundlage zu schaffen. Kehren Sie jederzeit hierher zurück, wenn Sie eine Frage haben oder einen Motivationsschub benötigen.</p>
+      <h3>Cómo usar esta guía</h3>
+      <p>Esta guía está dividida en capítulos claros. Puedes leerla de principio a fin o consultar específicamente los temas que más te interesen en un momento dado. Recomendamos familiarizarse con los capítulos sobre la técnica correcta y la nutrición al principio para construir una base sólida. Vuelve aquí en cualquier momento que tengas una pregunta o necesites un impulso de motivación.</p>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://placehold.co/800x400.png" alt="Eine Person, die glücklich und energiegeladen auf einem malerischen Weg geht, was die Freude und die positiven Ergebnisse des Programms darstellt." class="w-full" data-ai-hint="happy walking" />
+          <img src="https://placehold.co/800x400.png" alt="Una persona caminando feliz y enérgica por un sendero pintoresco, representando la alegría y los resultados positivos del programa." class="w-full" data-ai-hint="happy walking" />
       </div>
 
-      <p>Sind Sie bereit, den ersten Schritt zu tun? Wir sind begeistert, Sie auf diesem Weg zu begleiten. Lassen Sie uns gemeinsam loslegen und eine gesündere, fittere und glücklichere Version Ihrer selbst formen – Schritt für Schritt.</p>
+      <p>¿Estás listo para dar el primer paso? Estamos emocionados de acompañarte en este camino. Empecemos juntos a esculpir una versión más sana, más en forma y más feliz de ti mismo, paso a paso.</p>
     `,
   },
   {
     id: 2,
-    title: "Die Kraft des Gehens",
+    title: "El Poder de Caminar",
     content: `
-      <h3>Warum Gehen so effektiv ist</h3>
-      <p>Gehen ist eine der natürlichsten und zugänglichsten Formen der Bewegung. Es ist gelenkschonend, erfordert keine spezielle Ausrüstung und kann fast überall praktiziert werden.</p>
+      <h3>Por qué caminar es tan efectivo</h3>
+      <p>Caminar es una de las formas de ejercicio más naturales y accesibles. Es de bajo impacto para las articulaciones, no requiere equipo especial y se puede practicar en casi cualquier lugar.</p>
       <ul>
-        <li>Verbesserung der Herz-Kreislauf-Gesundheit</li>
-        <li>Unterstützung beim Gewichtsmanagement</li>
-        <li>Stärkung von Knochen und Muskeln</li>
-        <li>Reduzierung von Stress und Verbesserung der Stimmung</li>
+        <li>Mejora de la salud cardiovascular</li>
+        <li>Apoyo en el control del peso</li>
+        <li>Fortalecimiento de huesos y músculos</li>
+        <li>Reducción del estrés y mejora del estado de ánimo</li>
       </ul>
-      <p><i>Detaillierte Erklärungen und wissenschaftliche Hintergründe werden noch hinzugefügt.</i></p>
+      <p><i>Próximamente se añadirán explicaciones detalladas y fundamentos científicos.</i></p>
     `,
   },
   {
     id: 3,
-    title: "Grundlagen der Ernährung",
+    title: "Fundamentos de Nutrición",
     content: `
-      <h3>Ernährung als Erfolgsfaktor</h3>
-      <p>Bewegung ist nur die halbe Miete. Eine ausgewogene Ernährung ist entscheidend, um Ihre Ziele zu erreichen und Ihren Körper optimal zu versorgen.</p>
-      <h4>Makro- und Mikronährstoffe</h4>
-      <p>Ein kurzer Überblick über Proteine, Kohlenhydrate, Fette, Vitamine und Mineralstoffe und ihre Rolle für Ihren Körper.</p>
-      <h4>Hydration</h4>
-      <p>Warum ausreichend Wasser zu trinken für Energie, Stoffwechsel und allgemeines Wohlbefinden unerlässlich ist.</p>
-      <p><i>Praktische Tipps, einfache Rezepte und Mahlzeitenpläne werden noch hinzugefügt.</i></p>
+      <h3>La nutrición como factor de éxito</h3>
+      <p>El ejercicio es solo la mitad de la batalla. Una dieta equilibrada es crucial para alcanzar tus metas y nutrir tu cuerpo de manera óptima.</p>
+      <h4>Macro y Micronutrientes</h4>
+      <p>Un breve resumen sobre proteínas, carbohidratos, grasas, vitaminas y minerales, y su papel en tu cuerpo.</p>
+      <h4>Hidratación</h4>
+      <p>Por qué beber suficiente agua es esencial para la energía, el metabolismo y el bienestar general.</p>
+      <p><i>Próximamente se añadirán consejos prácticos, recetas sencillas y planes de comidas.</i></p>
     `,
   },
   {
     id: 4,
-    title: "Die richtige Technik",
+    title: "La Técnica Correcta",
     content: `
-      <h3>Effizient und verletzungsfrei gehen</h3>
-      <p>Die richtige Haltung und Technik können den Unterschied ausmachen, wie effektiv Ihr Training ist und wie Sie sich dabei fühlen.</p>
+      <h3>Caminar de forma eficiente y sin lesiones</h3>
+      <p>La postura y técnica correctas pueden marcar la diferencia en la efectividad de tu entrenamiento y en cómo te sientes al hacerlo.</p>
       <ul>
-        <li><strong>Haltung:</strong> Aufrecht gehen, Schultern zurück, Blick nach vorne.</li>
-        <li><strong>Armbewegung:</strong> Arme im 90-Grad-Winkel beugen und locker mitschwingen.</li>
-        <li><strong>Fußarbeit:</strong> Mit der Ferse aufsetzen und über den ganzen Fuß abrollen.</li>
+        <li><strong>Postura:</strong> Camina erguido, con los hombros hacia atrás y la mirada al frente.</li>
+        <li><strong>Movimiento de brazos:</strong> Dobla los brazos en un ángulo de 90 grados y balancéalos libremente.</li>
+        <li><strong>Pisada:</strong> Apoya primero el talón y luego rueda el peso sobre toda la planta del pie.</li>
       </ul>
-      <p><i>Visuelle Anleitungen und häufige Fehlerkorrekturen werden noch hinzugefügt.</i></p>
+      <p><i>Próximamente se añadirán guías visuales y correcciones de errores comunes.</i></p>
     `,
   },
   {
     id: 5,
-    title: "Motivation und Dranbleiben",
+    title: "Motivación y Constancia",
     content: `
-      <h3>Langfristige Gewohnheiten schaffen</h3>
-      <p>Motivation ist das, was Sie anfangen lässt. Gewohnheit ist das, was Sie weitermachen lässt.</p>
-      <p>Tipps, um motiviert zu bleiben:</p>
+      <h3>Crear hábitos a largo plazo</h3>
+      <p>La motivación es lo que te pone en marcha. El hábito es lo que te mantiene en movimiento.</p>
+      <p>Consejos para mantener la motivación:</p>
       <ul>
-        <li>Setzen Sie sich realistische Zwischenziele.</li>
-        <li>Verfolgen Sie Ihren Fortschritt.</li>
-        <li>Finden Sie einen Trainingspartner.</li>
-        <li>Belohnen Sie sich für erreichte Meilensteine.</li>
+        <li>Establece metas intermedias realistas.</li>
+        <li>Sigue tu progreso.</li>
+        <li>Encuentra un compañero de entrenamiento.</li>
+        <li>Recompénsate por los hitos alcanzados.</li>
       </ul>
-      <p><i>Strategien zur Überwindung von Demotivation und zum Umgang mit Rückschlägen werden noch hinzugefügt.</i></p>
+      <p><i>Próximamente se añadirán estrategias para superar la desmotivación y manejar los contratiempos.</i></p>
     `,
   },
   {
     id: 6,
-    title: "Ruhe und Regeneration",
+    title: "Descanso y Regeneración",
     content: `
-        <h3>Warum Pausen so wichtig sind</h3>
-        <p>Ihr Körper wird nicht während des Trainings stärker, sondern in den Ruhephasen danach. Regeneration ist ein aktiver Prozess und entscheidend für Ihren Fortschritt.</p>
-        <h4>Die Rolle des Schlafs</h4>
-        <p>Guter Schlaf ist die Grundlage für die Reparatur von Muskelgewebe, die hormonelle Regulation und die geistige Erholung.</p>
-        <h4>Aktive Erholung</h4>
-        <p>Leichte Aktivitäten wie Dehnen oder sanftes Yoga an Ruhetagen können die Regeneration fördern.</p>
-        <p><i>Anleitungen für Dehnübungen und Entspannungstechniken werden noch hinzugefügt.</i></p>
+        <h3>Por qué las pausas son tan importantes</h3>
+        <p>Tu cuerpo no se fortalece durante el entrenamiento, sino en las fases de descanso posteriores. La regeneración es un proceso activo y crucial para tu progreso.</p>
+        <h4>El papel del sueño</h4>
+        <p>Un buen descanso es fundamental para la reparación del tejido muscular, la regulación hormonal y la recuperación mental.</p>
+        <h4>Recuperación activa</h4>
+        <p>Actividades ligeras como estiramientos o yoga suave en los días de descanso pueden promover la regeneración.</p>
+        <p><i>Próximamente se añadirán instrucciones para ejercicios de estiramiento y técnicas de relajación.</i></p>
     `
   }
 ];

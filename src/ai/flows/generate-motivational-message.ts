@@ -32,7 +32,7 @@ const MotivationalMessageInputSchema = z.object({
 export type MotivationalMessageInput = z.infer<typeof MotivationalMessageInputSchema>;
 
 const MotivationalMessageOutputSchema = z.object({
-  message: z.string().describe('The personalized motivational message in German. It should be a short, inspiring quote-like sentence.'),
+  message: z.string().describe('El mensaje motivacional personalizado en español. Debe ser una oración corta, inspiradora y similar a una cita.'),
 });
 export type MotivationalMessageOutput = z.infer<typeof MotivationalMessageOutputSchema>;
 
@@ -46,13 +46,13 @@ const prompt = ai.definePrompt({
   name: 'motivationalMessagePrompt',
   input: {schema: MotivationalMessageInputSchema},
   output: {schema: MotivationalMessageOutputSchema},
-  prompt: `Du bist ein KI-Motivationscoach. Erstelle eine personalisierte Motivationsnachricht für den Benutzer auf Deutsch. Die Nachricht sollte kurz, inspirierend und im Stil eines Zitats sein.
+  prompt: `Eres un entrenador motivacional de IA. Crea un mensaje motivacional personalizado para el usuario en español. El mensaje debe ser corto, inspirador y al estilo de una cita.
 
-Workout-Fortschritt: {{progressPercentage}}%
-Fitness-Ziel: {{fitnessGoal}}
-Vom Benutzer bevorzugter Stil: {{preferences}}
+Progreso del entrenamiento: {{progressPercentage}}%
+Objetivo de fitness: {{fitnessGoal}}
+Estilo preferido por el usuario: {{preferences}}
 
-Nachricht:`,
+Mensaje:`,
 });
 
 const generateMotivationalMessageFlow = ai.defineFlow(

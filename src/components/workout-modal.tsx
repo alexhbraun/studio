@@ -41,9 +41,9 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border">
         <DialogHeader>
-          <DialogTitle className="font-headline text-3xl">Tag {dayData.day}: {dayData.title}</DialogTitle>
+          <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
-            Führe die folgenden Übungen durch. Wische, um zwischen ihnen zu navigieren.
+            Realiza los siguientes ejercicios. Desliza para navegar entre ellos.
           </DialogDescription>
         </DialogHeader>
 
@@ -93,7 +93,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
         <DialogFooter className="sm:justify-between gap-2">
             <DialogClose asChild>
                 <Button type="button" variant="outline" className="w-full sm:w-auto">
-                    Schließen
+                    Cerrar
                 </Button>
             </DialogClose>
             <Button
@@ -105,12 +105,12 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                 {isCompleted ? (
                 <>
                     <Check className="mr-2 h-5 w-5" />
-                    Abgeschlossen
+                    Completado
                 </>
                 ) : (
                 <>
                     <Dumbbell className="mr-2 h-5 w-5" />
-                    Als abgeschlossen markieren
+                    Marcar como completado
                 </>
                 )}
             </Button>

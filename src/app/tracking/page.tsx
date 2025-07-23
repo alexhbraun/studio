@@ -42,16 +42,16 @@ export default function TrackingPage() {
             <main className="container mx-auto px-4 py-8 mt-16 bg-blue-600 rounded-lg">
                 <header className="text-center mb-10 animate-fade-in-down pt-8">
                     <h1 className="text-2xl font-bold tracking-tight text-yellow-400">
-                        RASTREAR
+                        RASTREA
                     </h1>
                     <p className="text-4xl md:text-5xl font-bold tracking-tight text-white">
-                        A SUA DISTÂNCIA
+                        TU DISTANCIA
                     </p>
                 </header>
                 <div className="animate-fade-in-up">
                     <Card className="overflow-hidden shadow-2xl">
                         <CardContent className="p-0">
-                            <Image src="https://placehold.co/1200x600.png" width={1200} height={600} alt="Map route" data-ai-hint="map route" className="w-full" />
+                            <Image src="https://placehold.co/1200x600.png" width={1200} height={600} alt="Ruta del mapa" data-ai-hint="map route" className="w-full" />
                         </CardContent>
                     </Card>
 
@@ -61,10 +61,10 @@ export default function TrackingPage() {
                                 <TableHeader>
                                     <TableRow>
                                         <TableHead className="w-[50px]"></TableHead>
-                                        <TableHead>DISTÂNCIA</TableHead>
-                                        <TableHead>TEMPO</TableHead>
+                                        <TableHead>DISTANCIA</TableHead>
+                                        <TableHead>TIEMPO</TableHead>
                                         <TableHead>RITMO</TableHead>
-                                        <TableHead>CALORIAS</TableHead>
+                                        <TableHead>CALORÍAS</TableHead>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody>
@@ -91,7 +91,7 @@ export default function TrackingPage() {
                             <div className="text-center mt-4">
                                 <button className="flex items-center justify-center mx-auto text-sm text-muted-foreground font-semibold">
                                     <ChevronUp className="h-4 w-4 mr-1" />
-                                    MOSTRAR DETALHES
+                                    MOSTRAR DETALLES
                                 </button>
                             </div>
                         </CardContent>
@@ -102,7 +102,7 @@ export default function TrackingPage() {
                             <CardContent className="p-4 flex justify-between items-center">
                                 <div className="flex items-center gap-3">
                                     <Heart className="h-5 w-5 text-red-500" />
-                                    <span className="font-medium text-muted-foreground">Frequência cardíaca média, bpm</span>
+                                    <span className="font-medium text-muted-foreground">Frecuencia cardíaca media, lpm</span>
                                 </div>
                                 <span className="font-bold text-lg">105</span>
                             </CardContent>
@@ -110,8 +110,8 @@ export default function TrackingPage() {
                         <div className="grid grid-cols-2 gap-4">
                             <Card>
                                 <CardContent className="p-4 text-center">
-                                    <p className="text-sm text-blue-500 font-semibold">SENTINDO-SE</p>
-                                    <p className="font-bold text-lg">DESAFIADOR</p>
+                                    <p className="text-sm text-blue-500 font-semibold">SENSACIÓN</p>
+                                    <p className="font-bold text-lg">DESAFIANTE</p>
                                 </CardContent>
                             </Card>
                              <Card>

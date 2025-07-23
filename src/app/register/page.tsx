@@ -11,9 +11,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 const registerSchema = z.object({
-  name: z.string().min(1, { message: 'Bitte geben Sie Ihren Namen ein.' }),
-  email: z.string().email({ message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }),
-  password: z.string().min(6, { message: 'Das Passwort muss mindestens 6 Zeichen lang sein.' }),
+  name: z.string().min(1, { message: 'Por favor, ingrese su nombre.' }),
+  email: z.string().email({ message: 'Por favor, ingrese una dirección de correo electrónico válida.' }),
+  password: z.string().min(6, { message: 'La contraseña debe tener al menos 6 caracteres.' }),
 });
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
@@ -39,9 +39,9 @@ export default function RegisterPage() {
     <div className="flex items-center justify-center min-h-screen bg-background">
       <Card className="mx-auto max-w-sm w-full">
         <CardHeader>
-          <CardTitle className="text-xl">Registrieren</CardTitle>
+          <CardTitle className="text-xl">Registrarse</CardTitle>
           <CardDescription>
-            Geben Sie Ihre Informationen ein, um ein Konto zu erstellen
+            Ingrese su información para crear una cuenta
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -52,7 +52,7 @@ export default function RegisterPage() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nombre</FormLabel>
                     <FormControl>
                       <Input placeholder="Max Mustermann" {...field} />
                     </FormControl>
@@ -65,9 +65,9 @@ export default function RegisterPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-Mail</FormLabel>
+                    <FormLabel>Correo electrónico</FormLabel>
                     <FormControl>
-                      <Input placeholder="name@beispiel.com" {...field} />
+                      <Input placeholder="nombre@ejemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -78,7 +78,7 @@ export default function RegisterPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Passwort</FormLabel>
+                    <FormLabel>Contraseña</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -87,14 +87,14 @@ export default function RegisterPage() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Konto erstellen
+                Crear cuenta
               </Button>
             </form>
           </Form>
           <div className="mt-4 text-center text-sm">
-            Bereits ein Konto?{' '}
+            ¿Ya tienes una cuenta?{' '}
             <Link href="/login" className="underline">
-              Anmelden
+              Iniciar sesión
             </Link>
           </div>
         </CardContent>

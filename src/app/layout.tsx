@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: 'SlimWalk',
-  description: 'SlimWalk - Dein 30-Tage Gehprogramm für Gesundheit und Fitness',
+  description: 'SlimWalk - Tu programa de caminata de 30 días para la salud y el fitness',
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

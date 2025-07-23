@@ -11,29 +11,12 @@ export default function DashboardPage() {
       <main className="container mx-auto px-4 py-8 mt-16">
         <header className="text-center mb-10 animate-fade-in-down">
           <div className="flex justify-center items-center gap-4 mb-2">
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="text-primary"
-            >
-              <path
-                d="M2 12H4.5L7.5 4.5L10.5 19.5L13.5 12L16.5 17L19.5 9.5L22 12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-primary">
               SlimWalk
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-            Verändere dein Leben Schritt für Schritt! Jeder Tag ist eine neue
-            Chance zur Verbesserung.
+            ¡Transforma tu vida paso a paso! Cada día es una nueva oportunidad para mejorar.
           </p>
         </header>
 
@@ -42,16 +25,16 @@ export default function DashboardPage() {
             <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-6 w-6" />
-                Willkommen beim Programm! Was dich erwartet:
+                ¡Bienvenido al programa! Lo que te espera:
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
               <div className="space-y-4">
                 <p>
-                  Willkommen zu deinem 30-Tage-Gehprogramm! Dieses Programm ist dein persönlicher Begleiter auf dem Weg zu einem gesünderen und fitteren Ich. Es wurde sorgfältig konzipiert, um dir zu helfen, durch eine der natürlichsten und zugänglichsten Formen der Bewegung – das Gehen – nachhaltige Ergebnisse zu erzielen. Egal, ob dein Ziel Gewichtsverlust, eine verbesserte Ausdauer oder einfach ein aktiverer Lebensstil ist, hier findest du die Struktur und Motivation, die du brauchst.
+                  ¡Bienvenido a tu programa de caminata de 30 días! Este programa es tu compañero personal en el camino hacia un tú más sano y en forma. Ha sido cuidadosamente diseñado para ayudarte a lograr resultados sostenibles a través de una de las formas de ejercicio más naturales y accesibles: caminar. Ya sea que tu objetivo sea perder peso, aumentar la resistencia o simplemente un estilo de vida más activo, aquí encontrarás la estructura y la motivación que necesitas.
                 </p>
                 <p>
-                  In den nächsten 30 Tagen führen wir dich durch tägliche, schrittweise ansteigende Trainingseinheiten. Wir beginnen sanft, um deinen Körper an die neue Routine zu gewöhnen, und steigern dann allmählich die Intensität und Dauer. Der Fokus liegt dabei auf konstantem Fortschritt, nicht auf Perfektion. Es geht darum, dranzubleiben, auf deinen Körper zu hören und jeden einzelnen Schritt auf deinem Weg zu feiern. Bereite dich darauf vor, nicht nur deinen Körper, sondern auch deine Einstellung zu Fitness und Wohlbefinden zu verändern. Lass uns gemeinsam loslegen!
+                  Durante los próximos 30 días, te guiaremos a través de entrenamientos diarios que aumentan gradualmente. Comenzamos suavemente para acostumbrar tu cuerpo a la nueva rutina, y luego aumentamos gradualmente la intensidad y la duración. El enfoque está en el progreso constante, no en la perfección. Se trata de seguir adelante, escuchar a tu cuerpo y celebrar cada paso en tu camino. Prepárate para cambiar no solo tu cuerpo, sino también tu actitud hacia el fitness y el bienestar. ¡Empecemos juntos!
                 </p>
               </div>
             </AccordionContent>
@@ -65,13 +48,12 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Droplets className="h-5 w-5" />
-                Tipp des Tages
+                Consejo del día
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Denke daran, während des Trainings regelmäßig Wasser zu trinken.
-                Hydration ist der Schlüssel zur effektiven Kalorienverbrennung.
+                Recuerda beber agua regularmente durante el entrenamiento. La hidratación es la clave para una quema de calorías efectiva.
               </p>
             </CardContent>
           </Card>
@@ -79,13 +61,12 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Utensils className="h-5 w-5" />
-                Gesunde Ernährung
+                Alimentación saludable
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Kombiniere das Training mit einer leichten, proteinreichen
-                Mahlzeit 30 Minuten nach dem Training.
+                Combina el entrenamiento con una comida ligera y rica en proteínas 30 minutos después del ejercicio.
               </p>
             </CardContent>
           </Card>
@@ -93,13 +74,12 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg text-accent">
                 <Bed className="h-5 w-5" />
-                Erholung
+                Recuperación
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Guter Schlaf ist die Grundlage der Regeneration. Strebe 7-8
-                Stunden Schlaf für optimale Ergebnisse an.
+                Un buen sueño es la base de la regeneración. Intenta dormir de 7 a 8 horas para obtener resultados óptimos.
               </p>
             </CardContent>
           </Card>

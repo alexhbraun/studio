@@ -15,16 +15,16 @@ export default function ProfilePage() {
           <div className="mx-auto grid max-w-4xl flex-1 auto-rows-max gap-4">
             <div className="flex items-center gap-4">
               <h1 className="flex-1 shrink-0 whitespace-nowrap text-xl font-semibold tracking-tight sm:grow-0">
-                Benutzerprofil
+                Perfil de usuario
               </h1>
             </div>
             <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
               <div className="grid auto-rows-max items-start gap-4 lg:col-span-2 lg:gap-8">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Persönliche Informationen</CardTitle>
+                    <CardTitle>Información personal</CardTitle>
                     <CardDescription>
-                      Hier können Sie Ihre persönlichen Daten einsehen und bearbeiten.
+                      Aquí puede ver y editar su información personal.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -36,13 +36,13 @@ export default function ProfilePage() {
                         </Avatar>
                         <div>
                           <p className="text-lg font-semibold">Max Mustermann</p>
-                          <p className="text-sm text-muted-foreground">max.mustermann@beispiel.com</p>
+                          <p className="text-sm text-muted-foreground">max.mustermann@ejemplo.com</p>
                         </div>
                       </div>
                       <div>
-                        <h3 className="font-semibold">Über mich</h3>
+                        <h3 className="font-semibold">Sobre mí</h3>
                         <p className="text-muted-foreground">
-                          Motivierter Teilnehmer des 30-Tage-Gehprogramms, der seine Fitnessziele erreichen will.
+                          Participante motivado del programa de caminata de 30 días que quiere alcanzar sus metas de fitness.
                         </p>
                       </div>
                     </div>
@@ -52,18 +52,18 @@ export default function ProfilePage() {
               <div className="grid auto-rows-max items-start gap-4 lg:gap-8">
                  <Card>
                     <CardHeader>
-                        <CardTitle>Profil-Aktionen</CardTitle>
+                        <CardTitle>Acciones del perfil</CardTitle>
                     </CardHeader>
                     <CardContent className="grid gap-2">
                          <Button variant="outline" className="justify-start gap-2">
-                           <User className="h-4 w-4" /> Profil bearbeiten
+                           <User className="h-4 w-4" /> Editar perfil
                         </Button>
                          <Button variant="outline" className="justify-start gap-2">
-                           <Settings className="h-4 w-4" /> Kontoeinstellungen
+                           <Settings className="h-4 w-4" /> Configuración de la cuenta
                         </Button>
                         <Link href="/login">
                          <Button variant="destructive" className="w-full justify-start gap-2">
-                           <LogOut className="h-4 w-4" /> Abmelden
+                           <LogOut className="h-4 w-4" /> Cerrar sesión
                         </Button>
                         </Link>
                     </CardContent>

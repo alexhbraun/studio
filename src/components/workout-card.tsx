@@ -14,9 +14,9 @@ interface WorkoutCardProps {
 }
 
 function getDifficultyBadge(day: number): { text: string; className: string } {
-    if (day <= 10) return { text: 'Leicht', className: 'bg-green-500/20 text-green-300 border-green-500/40 hover:bg-green-500/30' };
-    if (day <= 20) return { text: 'Mittel', className: 'bg-orange-500/20 text-orange-300 border-orange-500/40 hover:bg-orange-500/30' };
-    return { text: 'Schwer', className: 'bg-red-500/20 text-red-300 border-red-500/40 hover:bg-red-500/30' };
+    if (day <= 10) return { text: 'Fácil', className: 'bg-green-500/20 text-green-300 border-green-500/40 hover:bg-green-500/30' };
+    if (day <= 20) return { text: 'Medio', className: 'bg-orange-500/20 text-orange-300 border-orange-500/40 hover:bg-orange-500/30' };
+    return { text: 'Difícil', className: 'bg-red-500/20 text-red-300 border-red-500/40 hover:bg-red-500/30' };
 }
 
 export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardProps) {
@@ -49,11 +49,11 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
             <div className="flex gap-4">
                 <div className="flex items-center gap-1.5">
                     <Clock className="h-3 w-3" />
-                    <span>{totalDuration} Minuten</span>
+                    <span>{totalDuration} minutos</span>
                 </div>
                  <div className="flex items-center gap-1.5">
                     <Dumbbell className="h-3 w-3" />
-                    <span>{day.exercises.length} Übungen</span>
+                    <span>{day.exercises.length} ejercicios</span>
                 </div>
             </div>
              <Badge variant="outline" className={cn("text-xs", difficulty.className)}>{difficulty.text}</Badge>

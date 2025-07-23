@@ -12,8 +12,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 const loginSchema = z.object({
-  email: z.string().email({ message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }),
-  password: z.string().min(1, { message: 'Bitte geben Sie Ihr Passwort ein.' }),
+  email: z.string().email({ message: 'Por favor, ingrese una dirección de correo electrónico válida.' }),
+  password: z.string().min(1, { message: 'Por favor, ingrese su contraseña.' }),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;
@@ -38,9 +38,9 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-background">
       <Card className="mx-auto max-w-sm w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Anmelden</CardTitle>
+          <CardTitle className="text-2xl">Iniciar sesión</CardTitle>
           <CardDescription>
-            Geben Sie Ihre E-Mail-Adresse unten ein, um sich bei Ihrem Konto anzumelden
+            Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -51,9 +51,9 @@ export default function LoginPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-Mail</FormLabel>
+                    <FormLabel>Correo electrónico</FormLabel>
                     <FormControl>
-                      <Input placeholder="name@beispiel.com" {...field} />
+                      <Input placeholder="nombre@ejemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -64,7 +64,7 @@ export default function LoginPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Passwort</FormLabel>
+                    <FormLabel>Contraseña</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
                     </FormControl>
@@ -73,14 +73,14 @@ export default function LoginPage() {
                 )}
               />
               <Button type="submit" className="w-full">
-                Anmelden
+                Iniciar sesión
               </Button>
             </form>
           </Form>
           <div className="mt-4 text-center text-sm">
-            Noch kein Konto?{' '}
+            ¿No tienes una cuenta?{' '}
             <Link href="/register" className="underline">
-              Registrieren
+              Regístrate
             </Link>
           </div>
         </CardContent>

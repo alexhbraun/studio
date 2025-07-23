@@ -3,42 +3,42 @@ import type { WorkoutDay } from './types';
 export const workouts: WorkoutDay[] = [
   {
     day: 1,
-    title: "Der erste Schritt zur Veränderung",
-    description: "Ein sanfter Start in dein neues Programm. Heute konzentrieren wir uns darauf, den Körper zu bewegen und eine positive Routine ohne übermäßige Anstrengung zu etablieren.",
+    title: "El primer paso hacia el cambio",
+    description: "Un comienzo suave en tu nuevo programa. Hoy nos enfocamos en mover el cuerpo y establecer una rutina positiva sin un esfuerzo excesivo.",
     exercises: [
-      { id: 1, name: "Aufwärm-Gehen", description: "Beginne mit einem sehr langsamen, entspannten Tempo. Deine Arme sollten locker schwingen und deine Atmung sollte ruhig sein. Das Ziel ist es, die Muskeln sanft auf die bevorstehende Belastung vorzubereiten.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman stretching park" },
-      { id: 2, name: "Flottes Tempo", description: "Erhöhe dein Tempo, sodass dein Herzschlag leicht ansteigt, du dich aber immer noch problemlos unterhalten kannst. Konzentriere dich auf eine aufrechte Haltung und einen gleichmäßigen Schrittrhythmus.", duration: "10", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "man power walking" },
-      { id: 3, name: "Abkühl-Gehen", description: "Reduziere dein Tempo wieder deutlich, um deine Herzfrequenz allmählich zu senken. Nutze diese Phase, um tief durchzuatmen und deinen Körper zur Ruhe kommen zu lassen. Dies fördert die Regeneration.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman walking slowly" },
+      { id: 1, name: "Caminata de calentamiento", description: "Comienza con un ritmo muy lento y relajado. Tus brazos deben balancearse libremente y tu respiración debe ser tranquila. El objetivo es preparar suavemente los músculos para el esfuerzo que se avecina.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman stretching park" },
+      { id: 2, name: "Ritmo rápido", description: "Aumenta tu ritmo para que tu frecuencia cardíaca se eleve ligeramente, pero aún puedas conversar sin problemas. Concéntrate en una postura erguida y un ritmo de paso constante.", duration: "10", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "man power walking" },
+      { id: 3, name: "Caminata de enfriamiento", description: "Reduce tu ritmo nuevamente para bajar gradualmente tu frecuencia cardíaca. Aprovecha esta fase para respirar profundamente y dejar que tu cuerpo se calme. Esto promueve la regeneración.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "woman walking slowly" },
     ],
   },
   {
     day: 2,
-    title: "Rhythmus aufbauen",
-    description: "Heute geht es darum, ein Gefühl für ein gleichmäßiges, zügiges Tempo zu entwickeln. Konstanz ist der Schlüssel zum Aufbau von Ausdauer und zur effektiven Fettverbrennung.",
+    title: "Construyendo el ritmo",
+    description: "Hoy se trata de desarrollar una sensación de ritmo constante y enérgico. La constancia es la clave para desarrollar la resistencia y quemar grasa de manera efectiva.",
     exercises: [
-      { id: 1, name: "Aufwärm-Gehen", description: "Ein sanfter 5-minütiger Spaziergang, um die Durchblutung anzuregen und die Gelenke zu mobilisieren. Achte auf eine lockere und entspannte Bewegung.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "path walking" },
-      { id: 2, name: "Stetiges flottes Gehen", description: "Halte für 15 Minuten ein konstantes, flottes Tempo. Finde einen Rhythmus, den du gut durchhalten kannst, ohne außer Atem zu geraten. Deine Anstrengung sollte spürbar, aber nicht überfordernd sein.", duration: "15", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "consistent pace" },
-      { id: 3, name: "Abkühlen & Dehnen", description: "Beende die Einheit mit einem langsamen Spaziergang. Im Anschluss solltest du deine Waden-, Oberschenkel- und Gesäßmuskulatur für jeweils 20-30 Sekunden sanft dehnen, um die Flexibilität zu fördern.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "stretching outdoors" },
+      { id: 1, name: "Caminata de calentamiento", description: "Una caminata suave de 5 minutos para estimular la circulación y movilizar las articulaciones. Presta atención a un movimiento suelto y relajado.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "path walking" },
+      { id: 2, name: "Caminata rápida y constante", description: "Mantén un ritmo rápido y constante durante 15 minutos. Encuentra un ritmo que puedas mantener bien sin quedarte sin aliento. Tu esfuerzo debe ser notable, pero no abrumador.", duration: "15", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "consistent pace" },
+      { id: 3, name: "Enfriamiento y estiramiento", description: "Termina la sesión con una caminata lenta. Después, estira suavemente los músculos de las pantorrillas, los muslos y los glúteos durante 20-30 segundos cada uno para promover la flexibilidad.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "stretching outdoors" },
     ],
   },
   {
     day: 3,
-    title: "Aktiver Tag",
-    description: "Wir steigern die Intensität durch erste Intervalle. Der Wechsel zwischen Belastungs- und Erholungsphasen kurbelt den Stoffwechsel an und verbessert die kardiovaskuläre Fitness.",
+    title: "Día activo",
+    description: "Aumentamos la intensidad con los primeros intervalos. El cambio entre fases de esfuerzo y recuperación estimula el metabolismo y mejora la aptitud cardiovascular.",
     exercises: [
-      { id: 1, name: "Aufwärmen", description: "Beginne mit 5 Minuten lockerem Gehen. Bereite deinen Körper mental und physisch auf die bevorstehenden schnelleren Abschnitte vor.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "sunrise walk" },
-      { id: 2, name: "Gehintervalle", description: "Hier wechselst du gezielt das Tempo: Gehe 2 Minuten flott, gefolgt von 1 Minute in einem deutlich schnelleren Tempo, das dich fordert. Wiederhole diesen Zyklus für die gesamte Dauer.", duration: "20", repetitions: "ca. 6-7 Sätze", image: "https://placehold.co/600x400.png", imageHint: "interval training" },
-      { id: 3, name: "Abkühlen", description: "Reduziere dein Tempo für die letzten 5 Minuten stark. Erlaube deinem Puls, sich zu normalisieren, und genieße das Gefühl, die Herausforderung gemeistert zu haben.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "sunset walk" },
+      { id: 1, name: "Calentamiento", description: "Comienza con 5 minutos de caminata ligera. Prepara tu cuerpo mental y físicamente para las secciones más rápidas que vienen.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "sunrise walk" },
+      { id: 2, name: "Intervalos de caminata", description: "Aquí cambiarás el ritmo a propósito: camina rápido durante 2 minutos, seguido de 1 minuto a un ritmo notablemente más rápido que te desafíe. Repite este ciclo durante todo el tiempo.", duration: "20", repetitions: "aprox. 6-7 series", image: "https://placehold.co/600x400.png", imageHint: "interval training" },
+      { id: 3, name: "Enfriamiento", description: "Reduce drásticamente tu ritmo durante los últimos 5 minutos. Permite que tu pulso se normalice y disfruta de la sensación de haber superado el desafío.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "sunset walk" },
     ],
   },
   {
     day: 4,
-    title: "Kraft und Ausdauer",
-    description: "Eine solide Einheit, um deine Grundlagenausdauer weiter zu festigen. Konzentriere dich auf eine saubere Technik und eine gleichmäßige Atmung während des gesamten Trainings.",
+    title: "Fuerza y ​​resistencia",
+    description: "Una sesión sólida para seguir consolidando tu resistencia básica. Concéntrate en una técnica limpia y una respiración uniforme durante todo el entrenamiento.",
     exercises: [
-        { id: 1, name: "Aufwärm-Gehen", description: "Starte mit 5 Minuten lockerem Gehen in einer ruhigen Umgebung, um dich auf das Training einzustimmen und die Muskeln zu aktivieren.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "park walk" },
-        { id: 2, name: "Flottes Gehen", description: "Halte für 20 Minuten ein flottes, aber durchgehend angenehmes Tempo. Es geht darum, Strecke zu machen und die Ausdauer zu trainieren, nicht um Sprints.", duration: "20", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "steady pace" },
-        { id: 3, name: "Cool-down", description: "Beende die Einheit mit 3 Minuten sehr langsamem Gehen. Dies hilft, Stoffwechselprodukte aus den Muskeln abzutransportieren und die Regeneration einzuleiten.", duration: "3", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "relaxing stroll" },
+        { id: 1, name: "Caminata de calentamiento", description: "Comienza con 5 minutos de caminata ligera en un entorno tranquilo para entrar en calor y activar los músculos.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "park walk" },
+        { id: 2, name: "Caminata rápida", description: "Mantén un ritmo rápido pero consistentemente cómodo durante 20 minutos. Se trata de cubrir distancia y entrenar la resistencia, no de hacer sprints.", duration: "20", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "steady pace" },
+        { id: 3, name: "Enfriamiento", description: "Termina la sesión con 3 minutos de caminata muy lenta. Esto ayuda a eliminar los productos de desecho metabólico de los músculos e iniciar la regeneración.", duration: "3", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "relaxing stroll" },
     ],
   },
   ...Array.from({ length: 26 }, (_, i) => i + 5).map(day => {
@@ -46,32 +46,32 @@ export const workouts: WorkoutDay[] = [
     const isChallengeDay = day % 6 === 1;
     const duration = 25 + Math.floor(day / 1.5);
     
-    let title = "Energie und Kraft";
-    let description = "Fokus auf den Aufbau einer soliden Grundkondition, um längere und intensivere Einheiten vorzubereiten.";
+    let title = "Energía y Fuerza";
+    let description = "Enfoque en construir una sólida condición física básica para preparar sesiones más largas e intensas.";
     
-    if (day > 20) description = "Fortgeschrittenes kalorienverbrennendes Training zur Maximierung des Gewichtsverlusts und der Fitness.";
+    if (day > 20) description = "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.";
 
     if (isIntervalDay) {
-        title = "Kraftintervalle";
-        description = "Durch den Wechsel von schnellen und moderaten Phasen wird der Stoffwechsel stark angeregt und die Fettverbrennung optimiert.";
+        title = "Intervalos de potencia";
+        description = "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.";
     } else if (isChallengeDay) {
-        title = "Tagesherausforderung";
-        description = "Eine besondere Herausforderung, um Plateaus zu durchbrechen und neue Reize für Muskulatur und Ausdauer zu setzen.";
+        title = "Desafío del día";
+        description = "Un desafío especial para romper estancamientos y establecer nuevos estímulos para los músculos y la resistencia.";
     } else if (day % 7 === 0) {
-        title = "Wochenfinale";
-        description = "Eine längere Einheit zum Abschluss der Woche, die deine bisherigen Fortschritte festigt und die Ausdauer steigert.";
+        title = "Final de la semana";
+        description = "Una sesión más larga para concluir la semana, consolidando tu progreso hasta ahora y aumentando la resistencia.";
     } else if (day % 4 === 0) {
-        title = "Atemkontrolle";
-        description = "Heute liegt der Fokus auf der Synchronisierung von Atmung und Bewegung, um die Effizienz zu steigern und die Belastung besser zu bewältigen.";
+        title = "Control de la respiración";
+        description = "Hoy el enfoque está en sincronizar la respiración y el movimiento para aumentar la eficiencia y manejar mejor el esfuerzo.";
     } else if (day % 5 === 0) {
-        title = "Kalorienverbrennung";
-        description = "Ein Training, das darauf ausgelegt ist, durch ein konstant hohes Tempo den Kalorienverbrauch zu maximieren.";
+        title = "Quema de calorías";
+        description = "Un entrenamiento diseñado para maximizar el gasto calórico a través de un ritmo constantemente alto.";
     } else if (day % 2 === 0) {
-        title = "Tempo und Rhythmus";
-        description = "Finde und halte deinen idealen Geh-Rhythmus, um Energie zu sparen und die Leistung zu verbessern.";
+        title = "Ritmo y cadencia";
+        description = "Encuentra y mantén tu ritmo de caminata ideal para ahorrar energía y mejorar el rendimiento.";
     } else {
-        title = "Konzentration";
-        description = "Mentales Training: Konzentriere dich auf deine Haltung, deine Schritte und deine Umgebung, um das Beste aus deinem Training herauszuholen.";
+        title = "Concentración";
+        description = "Entrenamiento mental: concéntrate en tu postura, tus pasos y tu entorno para sacar el máximo provecho de tu entrenamiento.";
     }
 
     return {
@@ -79,19 +79,19 @@ export const workouts: WorkoutDay[] = [
       title: title,
       description: description,
       exercises: [
-        { id: 1, name: "Aufwärm-Gehen", description: "Beginne mit einem langsamen, sanften Gehen. Kreise deine Schultern und Arme, um den Oberkörper zu lockern und die Durchblutung zu fördern.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "morning stretch" },
+        { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "morning stretch" },
         { 
           id: 2, 
-          name: isIntervalDay ? "Gehintervalle" : (isChallengeDay ? "Steigungsgehen" : "Flottes Tempo"), 
+          name: isIntervalDay ? "Intervalos de caminata" : (isChallengeDay ? "Caminata en pendiente" : "Ritmo rápido"), 
           description: isIntervalDay 
-            ? "Wechsle zwischen 3 Minuten flottem Gehen und 1 Minute Power-Walking. Beim Power-Walking die Arme aktiv einsetzen und die Schrittfrequenz erhöhen." 
-            : (isChallengeDay ? "Finde einen sanften Hügel oder stelle eine Steigung am Laufband ein. Halte ein konstantes Tempo, während du bergauf gehst, um die Bein- und Gesäßmuskulatur intensiv zu fordern." : "Halte ein starkes, flottes Tempo, das dich fordert, aber nicht überlastet. Deine Atmung sollte tief und kontrolliert sein."),
+            ? "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos." 
+            : (isChallengeDay ? "Encuentra una colina suave o ajusta una inclinación en la cinta de correr. Mantén un ritmo constante mientras subes para trabajar intensamente los músculos de las piernas y los glúteos." : "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada."),
           duration: `${duration-10}`, 
-          repetitions: isIntervalDay ? `ca. ${Math.floor((duration-10)/4)} Sätze` : null, 
+          repetitions: isIntervalDay ? `aprox. ${Math.floor((duration-10)/4)} series` : null, 
           image: "https://placehold.co/600x400.png", 
           imageHint: isIntervalDay ? "fast walk" : (isChallengeDay ? "hill walking" : "brisk pace") 
         },
-        { id: 3, name: "Abkühl-Gehen", description: "Verlangsame dein Tempo deutlich und schüttle Arme und Beine locker aus. Dies hilft deinem Körper, sich zu erholen und beugt Muskelkater vor.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "relaxing walk" },
+        { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "https://placehold.co/600x400.png", imageHint: "relaxing walk" },
       ],
     };
   }),
