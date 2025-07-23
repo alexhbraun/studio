@@ -41,62 +41,264 @@ export const workouts: WorkoutDay[] = [
         { id: 3, name: "Enfriamiento", description: "Termina la sesión con 3 minutos de caminata muy lenta. Esto ayuda a eliminar los productos de desecho metabólico de los músculos e iniciar la regeneración.", duration: "3", repetitions: null, image: "/images/workouts/day4-cooldown.png", imageHint: "relaxing stroll" },
     ],
   },
-  ...Array.from({ length: 26 }, (_, i) => i + 5).map(day => {
-    const isIntervalDay = day % 3 === 0;
-    const isChallengeDay = day % 6 === 1;
-    const duration = 25 + Math.floor(day / 1.5);
-    
-    let title = "Energía y Fuerza";
-    let description = "Enfoque en construir una sólida condición física básica para preparar sesiones más largas e intensas.";
-    
-    if (day > 20) description = "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.";
-
-    if (isIntervalDay) {
-        title = "Intervalos de potencia";
-        description = "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.";
-    } else if (isChallengeDay) {
-        title = "Desafío del día";
-        description = "Un desafío especial para romper estancamientos y establecer nuevos estímulos para los músculos y la resistencia.";
-    } else if (day % 7 === 0) {
-        title = "Final de la semana";
-        description = "Una sesión más larga para concluir la semana, consolidando tu progreso hasta ahora y aumentando la resistencia.";
-    } else if (day % 4 === 0) {
-        title = "Control de la respiración";
-        description = "Hoy el enfoque está en sincronizar la respiración y el movimiento para aumentar la eficiencia y manejar mejor el esfuerzo.";
-    } else if (day % 5 === 0) {
-        title = "Quema de calorías";
-        description = "Un entrenamiento diseñado para maximizar el gasto calórico a través de un ritmo constantemente alto.";
-    } else if (day % 2 === 0) {
-        title = "Ritmo y cadencia";
-        description = "Encuentra y mantén tu ritmo de caminata ideal para ahorrar energía y mejorar el rendimiento.";
-    } else {
-        title = "Concentración";
-        description = "Entrenamiento mental: concéntrate en tu postura, tus pasos y tu entorno para sacar el máximo provecho de tu entrenamiento.";
-    }
-
-    const exerciseName = isIntervalDay ? "Intervalos de caminata" : (isChallengeDay ? "Caminata en pendiente" : "Ritmo rápido");
-    const exerciseImageHint = isIntervalDay ? "fast walk" : (isChallengeDay ? "hill walking" : "brisk pace");
-    const exerciseImage = `/images/workouts/day${day}-${exerciseImageHint.replace(' ', '-')}.png`;
-
-    return {
-      day: day,
-      title: title,
-      description: description,
+  {
+    day: 5,
+    title: "Quema de calorías",
+    description: "Un entrenamiento diseñado para maximizar el gasto calórico a través de un ritmo constantemente alto.",
+    exercises: [
+      { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day5-warmup.png", imageHint: "morning stretch" },
+      { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "18", repetitions: null, image: "/images/workouts/day5-fast-pace.png", imageHint: "brisk pace" },
+      { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day5-cooldown.png", imageHint: "relaxing walk" },
+    ],
+  },
+  {
+    day: 6,
+    title: "Intervalos de potencia",
+    description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+    exercises: [
+      { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day6-warmup.png", imageHint: "morning stretch" },
+      { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "20", repetitions: "5 series", image: "/images/workouts/day6-intervals.png", imageHint: "fast walk" },
+      { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day6-cooldown.png", imageHint: "relaxing walk" },
+    ],
+  },
+  {
+    day: 7,
+    title: "Final de la semana",
+    description: "Una sesión más larga para concluir la semana, consolidando tu progreso hasta ahora y aumentando la resistencia.",
+    exercises: [
+      { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day7-warmup.png", imageHint: "morning stretch" },
+      { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "25", repetitions: null, image: "/images/workouts/day7-fast-pace.png", imageHint: "brisk pace" },
+      { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day7-cooldown.png", imageHint: "relaxing walk" },
+    ],
+  },
+  {
+    day: 8,
+    title: "Control de la respiración",
+    description: "Hoy el enfoque está en sincronizar la respiración y el movimiento para aumentar la eficiencia y manejar mejor el esfuerzo.",
+    exercises: [
+        { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day8-warmup.png", imageHint: "morning stretch" },
+        { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "23", repetitions: null, image: "/images/workouts/day8-fast-pace.png", imageHint: "brisk pace" },
+        { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day8-cooldown.png", imageHint: "relaxing walk" },
+    ]
+  },
+  {
+      day: 9,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
       exercises: [
-        { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: `/images/workouts/day${day}-warmup.png`, imageHint: "morning stretch" },
-        { 
-          id: 2, 
-          name: exerciseName, 
-          description: isIntervalDay 
-            ? "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos." 
-            : (isChallengeDay ? "Encuentra una colina suave o ajusta una inclinación en la cinta de correr. Mantén un ritmo constante mientras subes para trabajar intensamente los músculos de las piernas y los glúteos." : "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada."),
-          duration: `${duration-10}`, 
-          repetitions: isIntervalDay ? `aprox. ${Math.floor((duration-10)/4)} series` : null, 
-          image: exerciseImage, 
-          imageHint: exerciseImageHint
-        },
-        { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: `/images/workouts/day${day}-cooldown.png`, imageHint: "relaxing walk" },
-      ],
-    };
-  }),
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day9-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "24", repetitions: "6 series", image: "/images/workouts/day9-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day9-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 10,
+      title: "Quema de calorías",
+      description: "Un entrenamiento diseñado para maximizar el gasto calórico a través de un ritmo constantemente alto.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day10-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "25", repetitions: null, image: "/images/workouts/day10-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day10-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 11,
+      title: "Concentración",
+      description: "Entrenamiento mental: concéntrate en tu postura, tus pasos y tu entorno para sacar el máximo provecho de tu entrenamiento.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day11-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "26", repetitions: null, image: "/images/workouts/day11-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day11-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 12,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day12-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "28", repetitions: "7 series", image: "/images/workouts/day12-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day12-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 13,
+      title: "Desafío del día",
+      description: "Un desafío especial para romper estancamientos y establecer nuevos estímulos para los músculos y la resistencia.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day13-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Caminata en pendiente", description: "Encuentra una colina suave o ajusta una inclinación en la cinta de correr. Mantén un ritmo constante mientras subes para trabajar intensamente los músculos de las piernas y los glúteos.", duration: "28", repetitions: null, image: "/images/workouts/day13-hill-walk.png", imageHint: "hill walking" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day13-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 14,
+      title: "Final de la semana",
+      description: "Una sesión más larga para concluir la semana, consolidando tu progreso hasta ahora y aumentando la resistencia.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day14-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "30", repetitions: null, image: "/images/workouts/day14-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day14-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 15,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day15-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "32", repetitions: "8 series", image: "/images/workouts/day15-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day15-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 16,
+      title: "Ritmo y cadencia",
+      description: "Encuentra y mantén tu ritmo de caminata ideal para ahorrar energía y mejorar el rendimiento.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day16-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "30", repetitions: null, image: "/images/workouts/day16-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day16-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 17,
+      title: "Energía y Fuerza",
+      description: "Enfoque en construir una sólida condición física básica para preparar sesiones más largas e intensas.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day17-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "31", repetitions: null, image: "/images/workouts/day17-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day17-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 18,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day18-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "32", repetitions: "8 series", image: "/images/workouts/day18-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day18-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 19,
+      title: "Desafío del día",
+      description: "Un desafío especial para romper estancamientos y establecer nuevos estímulos para los músculos y la resistencia.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day19-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Caminata en pendiente", description: "Encuentra una colina suave o ajusta una inclinación en la cinta de correr. Mantén un ritmo constante mientras subes para trabajar intensamente los músculos de las piernas y los glúteos.", duration: "32", repetitions: null, image: "/images/workouts/day19-hill-walk.png", imageHint: "hill walking" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day19-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 20,
+      title: "Quema de calorías",
+      description: "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day20-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "33", repetitions: null, image: "/images/workouts/day20-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day20-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 21,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day21-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "36", repetitions: "9 series", image: "/images/workouts/day21-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day21-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 22,
+      title: "Energía y Fuerza",
+      description: "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day22-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "34", repetitions: null, image: "/images/workouts/day22-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day22-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 23,
+      title: "Concentración",
+      description: "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day23-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "35", repetitions: null, image: "/images/workouts/day23-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day23-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 24,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day24-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "36", repetitions: "9 series", image: "/images/workouts/day24-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day24-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 25,
+      title: "Desafío del día",
+      description: "Un desafío especial para romper estancamientos y establecer nuevos estímulos para los músculos y la resistencia.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day25-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Caminata en pendiente", description: "Encuentra una colina suave o ajusta una inclinación en la cinta de correr. Mantén un ritmo constante mientras subes para trabajar intensamente los músculos de las piernas y los glúteos.", duration: "35", repetitions: null, image: "/images/workouts/day25-hill-walk.png", imageHint: "hill walking" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day25-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 26,
+      title: "Energía y Fuerza",
+      description: "Entrenamiento avanzado de quema de calorías para maximizar la pérdida de peso y la condición física.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day26-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "36", repetitions: null, image: "/images/workouts/day26-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day26-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 27,
+      title: "Intervalos de potencia",
+      description: "Alternando fases rápidas y moderadas, el metabolismo se estimula intensamente y se optimiza la quema de grasa.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day27-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Intervalos de caminata", description: "Alterna entre 3 minutos de caminata rápida y 1 minuto de caminata potente (power walking). Durante el power walking, usa los brazos activamente y aumenta la frecuencia de los pasos.", duration: "40", repetitions: "10 series", image: "/images/workouts/day27-intervals.png", imageHint: "fast walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day27-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 28,
+      title: "Final de la semana",
+      description: "Una sesión más larga para concluir la semana, consolidando tu progreso hasta ahora y aumentando la resistencia.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day28-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "40", repetitions: null, image: "/images/workouts/day28-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day28-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 29,
+      title: "Ritmo y cadencia",
+      description: "Encuentra y mantén tu ritmo de caminata ideal para ahorrar energía y mejorar el rendimiento.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day29-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Ritmo rápido", description: "Mantén un ritmo fuerte y rápido que te desafíe pero no te agote. Tu respiración debe ser profunda y controlada.", duration: "40", repetitions: null, image: "/images/workouts/day29-fast-pace.png", imageHint: "brisk pace" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day29-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  },
+  {
+      day: 30,
+      title: "El gran final",
+      description: "¡Lo lograste! Hoy celebramos tu increíble viaje. Una última sesión desafiante para marcar la culminación de 30 días de dedicación y progreso.",
+      exercises: [
+          { id: 1, name: "Caminata de calentamiento", description: "Comienza con una caminata lenta y suave. Rota los hombros y los brazos para aflojar la parte superior del cuerpo y promover la circulación.", duration: "5", repetitions: null, image: "/images/workouts/day30-warmup.png", imageHint: "morning stretch" },
+          { id: 2, name: "Caminata final", description: "Combina todo lo que has aprendido. Mantén una técnica excelente, un ritmo fuerte y constante y una actitud positiva. ¡Disfruta cada paso de este último entrenamiento!", duration: "45", repetitions: null, image: "/images/workouts/day30-final-walk.png", imageHint: "celebratory walk" },
+          { id: 3, name: "Caminata de enfriamiento", description: "Disminuye considerablemente la velocidad y sacude los brazos y las piernas. Esto ayuda a tu cuerpo a recuperarse y previene el dolor muscular.", duration: "5", repetitions: null, image: "/images/workouts/day30-cooldown.png", imageHint: "relaxing walk" },
+      ]
+  }
 ];
