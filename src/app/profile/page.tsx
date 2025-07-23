@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -32,7 +31,7 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
                         <Avatar className="h-20 w-20">
-                          <AvatarImage src="/avatar-profile.png" alt="Benutzer" data-ai-hint="user avatar" />
+                          <AvatarImage src="/images/avatar-profile.png" alt="Benutzer" data-ai-hint="user avatar" />
                           <AvatarFallback>MM</AvatarFallback>
                         </Avatar>
                         <div>
