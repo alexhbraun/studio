@@ -39,13 +39,17 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
       });
     };
     
-    if (isOpen) {
-      window.addEventListener('resize', handleResize);
-      handleResize();
+    if (typeof window !== 'undefined') {
+        handleResize(); // Set initial size
+        window.addEventListener('resize', handleResize);
     }
     
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isOpen]);
+    return () => {
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', handleResize);
+        }
+    };
+  }, []);
   
   if (!dayData) {
     return null;
@@ -66,8 +70,8 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
         onClose();
       }
     }}>
-      {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} recycle={false} numberOfPieces={400} />}
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border max-h-[90vh] flex flex-col">
+        {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} recycle={false} numberOfPieces={400} />}
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
@@ -75,7 +79,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex-grow overflow-y-auto pr-2 -mr-4">
+        <div className="flex-grow overflow-hidden">
           <ScrollArea className="h-full pr-4">
               <div className="space-y-6">
                   {dayData.exercises.map((exercise) => (
