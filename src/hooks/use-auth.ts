@@ -1,4 +1,4 @@
-// src/hooks/use-auth.ts
+
 'use client';
 
 import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setUser(user);
         const userDocRef = doc(db, 'users', user.uid);
         
-        // Use onSnapshot to listen for real-time updates
         const unsubSnapshot = onSnapshot(userDocRef, (doc) => {
           if (doc.exists()) {
             setUserProfile(doc.data() as UserProfile);
@@ -53,7 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setLoading(false);
         });
         
-        return () => unsubSnapshot(); // Cleanup snapshot listener
+        return () => unsubSnapshot();
 
       } else {
         setUser(null);
@@ -62,7 +61,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
     });
 
-    return () => unsubscribe(); // Cleanup auth listener
+    return () => unsubscribe();
   }, []);
   
   const signOut = async () => {
@@ -79,7 +78,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 export const useAuth = () => useContext(AuthContext);
 
-// A wrapper component to protect routes
 export const ProtectedRoute = ({ children }: { children: ReactNode }) => {
     const { user, loading } = useAuth();
     const router = useRouter();
