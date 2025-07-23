@@ -14,6 +14,8 @@ const registerSchema = z.object({
   name: z.string().min(1, { message: 'Por favor, ingrese su nombre.' }),
   email: z.string().email({ message: 'Por favor, ingrese una dirección de correo electrónico válida.' }),
   password: z.string().min(6, { message: 'La contraseña debe tener al menos 6 caracteres.' }),
+  currentWeight: z.coerce.number().min(1, { message: 'Por favor, ingrese su peso actual.' }),
+  goalWeight: z.coerce.number().min(1, { message: 'Por favor, ingrese su peso objetivo.' }),
 });
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
@@ -26,12 +28,28 @@ export default function RegisterPage() {
       name: '',
       email: '',
       password: '',
+      currentWeight: undefined,
+      goalWeight: undefined,
     },
   });
 
   const onSubmit = (data: RegisterFormValues) => {
     // For testing, registration is automatic.
+    // In a real app, you would save this data to a database.
     console.log('Registration successful with:', data);
+    
+    // For demo purposes, we'll store it in localStorage to be read by the dashboard.
+    try {
+      const userProfile = {
+        name: data.name,
+        currentWeight: data.currentWeight,
+        goalWeight: data.goalWeight,
+      };
+      localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    } catch (error) {
+      console.error("Could not save user profile to localStorage", error);
+    }
+
     router.push('/dashboard');
   };
 
@@ -60,7 +78,7 @@ export default function RegisterPage() {
                   </FormItem>
                 )}
               />
-              <FormField
+               <FormField
                 control={form.control}
                 name="email"
                 render={({ field }) => (
@@ -73,6 +91,34 @@ export default function RegisterPage() {
                   </FormItem>
                 )}
               />
+              <div className="grid grid-cols-2 gap-4">
+                <FormField
+                  control={form.control}
+                  name="currentWeight"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Peso actual (kg)</FormLabel>
+                      <FormControl>
+                        <Input type="number" placeholder="70" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="goalWeight"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Peso objetivo (kg)</FormLabel>
+                      <FormControl>
+                        <Input type="number" placeholder="65" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               <FormField
                 control={form.control}
                 name="password"

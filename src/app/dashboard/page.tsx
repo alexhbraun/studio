@@ -1,10 +1,39 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Dashboard from "@/components/dashboard";
 import { Header } from "@/components/header";
 import { Heart, Droplets, Utensils, Bed, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
+interface UserProfile {
+  name: string;
+  currentWeight: number;
+  goalWeight: number;
+}
+
 export default function DashboardPage() {
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    try {
+      const storedProfile = localStorage.getItem('userProfile');
+      if (storedProfile) {
+        setUserProfile(JSON.parse(storedProfile));
+      } else {
+        // Fallback for demo purposes if nothing is in localStorage
+        setUserProfile({ name: "Usuario", currentWeight: 75, goalWeight: 70 });
+      }
+    } catch (error) {
+      console.error("Failed to parse user profile from localStorage", error);
+      setUserProfile({ name: "Usuario", currentWeight: 75, goalWeight: 70 });
+    }
+  }, []);
+
+  const name = userProfile?.name || 'Usuario';
+  const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 5;
+
   return (
     <>
       <Header />
@@ -12,11 +41,13 @@ export default function DashboardPage() {
         <header className="text-center mb-10 animate-fade-in-down">
           <div className="flex justify-center items-center gap-4 mb-2">
             <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary via-green-400 to-primary">
-              SlimWalk
+              ¡Hola, {name}!
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-            ¡Transforma tu vida paso a paso! Cada día es una nueva oportunidad para mejorar.
+            {diff > 0 
+              ? `Tu plan para perder ${diff} kg en 30 días está listo.`
+              : "Tu plan de 30 días para un estilo de vida más saludable está listo."}
           </p>
         </header>
 
