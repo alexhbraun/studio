@@ -37,15 +37,24 @@ export const guideContent: GuideChapter[] = [
     id: 2,
     title: "El Poder de Caminar",
     content: `
-      <h3>Por qué caminar es tan efectivo</h3>
-      <p>Caminar es una de las formas de ejercicio más naturales y accesibles. Es de bajo impacto para las articulaciones, no requiere equipo especial y se puede practicar en casi cualquier lugar.</p>
-      <ul>
-        <li>Mejora de la salud cardiovascular</li>
-        <li>Apoyo en el control del peso</li>
-        <li>Fortalecimiento de huesos y músculos</li>
-        <li>Reducción del estrés y mejora del estado de ánimo</li>
-      </ul>
-      <p><i>Próximamente se añadirán explicaciones detalladas y fundamentos científicos.</i></p>
+      <h3>No subestimes el poder de un simple paso, repetido una y otra vez.</h3>
+      <p>Caminar es el superpoder que todos poseemos, una forma de ejercicio fundamental, accesible y profundamente efectiva. Es la base sobre la que se construye una salud duradera. A diferencia de los entrenamientos de alta intensidad que pueden dejarte agotado, caminar te energiza, te rejuvenece y trabaja en armonía con tu cuerpo.</p>
+      
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Vista de los pies de una persona en zapatillas deportivas, dando un paso decidido hacia adelante sobre un sendero." class="w-full" data-ai-hint="walking shoes step" />
+      </div>
+
+      <h4>1. Un corazón más fuerte con cada latido</h4>
+      <p>Cada caminata es un entrenamiento para tu corazón. Al caminar a paso ligero, elevas tu ritmo cardíaco, lo que fortalece el músculo cardíaco. Esto mejora la circulación sanguínea en todo el cuerpo, reduce la presión arterial y disminuye significativamente el riesgo de enfermedades cardiovasculares. Piensa en cada paso como una inversión directa en la longevidad y la salud de tu corazón.</p>
+      
+      <h4>2. Tu aliado en el control de peso</h4>
+      <p>Caminar es una herramienta increíblemente eficaz para quemar calorías. Una caminata enérgica no solo quema calorías durante la actividad, sino que también puede aumentar tu metabolismo. Combinado con una nutrición consciente, se convierte en la estrategia perfecta y sostenible para alcanzar y mantener un peso saludable sin las dietas extremas o el ejercicio extenuante.</p>
+      
+      <h4>3. Construyendo un cuerpo resiliente</h4>
+      <p>Es un ejercicio de soporte de peso, lo que significa que fortalece tus huesos y aumenta su densidad, ayudando a prevenir la osteoporosis. Al mismo tiempo, tonifica los músculos de las piernas, los glúteos y el abdomen. Es una forma de bajo impacto, lo que lo hace ideal para tus articulaciones, a diferencia de correr, que puede ser más duro para las rodillas y las caderas.</p>
+      
+      <h4>4. Un bálsamo para la mente y el espíritu</h4>
+      <p>El impacto de caminar va mucho más allá de lo físico. Es una forma de meditación en movimiento. Caminar libera endorfinas, las hormonas de la felicidad, que reducen el estrés, la ansiedad y mejoran tu estado de ánimo. Una caminata al aire libre, especialmente en la naturaleza, puede despejar tu mente, aumentar la creatividad y proporcionarte un valioso tiempo para ti mismo, lejos de las presiones de la vida diaria.</p>
     `,
   },
   {
