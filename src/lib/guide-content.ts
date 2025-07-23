@@ -15,7 +15,7 @@ export const guideContent: GuideChapter[] = [
       <p class="lead">¡Bienvenido a <strong>SlimWalk</strong>, tu programa personal de caminata de 30 días! Estás al comienzo de un emocionante viaje que cambiará no solo tu cuerpo, sino también tu forma de pensar sobre el fitness y el bienestar. Esta guía es tu fiel compañera, llena de conocimientos, motivación y consejos prácticos para que cada paso sea un éxito.</p>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una inspiradora vista de un paisaje con un camino que se pierde en la distancia, simbolizando el comienzo de un viaje. La luz es cálida y acogedora." class="w-full" data-ai-hint="path landscape" />
+        <img src="https://placehold.co/800x400.png" alt="Una inspiradora vista de un paisaje con un camino que se pierde en la distancia, simbolizando el comienzo de un viaje. La luz es cálida y acogedora." class="w-full" data-ai-hint="inviting path" />
       </div>
 
       <h3>Qué puedes esperar de este programa</h3>
@@ -28,7 +28,7 @@ export const guideContent: GuideChapter[] = [
       <p>Esta guía está dividida en capítulos claros. Puedes leerla de principio a fin o consultar específicamente los temas que más te interesen en un momento dado. Recomendamos familiarizarse con los capítulos sobre la técnica correcta y la nutrición al principio para construir una base sólida. Vuelve aquí en cualquier momento que tengas una pregunta o necesites un impulso de motivación.</p>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-          <img src="https://placehold.co/800x400.png" alt="Una persona caminando feliz y enérgica por un sendero pintoresco, representando la alegría y los resultados positivos del programa." class="w-full" data-ai-hint="happy walking" />
+          <img src="https://placehold.co/800x400.png" alt="Una persona caminando feliz y enérgica por un sendero pintoresco, representando la alegría y los resultados positivos del programa." class="w-full" data-ai-hint="energetic walking" />
       </div>
 
       <p>¿Estás listo para dar el primer paso? Estamos emocionados de acompañarte en este camino. Empecemos juntos a esculpir una versión más sana, más en forma y más feliz de ti mismo, paso a paso.</p>
@@ -42,7 +42,7 @@ export const guideContent: GuideChapter[] = [
       <p>Caminar es el superpoder que todos poseemos, una forma de ejercicio fundamental, accesible y profundamente efectiva. Es la base sobre la que se construye una salud duradera. A diferencia de los entrenamientos de alta intensidad que pueden dejarte agotado, caminar te energiza, te rejuvenece y trabaja en armonía con tu cuerpo.</p>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Vista de los pies de una persona en zapatillas deportivas, dando un paso decidido hacia adelante sobre un sendero." class="w-full" data-ai-hint="walking shoes step" />
+        <img src="https://placehold.co/800x400.png" alt="Vista de los pies de una persona en zapatillas deportivas, dando un paso decidido hacia adelante sobre un sendero." class="w-full" data-ai-hint="determined step" />
       </div>
 
       <h4>1. Un corazón más fuerte con cada latido</h4>
@@ -52,7 +52,7 @@ export const guideContent: GuideChapter[] = [
       <p>Caminar es una herramienta increíblemente eficaz para quemar calorías. Una caminata enérgica no solo quema calorías durante la actividad, sino que también puede aumentar tu metabolismo. Combinado con una nutrición consciente, se convierte en la estrategia perfecta y sostenible para alcanzar y mantener un peso saludable sin las dietas extremas o el ejercicio extenuante.</p>
 
        <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una cinta métrica alrededor de una manzana fresca, simbolizando la conexión entre la nutrición y el control de peso." class="w-full" data-ai-hint="apple measuring tape" />
+        <img src="https://placehold.co/800x400.png" alt="Una cinta métrica alrededor de una manzana fresca, simbolizando la conexión entre la nutrición y el control de peso." class="w-full" data-ai-hint="healthy measurement" />
       </div>
       
       <h4>3. Construyendo un cuerpo resiliente</h4>
@@ -70,7 +70,7 @@ export const guideContent: GuideChapter[] = [
       <p>Piensa en tu cuerpo como un coche de alto rendimiento. Tus caminatas son el viaje, y la comida es el combustible premium que necesitas para llegar lejos y con energía. El ejercicio es una parte crucial de tu transformación, pero combinarlo con una nutrición inteligente es lo que desatará tu verdadero potencial. No se trata de dietas restrictivas, sino de nutrir tu cuerpo de forma consciente y disfrutar de alimentos deliciosos que te apoyen en tus metas.</p>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una colorida variedad de frutas y verduras frescas dispuestas artísticamente sobre una mesa de madera." class="w-full" data-ai-hint="fresh vegetables fruit" />
+        <img src="https://placehold.co/800x400.png" alt="Una colorida variedad de frutas y verduras frescas dispuestas artísticamente sobre una mesa de madera." class="w-full" data-ai-hint="vibrant food" />
       </div>
 
       <h4>Los tres grandes: Proteínas, Carbohidratos y Grasas</h4>
@@ -105,7 +105,7 @@ export const guideContent: GuideChapter[] = [
       <p>Puede que pienses: "¿Caminar? ¡Lo he estado haciendo toda mi vida!" Pero hay una gran diferencia entre un paseo casual y una caminata poderosa y transformadora. Perfeccionar tu técnica no solo te ayudará a quemar más calorías y tonificar más músculos, sino que también te protegerá de lesiones y hará que cada sesión sea más agradable y efectiva. ¡Vamos a convertir tus pasos en progreso!</p>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una persona caminando con una postura perfecta y erguida en un parque, demostrando la forma correcta." class="w-full" data-ai-hint="correct posture walking" />
+        <img src="https://placehold.co/800x400.png" alt="Una persona caminando con una postura perfecta y erguida en un parque, demostrando la forma correcta." class="w-full" data-ai-hint="perfect posture" />
       </div>
 
       <h4>1. La base: tu postura</h4>
@@ -134,7 +134,7 @@ export const guideContent: GuideChapter[] = [
       </ul>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Primer plano de los brazos de un caminante en el ángulo correcto, mostrando el movimiento adecuado." class="w-full" data-ai-hint="walking arm swing" />
+        <img src="https://placehold.co/800x400.png" alt="Primer plano de los brazos de un caminante en el ángulo correcto, mostrando el movimiento adecuado." class="w-full" data-ai-hint="focused arm" />
       </div>
 
       <h4>4. El combustible: tu respiración</h4>
@@ -158,7 +158,7 @@ export const guideContent: GuideChapter[] = [
       <p>La motivación no es un estado permanente; es una emoción que fluctúa. ¡Y eso está bien! Nadie se siente 100% motivado todo el tiempo. La clave del éxito no es esperar a que llegue la motivación, sino <strong>crearla a través de la acción</strong>. El simple acto de ponerte las zapatillas y salir por la puerta puede ser suficiente para generar el impulso que necesitas. La acción precede a la motivación, no al revés.</p>
       
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una persona atándose los cordones de sus zapatillas de deporte, lista para salir a caminar." class="w-full" data-ai-hint="tying shoes getting ready" />
+        <img src="https://placehold.co/800x400.png" alt="Una persona atándose los cordones de sus zapatillas de deporte, lista para salir a caminar." class="w-full" data-ai-hint="ready to go" />
       </div>
 
       <h4>Estrategias para Mantener Viva la Llama</h4>
@@ -192,7 +192,7 @@ export const guideContent: GuideChapter[] = [
       <p>En nuestra cultura de "siempre más", es fácil pensar que los resultados solo llegan cuando estamos en movimiento. Pero aquí está la verdad que transformará tu enfoque: <strong>el progreso real no sucede durante el entrenamiento, sino durante el descanso.</strong> La regeneración no es pereza; es una parte activa, inteligente y absolutamente esencial de tu camino hacia un cuerpo más fuerte y en forma.</p>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una persona relajándose en un sofá con una taza de té, en un ambiente tranquilo que evoca paz y recuperación." class="w-full" data-ai-hint="relaxing peaceful" />
+        <img src="https://placehold.co/800x400.png" alt="Una persona relajándose en un sofá con una taza de té, en un ambiente tranquilo que evoca paz y recuperación." class="w-full" data-ai-hint="calm relaxation" />
       </div>
 
       <h4>1. Construyendo Músculos Mientras Duermes</h4>
@@ -207,7 +207,7 @@ export const guideContent: GuideChapter[] = [
       </ul>
 
       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
-        <img src="https://placehold.co/800x400.png" alt="Una persona durmiendo plácidamente en una cama cómoda y oscura, simbolizando un sueño profundo y reparador." class="w-full" data-ai-hint="peaceful sleep" />
+        <img src="https://placehold.co/800x400.png" alt="Una persona durmiendo plácidamente en una cama cómoda y oscura, simbolizando un sueño profundo y reparador." class="w-full" data-ai-hint="restful sleep" />
       </div>
 
       <h4>3. Recuperación Activa: Moverse para Recuperarse</h4>
