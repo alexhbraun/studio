@@ -1,4 +1,3 @@
-
 // src/components/header.tsx
 "use client";
 
@@ -31,9 +30,9 @@ const SlimWalkLogo = () => (
     <Image 
       src="/logo.png" 
       alt="SlimWalk Logo" 
-      width={130} 
-      height={32}
-      className="h-8 w-auto"
+      width={260} 
+      height={64}
+      className="h-16 w-auto"
       data-ai-hint="logo"
     />
   </div>
