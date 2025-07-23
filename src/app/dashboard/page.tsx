@@ -1,9 +1,10 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
 import Dashboard from "@/components/dashboard";
 import { Header } from "@/components/header";
-import { Heart, Droplets, Utensils, Bed, BookOpen } from "lucide-react";
+import { Droplets, Utensils, Bed, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -33,6 +34,7 @@ export default function DashboardPage() {
 
   const name = userProfile?.name || 'Usuario';
   const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 5;
+  const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
 
   return (
     <>
@@ -45,9 +47,7 @@ export default function DashboardPage() {
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-            {diff > 0 
-              ? `Tu plan para perder ${diff} kg en 30 días está listo.`
-              : "Tu plan de 30 días para un estilo de vida más saludable está listo."}
+             Tu plan personalizado para {weightGoalText} en 30 días está listo.
           </p>
         </header>
 
@@ -56,16 +56,16 @@ export default function DashboardPage() {
             <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-6 w-6" />
-                ¡Bienvenido al programa! Lo que te espera:
+                ¡Bienvenido a tu programa!
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
               <div className="space-y-4">
                 <p>
-                  ¡Bienvenido a tu programa de caminata de 30 días! Este programa es tu compañero personal en el camino hacia un tú más sano y en forma. Ha sido cuidadosamente diseñado para ayudarte a lograr resultados sostenibles a través de una de las formas de ejercicio más naturales y accesibles: caminar. Ya sea que tu objetivo sea perder peso, aumentar la resistencia o simplemente un estilo de vida más activo, aquí encontrarás la estructura y la motivación que necesitas.
+                  Estás a punto de comenzar tu propio plan de caminata de 30 días, diseñado especialmente para ayudarte a {weightGoalText} y sentirte mejor contigo mismo/a. A lo largo del mes, te acompañaremos con entrenamientos diarios que aumentan poco a poco en intensidad para que logres resultados reales, sin perder la motivación.
                 </p>
                 <p>
-                  Durante los próximos 30 días, te guiaremos a través de entrenamientos diarios que aumentan gradualmente. Comenzamos suavemente para acostumbrar tu cuerpo a la nueva rutina, y luego aumentamos gradualmente la intensidad y la duración. El enfoque está en el progreso constante, no en la perfección. Se trata de seguir adelante, escuchar a tu cuerpo y celebrar cada paso en tu camino. Prepárate para cambiar no solo tu cuerpo, sino también tu actitud hacia el fitness y el bienestar. ¡Empecemos juntos!
+                  Aquí celebramos cada pequeño avance, y nuestro objetivo es ayudarte a alcanzar tu meta de forma sostenible, disfrutando del proceso. Este es tu momento, tu ritmo y tu cambio. ¡Confía en el proceso y celébralo! ¿Listo para transformar tu vida caminando?
                 </p>
               </div>
             </AccordionContent>
