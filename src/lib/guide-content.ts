@@ -49,6 +49,10 @@ export const guideContent: GuideChapter[] = [
       
       <h4>2. Tu aliado en el control de peso</h4>
       <p>Caminar es una herramienta increíblemente eficaz para quemar calorías. Una caminata enérgica no solo quema calorías durante la actividad, sino que también puede aumentar tu metabolismo. Combinado con una nutrición consciente, se convierte en la estrategia perfecta y sostenible para alcanzar y mantener un peso saludable sin las dietas extremas o el ejercicio extenuante.</p>
+
+       <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una cinta métrica alrededor de una manzana fresca, simbolizando la conexión entre la nutrición y el control de peso." class="w-full" data-ai-hint="apple measuring tape" />
+      </div>
       
       <h4>3. Construyendo un cuerpo resiliente</h4>
       <p>Es un ejercicio de soporte de peso, lo que significa que fortalece tus huesos y aumenta su densidad, ayudando a prevenir la osteoporosis. Al mismo tiempo, tonifica los músculos de las piernas, los glúteos y el abdomen. Es una forma de bajo impacto, lo que lo hace ideal para tus articulaciones, a diferencia de correr, que puede ser más duro para las rodillas y las caderas.</p>
@@ -61,13 +65,35 @@ export const guideContent: GuideChapter[] = [
     id: 3,
     title: "Fundamentos de Nutrición",
     content: `
-      <h3>La nutrición como factor de éxito</h3>
-      <p>El ejercicio es solo la mitad de la batalla. Una dieta equilibrada es crucial para alcanzar tus metas y nutrir tu cuerpo de manera óptima.</p>
-      <h4>Macro y Micronutrientes</h4>
-      <p>Un breve resumen sobre proteínas, carbohidratos, grasas, vitaminas y minerales, y su papel en tu cuerpo.</p>
-      <h4>Hidratación</h4>
-      <p>Por qué beber suficiente agua es esencial para la energía, el metabolismo y el bienestar general.</p>
-      <p><i>Próximamente se añadirán consejos prácticos, recetas sencillas y planes de comidas.</i></p>
+      <h3>Combustible para tu viaje: La nutrición es tu aliada</h3>
+      <p>Piensa en tu cuerpo como un coche de alto rendimiento. Tus caminatas son el viaje, y la comida es el combustible premium que necesitas para llegar lejos y con energía. El ejercicio es una parte crucial de tu transformación, pero combinarlo con una nutrición inteligente es lo que desatará tu verdadero potencial. No se trata de dietas restrictivas, sino de nutrir tu cuerpo de forma consciente y disfrutar de alimentos deliciosos que te apoyen en tus metas.</p>
+
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una colorida variedad de frutas y verduras frescas dispuestas artísticamente sobre una mesa de madera." class="w-full" data-ai-hint="fresh vegetables fruit" />
+      </div>
+
+      <h4>Los tres grandes: Proteínas, Carbohidratos y Grasas</h4>
+      <p>Entender estos tres macronutrientes es la base de una alimentación saludable:</p>
+      <ul>
+        <li><strong>Proteínas: Los constructores.</strong> Son esenciales para reparar y construir los músculos que trabajas en cada caminata. Ayudan a que te sientas satisfecho por más tiempo, lo que es clave para el control de peso.
+          <br><em>Encuéntralas en:</em> pollo, pescado, huevos, legumbres (lentejas, garbanzos), tofu y yogur griego.</li>
+        <li><strong>Carbohidratos: Tu fuente de energía.</strong> Son el combustible principal para tus músculos. Elige carbohidratos complejos que liberan energía lentamente, manteniéndote activo durante más tiempo.
+          <br><em>Elige sabiamente:</em> avena, arroz integral, quinoa, pan integral, batatas y frutas.</li>
+        <li><strong>Grasas: Las protectoras.</strong> ¡No todas las grasas son malas! Las grasas saludables son vitales para la función cerebral, la producción de hormonas y la absorción de vitaminas.
+          <br><em>Busca las buenas:</em> aguacate, nueces, semillas (chía, lino), aceite de oliva y pescado graso (salmón).</li>
+      </ul>
+
+      <h4>La magia de la hidratación</h4>
+      <p>El agua es tu mejor amiga en este programa. Estar bien hidratado es fundamental para tener energía, un metabolismo eficiente y una buena recuperación muscular. A menudo, confundimos la sed con el hambre. Intenta beber un vaso de agua antes de cada comida y lleva una botella contigo durante tus caminatas.</p>
+
+      <h4>El momento perfecto para tus comidas</h4>
+      <p>No tienes que complicarte, pero algunos principios básicos pueden ayudarte:</p>
+      <ul>
+        <li><strong>Antes de caminar:</strong> Si necesitas un impulso, una pequeña merienda rica en carbohidratos 30-60 minutos antes es ideal (ej. una banana o un puñado de bayas).</li>
+        <li><strong>Después de caminar:</strong> Dentro de una hora después de tu entrenamiento, intenta hacer una comida o merienda que combine proteínas (para la reparación muscular) y carbohidratos (para reponer energía). Un batido de proteínas con fruta o un plato de pollo con quinoa son excelentes opciones.</li>
+      </ul>
+
+      <p class="mt-6">Recuerda, cada elección de alimentos es una oportunidad para acelerar tus resultados y sentirte increíble. ¡Estás aprendiendo a cuidar tu cuerpo desde adentro hacia afuera!</p>
     `,
   },
   {
