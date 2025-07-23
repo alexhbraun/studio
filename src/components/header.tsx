@@ -9,6 +9,8 @@ import {
   User,
   LogOut,
   BookMarked,
+  Menu,
+  PanelLeft,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -18,8 +20,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 
 const SlimWalkLogo = () => (
   <div className="flex items-center gap-2">
@@ -34,8 +43,26 @@ const SlimWalkLogo = () => (
   </div>
 );
 
+const NavLink = React.forwardRef<
+  React.ElementRef<typeof Link>,
+  React.ComponentPropsWithoutRef<typeof Link> & { icon: React.ReactNode, text: string, onClick?: () => void }
+>(({ href, icon, text, className, onClick, ...props }, ref) => (
+  <Link
+    href={href}
+    ref={ref}
+    onClick={onClick}
+    className={cn("flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground", className)}
+    {...props}
+  >
+    {icon}
+    {text}
+  </Link>
+));
+NavLink.displayName = 'NavLink';
+
 
 export function Header() {
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-28 items-center justify-between border-b bg-white px-4 backdrop-blur-sm md:px-6">
@@ -43,29 +70,46 @@ export function Header() {
         <SlimWalkLogo />
       </Link>
       <div className="flex items-center gap-2">
-      <nav className="hidden items-center gap-4 md:flex">
-        <Link
-          href="/dashboard"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Home className="h-4 w-4" />
-          Inicio
-        </Link>
-         <Link
-          href="/guide"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <BookMarked className="h-4 w-4" />
-          Manual
-        </Link>
-        <Link
-          href="/settings"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Settings className="h-4 w-4" />
-          Ajustes
-        </Link>
-      </nav>
+        <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
+          <NavLink href="/dashboard" icon={<Home className="h-4 w-4" />} text="Inicio" />
+          <NavLink href="/guide" icon={<BookMarked className="h-4 w-4" />} text="Manual" />
+          <NavLink href="/settings" icon={<Settings className="h-4 w-4" />} text="Ajustes" />
+        </nav>
+
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="md:hidden">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Abrir menú</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+            <nav className="mt-10 flex flex-col gap-4">
+               <NavLink 
+                  href="/dashboard" 
+                  icon={<Home className="h-5 w-5" />} 
+                  text="Inicio"
+                  className="text-lg"
+                  onClick={() => setIsSheetOpen(false)}
+                />
+                <NavLink 
+                  href="/guide" 
+                  icon={<BookMarked className="h-5 w-5" />} 
+                  text="Manual"
+                  className="text-lg"
+                  onClick={() => setIsSheetOpen(false)}
+                />
+                <NavLink 
+                  href="/settings" 
+                  icon={<Settings className="h-5 w-5" />} 
+                  text="Ajustes"
+                  className="text-lg"
+                  onClick={() => setIsSheetOpen(false)}
+                />
+            </nav>
+          </SheetContent>
+        </Sheet>
+        
          <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
