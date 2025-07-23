@@ -29,7 +29,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const SlimWalkLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      src="/images/logo.png" 
+      src="/images/ui/logo.png" 
       alt="SlimWalk Logo" 
       width={130} 
       height={32}
