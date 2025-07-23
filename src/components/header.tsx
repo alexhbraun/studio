@@ -3,15 +3,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from "next-themes"
 import {
   Home,
   Settings,
-  Moon,
-  Sun,
   User,
   LogOut,
-  Route,
   BookMarked,
 } from 'lucide-react';
 import {
@@ -30,9 +26,9 @@ const SlimWalkLogo = () => (
     <Image 
       src="/logo.png" 
       alt="SlimWalk Logo" 
-      width={260} 
-      height={64}
-      className="h-16 w-auto"
+      width={520} 
+      height={128}
+      className="h-32 w-auto"
       data-ai-hint="logo"
     />
   </div>
@@ -40,7 +36,6 @@ const SlimWalkLogo = () => (
 
 
 export function Header() {
-  const { setTheme, theme } = useTheme()
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between border-b bg-background/95 px-4 backdrop-blur-sm md:px-6">
@@ -63,13 +58,6 @@ export function Header() {
           <BookMarked className="h-4 w-4" />
           Manual
         </Link>
-         <Link
-          href="/tracking"
-          className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <Route className="h-4 w-4" />
-          Seguimiento
-        </Link>
         <Link
           href="/settings"
           className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -78,16 +66,6 @@ export function Header() {
           Ajustes
         </Link>
       </nav>
-        <Button 
-            variant="ghost" 
-            size="icon" 
-            className="text-muted-foreground hover:text-foreground"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-            >
-          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
          <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
