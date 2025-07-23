@@ -32,7 +32,7 @@ export default function ProfilePage() {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-4">
                         <Avatar className="h-20 w-20">
-                          <AvatarImage src="/images/ui/avatar-profile.png" alt="Benutzer" data-ai-hint="user avatar" />
+                          <AvatarImage src="/avatar-profile.png" alt="Benutzer" data-ai-hint="user avatar" />
                           <AvatarFallback>MM</AvatarFallback>
                         </Avatar>
                         <div>

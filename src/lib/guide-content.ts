@@ -19,7 +19,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/intro-1.png",
+        src: "/intro-1.png",
         alt: "Una inspiradora vista de un paisaje con un camino que se pierde en la distancia, simbolizando el comienzo de un viaje. La luz es cálida y acogedora.",
         aiHint: "Wide landscape shot of a winding path through rolling green hills at sunrise, symbolizing a new journey. The sky is a warm palette of orange and pink. The path is inviting and clear."
       },
@@ -38,7 +38,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/intro-2.png",
+        src: "/intro-2.png",
         alt: "Una persona caminando feliz y enérgica por un sendero pintoresco, representando la alegría y los resultados positivos del programa.",
         aiHint: "Action shot from a low angle of a person's feet in modern sneakers, walking with purpose and energy on a clean, scenic trail. The background is slightly blurred to emphasize motion."
       },
@@ -63,7 +63,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/power-1.png",
+        src: "/power-1.png",
         alt: "Vista de los pies de una persona en zapatillas deportivas, dando un paso decidido hacia adelante sobre un sendero.",
         aiHint: "Dramatic close-up of a high-quality sneaker making contact with a gravel path. The image should convey a sense of determination and the start of a powerful stride. Morning light."
       },
@@ -79,7 +79,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/power-2.png",
+        src: "/power-2.png",
         alt: "Una cinta métrica alrededor de una manzana fresca, simbolizando la conexión entre la nutrición y el control de peso.",
         aiHint: "Artistic shot of a vibrant, crisp apple with a measuring tape loosely wrapped around it, on a clean, minimalist background. This visually connects fitness (measurement) with healthy eating."
       },
@@ -108,7 +108,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/nutrition-1.png",
+        src: "/nutrition-1.png",
         alt: "Una colorida variedad de frutas y verduras frescas dispuestas artísticamente sobre una mesa de madera.",
         aiHint: "Vibrant, colorful flat lay of fresh vegetables, fruits, lean proteins (like chicken breast), and healthy fats (avocado, nuts) arranged beautifully on a rustic wooden table. It should look like a cornucopia of health."
       },
@@ -154,7 +154,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/technique-1.png",
+        src: "/technique-1.png",
         alt: "Una persona caminando con una postura perfecta y erguida en un parque, demostrando la forma correcta.",
         aiHint: "Side-profile illustration or photo of a person walking with perfect posture: head up, shoulders back, core engaged. Use graphic overlays to highlight the straight line from ear to shoulder to hip."
       },
@@ -189,7 +189,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/technique-2.png",
+        src: "/technique-2.png",
         alt: "Primer plano de los brazos de un caminante en el ángulo correcto, mostrando el movimiento adecuado.",
         aiHint: "Close-up action shot focusing on the arms of a walker, bent at a perfect 90-degree angle. The motion should be clear, showing one arm forward and one back, in sync with their stride."
       },
@@ -224,7 +224,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/motivation-1.png",
+        src: "/motivation-1.png",
         alt: "Una persona atándose los cordones de sus zapatillas de deporte, lista para salir a caminar.",
         aiHint: "Close-up, top-down shot of a person tying the laces of their running shoes. The focus is on the hands and the shoes, symbolizing the decision and preparation to take action."
       },
@@ -269,7 +269,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/rest-1.png",
+        src: "/rest-1.png",
         alt: "Una persona relajándose en un sofá con una taza de té, en un ambiente tranquilo que evoca paz y recuperación.",
         aiHint: "A serene, cozy image of a person relaxing on a comfortable couch with a steaming mug of tea. Soft, warm lighting. The mood is one of peace, quiet, and well-deserved rest."
       },
@@ -290,7 +290,7 @@ export const guideContent: GuideChapter[] = [
       },
       {
         type: 'image',
-        src: "/images/guide/rest-2.png",
+        src: "/rest-2.png",
         alt: "Una persona durmiendo plácidamente en una cama cómoda y oscura, simbolizando un sueño profundo y reparador.",
         aiHint: "Peaceful scene of a person sleeping soundly in a comfortable bed. The room is dark, except for soft moonlight coming through a window. The focus is on tranquility and deep, restorative sleep."
       },

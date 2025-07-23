@@ -52,7 +52,7 @@ export default function TrackingPage() {
                 <div className="animate-fade-in-up">
                     <Card className="overflow-hidden shadow-2xl">
                         <CardContent className="p-0">
-                            <Image src="/images/ui/map-route.png" width={1200} height={600} alt="Ruta del mapa" data-ai-hint="map with a walking route" className="w-full" />
+                            <Image src="/map-route.png" width={1200} height={600} alt="Ruta del mapa" data-ai-hint="map with a walking route" className="w-full" />
                         </CardContent>
                     </Card>
 

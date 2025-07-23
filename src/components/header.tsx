@@ -29,7 +29,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 const SlimWalkLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      src="/images/ui/logo.png" 
+      src="/logo.png" 
       alt="SlimWalk Logo" 
       width={130} 
       height={32}
@@ -93,7 +93,7 @@ export function Header() {
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
               <Avatar>
-                <AvatarImage src="/images/ui/avatar-header.png" alt="User" data-ai-hint="user avatar" />
+                <AvatarImage src="/avatar-header.png" alt="User" data-ai-hint="user avatar" />
                 <AvatarFallback>MM</AvatarFallback>
               </Avatar>
               <span className="sr-only">Toggle user menu</span>
