@@ -1,3 +1,4 @@
+
 import type { WorkoutDay } from './types';
 
 export const workouts: WorkoutDay[] = [
