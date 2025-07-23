@@ -58,18 +58,18 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               <CarouselItem key={exercise.id}>
                 <div className="p-1">
                   <Card className="bg-card border-border/60">
-                    <CardContent className="flex flex-col md:flex-row items-center justify-center gap-6 p-6 min-h-[350px]">
-                      <div className="w-full md:w-1/2 flex-shrink-0">
+                    <CardContent className="grid md:grid-cols-2 items-center gap-6 p-6 min-h-[400px]">
+                      <div className="flex justify-center">
                          <Image
                           src={exercise.image}
                           alt={exercise.name}
-                          width={400}
-                          height={400}
-                          className="rounded-lg object-cover aspect-square mx-auto"
+                          width={300}
+                          height={300}
+                          className="rounded-lg object-cover aspect-square"
                           data-ai-hint={exercise.imageHint}
                         />
                       </div>
-                      <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
+                      <div className="space-y-4 text-center md:text-left">
                         <h3 className="text-2xl font-bold font-headline text-primary">{exercise.name}</h3>
                         <p className="text-muted-foreground">{exercise.description}</p>
                         <div className="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
