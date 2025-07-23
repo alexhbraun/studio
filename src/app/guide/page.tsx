@@ -1,16 +1,32 @@
-
 // src/app/guide/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/header';
 import { guideContent, type GuideChapter } from '@/lib/guide-content';
 import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
 
+interface UserProfile {
+  name: string;
+}
+
 export default function GuidePage() {
   const [activeChapter, setActiveChapter] = useState<GuideChapter>(guideContent[0]);
+  const [userName, setUserName] = useState<string>('Usuario');
+
+  useEffect(() => {
+    try {
+      const storedProfile = localStorage.getItem('userProfile');
+      if (storedProfile) {
+        const profile: UserProfile = JSON.parse(storedProfile);
+        setUserName(profile.name);
+      }
+    } catch (error) {
+      console.error("Failed to parse user profile from localStorage", error);
+    }
+  }, []);
 
   const renderContent = (content: any) => {
     if (typeof content === 'string') {
@@ -49,7 +65,7 @@ export default function GuidePage() {
       <div className="container mx-auto px-4 py-8 mt-32">
         <header className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold font-headline tracking-tight text-primary">
-            Manual del Programa
+            Manual del Programa para {userName}
           </h1>
           <p className="text-muted-foreground mt-2 text-lg">
             Tu guía completa para el máximo éxito y comprensión.
