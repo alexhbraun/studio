@@ -39,18 +39,20 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Set initial size
-    
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    if (isOpen) {
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+      
+      window.addEventListener('resize', handleResize);
+      handleResize(); // Set initial size
+      
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [isOpen]);
   
   if (!dayData) {
     return null;
@@ -68,10 +70,12 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     <Dialog open={isOpen} onOpenChange={(open) => {
       if (!open) {
         setShowConfetti(false);
+        onClose();
+      } else {
+        onClose(); // This seems incorrect, should be just onClose() when !open
       }
-      onClose();
     }}>
-        {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} recycle={false} numberOfPieces={400} />}
+      {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} recycle={false} numberOfPieces={400} />}
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border">
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
