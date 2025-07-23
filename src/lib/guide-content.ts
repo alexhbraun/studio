@@ -1,3 +1,4 @@
+
 // src/lib/guide-content.ts
 export interface GuideChapter {
   id: number;
@@ -51,6 +52,43 @@ export const guideContent: GuideChapter[] = [
   },
   {
     id: 2,
+    title: "Tu Plan de 30 Días: La Hoja de Ruta",
+    content: [
+      {
+        type: 'html',
+        content: `
+          <h3>Tu mapa hacia el éxito, paso a paso.</h3>
+          <p>Este es el corazón de tu transformación. El plan de 30 días no es solo una lista de ejercicios; es una estrategia cuidadosamente diseñada para llevarte desde un punto de partida suave hasta un nivel de condición física que te sorprenderá. Está basado en el principio de <strong>sobrecarga progresiva</strong>, lo que significa que cada semana aumentaremos gradualmente el desafío para que tu cuerpo se adapte, se fortalezca y queme grasa de manera más eficiente.</p>
+          `
+      },
+      {
+        type: 'image',
+        src: "/plan-1.png",
+        alt: "Un calendario o planificador con los primeros días marcados, simbolizando el inicio y la estructura del plan.",
+        aiHint: "Clean, top-down shot of a stylish monthly planner or calendar with the first week highlighted or marked with checkmarks. A pen lies next to it, suggesting action and commitment."
+      },
+      {
+        type: 'html',
+        content: `
+          <h4>La Estructura Semanal</h4>
+          <p>El plan está dividido en semanas, cada una con un enfoque específico para construir tu resistencia y fuerza de manera lógica:</p>
+          <ul>
+            <li><strong>Semana 1: La Fundación (Días 1-7).</strong> Nos centraremos en crear el hábito. Las caminatas son más cortas y de menor intensidad. El objetivo principal es la constancia y perfeccionar la <strong>Técnica Correcta</strong> que aprenderás en otro capítulo.</li>
+            <li><strong>Semana 2: Construyendo el Momento (Días 8-14).</strong> Aumentamos la duración y empezamos a introducir intervalos de mayor intensidad. Aquí es donde tu cuerpo comenzará a adaptarse y verás las primeras mejoras en tu resistencia.</li>
+            <li><strong>Semana 3: El Desafío (Días 15-21).</strong> Esta es la fase de aceleración. Los entrenamientos son más largos y los intervalos más desafiantes. La <strong>Nutrición y la Hidratación</strong> se vuelven cruciales para mantener tu energía.</li>
+            <li><strong>Semana 4 y Final: Consolidación (Días 22-30).</strong> Llevamos tu condición física a un nuevo nivel y consolidamos todo el trabajo duro. Al final de esta fase, notarás una diferencia significativa en cómo te sientes y te ves. El <strong>Descanso y la Regeneración</strong> serán clave para terminar fuerte.</li>
+          </ul>
+
+          <h4>Días de Descanso y Flexibilidad</h4>
+          <p>Observarás que el plan integra días de descanso o de recuperación activa. Estos días son tan importantes como los días de entrenamiento. Es cuando tu cuerpo se repara y se hace más fuerte. Escucha a tu cuerpo; si un día te sientes particularmente cansado, no dudes en cambiar un entrenamiento intenso por una caminata de recuperación suave.</p>
+          
+          <p>Usa la sección del dashboard para seguir tu progreso diario. Marcar cada día como "completado" te dará un increíble impulso de <strong>Motivación</strong>. ¡Confía en el plan, respeta el proceso y prepárate para ver de lo que eres capaz!</p>
+        `
+      }
+    ],
+  },
+  {
+    id: 3,
     title: "El Poder de Caminar",
     content: [
       {
@@ -95,7 +133,7 @@ export const guideContent: GuideChapter[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "Fundamentos de Nutrición",
     content: [
       {
@@ -141,7 +179,7 @@ export const guideContent: GuideChapter[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "La Técnica Correcta",
     content: [
       {
@@ -208,7 +246,7 @@ export const guideContent: GuideChapter[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Motivación y Constancia",
     content: [
       {
@@ -256,7 +294,7 @@ export const guideContent: GuideChapter[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Descanso y Regeneración",
     content: [
       {
@@ -313,3 +351,5 @@ export const guideContent: GuideChapter[] = [
     ]
   }
 ];
+
+    
