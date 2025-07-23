@@ -1,3 +1,4 @@
+
 // src/components/header.tsx
 "use client";
 
@@ -33,6 +34,7 @@ const SlimWalkLogo = () => (
       width={260} 
       height={64}
       className="h-16 w-auto"
+      data-ai-hint="logo"
     />
   </div>
 );

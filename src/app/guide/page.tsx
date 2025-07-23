@@ -1,7 +1,9 @@
+
 // src/app/guide/page.tsx
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Header } from '@/components/header';
 import { guideContent, type GuideChapter } from '@/lib/guide-content';
 import { cn } from '@/lib/utils';
@@ -9,6 +11,37 @@ import { ChevronRight } from 'lucide-react';
 
 export default function GuidePage() {
   const [activeChapter, setActiveChapter] = useState<GuideChapter>(guideContent[0]);
+
+  const renderContent = (content: any) => {
+    if (typeof content === 'string') {
+      return <div dangerouslySetInnerHTML={{ __html: content }} />;
+    }
+  
+    return (
+      <div>
+        {content.map((item: any, index: number) => {
+          if (item.type === 'image') {
+            return (
+              <div key={index} className="my-6 rounded-lg overflow-hidden shadow-lg">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={800}
+                  height={400}
+                  className="w-full"
+                  data-ai-hint={item.aiHint}
+                />
+              </div>
+            );
+          }
+          if (item.type === 'html') {
+            return <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />;
+          }
+          return null;
+        })}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -51,7 +84,7 @@ export default function GuidePage() {
           <main className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg p-6 md:p-8">
             <article className="prose prose-lg dark:prose-invert max-w-none">
                 <h2 className="text-3xl font-bold font-headline text-primary border-b-2 border-primary/50 pb-2 mb-4">{activeChapter.title}</h2>
-                <div dangerouslySetInnerHTML={{ __html: activeChapter.content }} />
+                {renderContent(activeChapter.content)}
             </article>
           </main>
         </div>
