@@ -151,16 +151,37 @@ export const guideContent: GuideChapter[] = [
     id: 5,
     title: "Motivación y Constancia",
     content: `
-      <h3>Crear hábitos a largo plazo</h3>
-      <p>La motivación es lo que te pone en marcha. El hábito es lo que te mantiene en movimiento.</p>
-      <p>Consejos para mantener la motivación:</p>
+      <h3>La Llama Interior: Cómo Cultivar la Motivación y Forjar un Hábito Inquebrantable</h3>
+      <p>La motivación es la chispa que enciende el fuego, pero el hábito es lo que mantiene esa llama ardiendo día tras día. En este capítulo, te daremos las herramientas no solo para empezar con fuerza, sino para continuar con una determinación que te sorprenderá a ti mismo.</p>
+      
+      <h4>La Verdad Sobre la Motivación</h4>
+      <p>La motivación no es un estado permanente; es una emoción que fluctúa. ¡Y eso está bien! Nadie se siente 100% motivado todo el tiempo. La clave del éxito no es esperar a que llegue la motivación, sino <strong>crearla a través de la acción</strong>. El simple acto de ponerte las zapatillas y salir por la puerta puede ser suficiente para generar el impulso que necesitas. La acción precede a la motivación, no al revés.</p>
+      
+      <div class="my-6 rounded-lg overflow-hidden shadow-lg">
+        <img src="https://placehold.co/800x400.png" alt="Una persona atándose los cordones de sus zapatillas de deporte, lista para salir a caminar." class="w-full" data-ai-hint="tying shoes getting ready" />
+      </div>
+
+      <h4>Estrategias para Mantener Viva la Llama</h4>
       <ul>
-        <li>Establece metas intermedias realistas.</li>
-        <li>Sigue tu progreso.</li>
-        <li>Encuentra un compañero de entrenamiento.</li>
-        <li>Recompénsate por los hitos alcanzados.</li>
+        <li><strong>Define tu "Porqué" Profundo:</strong> No te quedes en "quiero perder peso". Pregúntate: ¿Por qué quiero perder peso? ¿Para tener más energía para jugar con mis hijos? ¿Para sentirme más seguro y vibrante? Escribe este "porqué" y ponlo en un lugar visible. Será tu ancla en los días difíciles.</li>
+        <li><strong>Establece Metas Inteligentes (SMART):</strong>
+            <ul>
+                <li><strong>Específicas:</strong> "Caminaré 30 minutos, 5 días a la semana."</li>
+                <li><strong>Medibles:</strong> La app registrará tus entrenamientos.</li>
+                <li><strong>Alcanzables:</strong> El programa está diseñado para ser progresivo y realista.</li>
+                <li><strong>Relevantes:</strong> ¿Se alinea con tu "porqué"?</li>
+                <li><strong>Con Plazo:</strong> Este es un programa de 30 días, ¡un plazo perfecto!</li>
+            </ul>
+        </li>
+        <li><strong>Celebra las Pequeñas Victorias:</strong> ¿Completaste el entrenamiento de hoy aunque estabas cansado? ¡Eso es una victoria! Reconoce y celebra cada día que cumples. Esto refuerza el hábito y crea un ciclo de retroalimentación positiva.</li>
+        <li><strong>Planifica tu Éxito:</strong> No dejes tus caminatas al azar. Míralas como citas importantes contigo mismo. Agenda tus entrenamientos en tu calendario, prepara tu ropa la noche anterior. Elimina las barreras antes de que aparezcan.</li>
+        <li><strong>No Rompas la Cadena:</strong> Intenta completar tu caminata todos los días programados. Cada día que lo haces, añades un eslabón a la cadena de tu nuevo hábito. Después de unas semanas, tu principal motivación será no querer romper esa cadena.</li>
       </ul>
-      <p><i>Próximamente se añadirán estrategias para superar la desmotivación y manejar los contratiempos.</i></p>
+
+      <h4>¿Qué Pasa si Fallo un Día?</h4>
+      <p>¡No pasa nada! Un día perdido no es un fracaso; es simplemente un dato. La regla de oro es: <strong>nunca te saltes dos días seguidos.</strong> Si te saltas un día, asegúrate de volver al siguiente. El camino hacia el fitness no es una línea recta, sino una serie de pasos hacia adelante. Lo importante es que la dirección general sea de progreso.</p>
+
+      <p class="mt-6">Recuerda, no estás solo en esto. Cada día, estás construyendo una nueva versión de ti mismo. Estás invirtiendo en tu salud, tu energía y tu felicidad. <strong>Sigue adelante. Paso a paso, estás forjando un hábito que te cambiará la vida.</strong></p>
     `,
   },
   {
