@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -43,7 +44,7 @@ export function OnboardingForm() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
        <Image 
-        src="/SlimWalk.png"
+        src="https://placehold.co/1040x256.png"
         alt="StrideSculpt Logo" 
         width={1040} 
         height={256}

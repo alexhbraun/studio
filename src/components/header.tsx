@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -32,7 +33,7 @@ import { useProfile } from '@/hooks/use-profile';
 const StrideSculptLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      src="/SlimWalk.png" 
+      src="https://placehold.co/1040x256.png" 
       alt="StrideSculpt Logo" 
       width={1040} 
       height={256}
