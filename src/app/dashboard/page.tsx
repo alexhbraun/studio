@@ -70,7 +70,7 @@ export default function DashboardPage() {
         <footer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">
           <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-accent">
+              <CardTitle className="flex items-center gap-2 text-lg text-primary">
                 <Droplets className="h-5 w-5" />
                 Consejo del día
               </CardTitle>
@@ -83,7 +83,7 @@ export default function DashboardPage() {
           </Card>
           <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-accent">
+              <CardTitle className="flex items-center gap-2 text-lg text-primary">
                 <Utensils className="h-5 w-5" />
                 Alimentación saludable
               </CardTitle>
@@ -96,7 +96,7 @@ export default function DashboardPage() {
           </Card>
           <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg text-accent">
+              <CardTitle className="flex items-center gap-2 text-lg text-primary">
                 <Bed className="h-5 w-5" />
                 Recuperación
               </CardTitle>
