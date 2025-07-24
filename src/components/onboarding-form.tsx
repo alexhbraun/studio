@@ -44,12 +44,11 @@ export function OnboardingForm() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
        <Image 
-        src="https://placehold.co/1040x256.png"
+        src="/logo.png"
         alt="StrideSculpt Logo" 
         width={1040} 
         height={256}
         className="h-24 w-auto mb-8"
-        data-ai-hint="logo running shoe"
       />
       <Card className="mx-auto max-w-lg w-full">
         <CardHeader>

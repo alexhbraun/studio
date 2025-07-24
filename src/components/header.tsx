@@ -33,12 +33,11 @@ import { useProfile } from '@/hooks/use-profile';
 const StrideSculptLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      src="https://placehold.co/1040x256.png" 
+      src="/logo.png" 
       alt="StrideSculpt Logo" 
       width={1040} 
       height={256}
       className="h-16 w-auto"
-      data-ai-hint="logo running shoe"
     />
   </div>
 );
