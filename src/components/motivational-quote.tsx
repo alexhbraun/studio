@@ -53,7 +53,7 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
   };
   
   return (
-    <Card className="mt-8 bg-accent/90 border-accent shadow-lg text-accent-foreground rounded-lg">
+    <Card className="mt-8 bg-primary/90 border-primary/20 shadow-lg text-primary-foreground rounded-lg">
       <CardHeader className="text-center">
         <CardTitle className="font-headline text-2xl flex items-center justify-center gap-2">
            <Lightbulb /> Tu motivación de hoy
@@ -71,7 +71,7 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
                 <p className="text-xl italic">
                 {message}
                 </p>
-                <p className="text-sm text-accent-foreground/80">¡Cada entrenamiento te acerca a tu meta. No te rindas, tu cuerpo y tu mente te lo agradecerán!</p>
+                <p className="text-sm text-primary-foreground/80">¡Cada entrenamiento te acerca a tu meta. No te rindas, tu cuerpo y tu mente te lo agradecerán!</p>
             </div>
         )}
          {isLoading && (
@@ -81,7 +81,7 @@ export function MotivationalQuote({ progressPercentage }: MotivationalQuoteProps
             </div>
          )}
         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-4">
-            <Button type="submit" variant="outline" className="bg-accent-foreground/10 border-accent-foreground/30 hover:bg-accent-foreground/20" disabled={isLoading}>
+            <Button type="submit" variant="outline" className="bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20" disabled={isLoading}>
                 Obtener nueva motivación
             </Button>
         </form>
