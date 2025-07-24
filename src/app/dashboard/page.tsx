@@ -1,12 +1,12 @@
+
 // src/app/dashboard/page.tsx
 'use client';
 
 import { useProfile } from '@/hooks/use-profile';
 import Dashboard from "@/components/dashboard";
 import { Header } from "@/components/header";
-import { Droplets, Utensils, Bed, BookOpen } from "lucide-react";
+import { Droplets, Utensils, Bed } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { OnboardingForm } from '@/components/onboarding-form';
 
 export default function DashboardPage() {
@@ -25,8 +25,6 @@ export default function DashboardPage() {
   }
 
   const name = userProfile.name || 'Usuario';
-  const diff = userProfile.currentWeight - userProfile.goalWeight;
-  const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
   
   return (
     <>
@@ -43,28 +41,6 @@ export default function DashboardPage() {
           </p>
         </header>
 
-        <Accordion type="single" collapsible className="w-full mb-8 bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg" defaultValue="item-1">
-          <AccordionItem value="item-1" className="border-b-0">
-            <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
-              <div className="flex items-center gap-3">
-                <BookOpen className="h-6 w-6" />
-                Tu plan de 30 días
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="px-6 pb-6 text-muted-foreground">
-              <div className="space-y-4">
-                <p>
-                  Durante los próximos 30 días, te acompañaremos paso a paso para ayudarte a {weightGoalText} y sentirte más saludable y con más energía. Este programa ha sido diseñado pensando en ti: cada rutina, cada consejo y cada desafío están orientados a que alcances tu meta de manera sostenible y disfrutes del proceso.
-                </p>
-                <p>
-                  No estarás solo/a en este camino. Te brindaremos apoyo, motivación y todas las herramientas necesarias para que celebres cada logro, por pequeño que sea. Recuerda: el cambio se construye día a día. Confía en el proceso, sé paciente contigo mismo/a y permítete disfrutar cada paso.
-                </p>
-                <p className="font-bold text-foreground">¡Este es tu momento, {name}! Tu meta está más cerca de lo que imaginas.</p>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        
         <Dashboard />
 
         <footer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">

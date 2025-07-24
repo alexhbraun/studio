@@ -1,20 +1,23 @@
+
 "use client";
 
 import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Trophy, Leaf } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Trophy, Leaf, BookOpen } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { WorkoutCard } from '@/components/workout-card';
 import { WorkoutModal } from '@/components/workout-modal';
 import { MotivationalQuote } from '@/components/motivational-quote';
+import { useProfile } from '@/hooks/use-profile';
 
 export default function Dashboard() {
   const [selectedDay, setSelectedDay] = useState<WorkoutDay | null>(null);
   const { completedDays, toggleDayCompletion, isCompleted, isLoaded } = useProgress();
+  const { userProfile } = useProfile();
 
   const handleCardClick = (day: WorkoutDay) => {
     setSelectedDay(day);
@@ -30,6 +33,9 @@ export default function Dashboard() {
 
   const progressPercentage = isLoaded ? (completedDays.length / workouts.length) * 100 : 0;
   const currentWeek = isLoaded ? Math.floor(completedDays.length / 7) + 1 : 1;
+  const name = userProfile?.name || 'Usuario';
+  const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 0;
+  const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
 
   return (
     <div className="flex flex-col gap-8">
@@ -81,8 +87,30 @@ export default function Dashboard() {
         <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
         <p>Cada paso te acerca a tu meta. ¡Continúa tu viaje hacia la salud!</p>
       </div>
-      
-      <div>
+
+      <div className="space-y-8">
+        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg" defaultValue="item-1">
+          <AccordionItem value="item-1" className="border-b-0">
+            <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-6 w-6" />
+                Tu plan de 30 días
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="px-6 pb-6 text-muted-foreground">
+              <div className="space-y-4">
+                <p>
+                  Durante los próximos 30 días, te acompañaremos paso a paso para ayudarte a {weightGoalText} y sentirte más saludable y con más energía. Este programa ha sido diseñado pensando en ti: cada rutina, cada consejo y cada desafío están orientados a que alcances tu meta de manera sostenible y disfrutes del proceso.
+                </p>
+                <p>
+                  No estarás solo/a en este camino. Te brindaremos apoyo, motivación y todas las herramientas necesarias para que celebres cada logro, por pequeño que sea. Recuerda: el cambio se construye día a día. Confía en el proceso, sé paciente contigo mismo/a y permítete disfrutar cada paso.
+                </p>
+                <p className="font-bold text-foreground">¡Este es tu momento, {name}! Tu meta está más cerca de lo que imaginas.</p>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+
          <Accordion type="single" collapsible defaultValue="item-1" className="mb-8 rounded-lg bg-green-100/50 dark:bg-green-900/20 border border-green-200/50 dark:border-green-800/30 text-green-900 dark:text-green-200">
           <AccordionItem value="item-1" className="border-b-0">
             <AccordionTrigger className="p-6 font-bold text-lg hover:no-underline">
@@ -100,18 +128,20 @@ export default function Dashboard() {
           </AccordionItem>
         </Accordion>
 
-        <h2 className="text-3xl font-bold mb-4">Tu plan de 30 días</h2>
-        <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {workouts.map((day, index) => (
-            <WorkoutCard
-              key={day.day}
-              day={day}
-              isCompleted={isCompleted(day.day)}
-              onClick={() => handleCardClick(day)}
-              style={{ animationDelay: `${index * 50}ms` }}
-            />
-          ))}
+        <div>
+          <h2 className="text-3xl font-bold mb-4">Tu plan de 30 días</h2>
+          <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {workouts.map((day, index) => (
+              <WorkoutCard
+                key={day.day}
+                day={day}
+                isCompleted={isCompleted(day.day)}
+                onClick={() => handleCardClick(day)}
+                style={{ animationDelay: `${index * 50}ms` }}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -123,7 +153,7 @@ export default function Dashboard() {
         onCompleteDay={() => selectedDay && handleCompleteDay(selectedDay.day)}
       />
       
-      <MotivationalQuote progressPercentage={progressPercentage} />
+      <MotivationalQuote />
 
     </div>
   );
