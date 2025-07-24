@@ -8,7 +8,7 @@ import {
   Home,
   Settings,
   User,
-  LogOut,
+  Trash2,
   BookMarked,
   Menu,
 } from 'lucide-react';
@@ -28,17 +28,17 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
-import { useAuth } from '@/hooks/use-auth';
+import { useProfile } from '@/hooks/use-profile';
 
-const SlimWalkLogo = () => (
+const StrideSculptLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
       src="/logo.png" 
-      alt="SlimWalk Logo" 
+      alt="StrideSculpt Logo" 
       width={1040} 
       height={256}
-      className="h-24 w-auto"
-      data-ai-hint="logo"
+      className="h-16 w-auto"
+      data-ai-hint="logo running shoe"
     />
   </div>
 );
@@ -63,7 +63,7 @@ NavLink.displayName = 'NavLink';
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
-  const { userProfile, signOut } = useAuth();
+  const { userProfile, clearProfile } = useProfile();
   const [userInitials, setUserInitials] = React.useState('U');
 
   React.useEffect(() => {
@@ -73,15 +73,17 @@ export function Header() {
         .map((n: string) => n[0])
         .join('');
       setUserInitials(initials.substring(0, 2).toUpperCase());
+    } else {
+        setUserInitials('?');
     }
   }, [userProfile]);
   
-  const userName = userProfile?.name || 'Usuario';
+  const userName = userProfile?.name || 'Invitado';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-28 items-center justify-between border-b bg-white px-4 backdrop-blur-sm md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-24 items-center justify-between border-b bg-white/80 px-4 backdrop-blur-sm md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2">
-        <SlimWalkLogo />
+        <StrideSculptLogo />
       </Link>
       <div className="flex items-center gap-2">
         <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
@@ -149,9 +151,9 @@ export function Header() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={signOut} className="flex items-center gap-2 cursor-pointer">
-                <LogOut className="h-4 w-4" />
-                <span>Cerrar sesión</span>
+            <DropdownMenuItem onClick={clearProfile} className="flex items-center gap-2 cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-50">
+                <Trash2 className="h-4 w-4" />
+                <span>Restablecer datos</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

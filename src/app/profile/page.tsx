@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, Settings, LogOut } from 'lucide-react';
+import { User, Settings, Trash2 } from 'lucide-react';
 import { Header } from '@/components/header';
-import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
+import { useProfile } from '@/hooks/use-profile';
+import { OnboardingForm } from '@/components/onboarding-form';
 
-function ProfileContent() {
-  const { userProfile, signOut } = useAuth();
+export default function ProfilePage() {
+  const { userProfile, loading, clearProfile } = useProfile();
   const [userInitials, setUserInitials] = useState('');
 
   useEffect(() => {
@@ -21,13 +22,17 @@ function ProfileContent() {
       setUserInitials(initials.substring(0, 2).toUpperCase());
     }
   }, [userProfile]);
-
-  if (!userProfile) {
+  
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p>Cargando perfil...</p>
+        <p>Cargando...</p>
       </div>
     );
+  }
+
+  if (!userProfile) {
+    return <OnboardingForm />;
   }
 
   return (
@@ -47,7 +52,7 @@ function ProfileContent() {
                   <CardHeader>
                     <CardTitle>Información personal</CardTitle>
                     <CardDescription>
-                      Aquí puede ver y editar su información personal.
+                      Aquí puede ver su información personal.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -59,7 +64,8 @@ function ProfileContent() {
                         </Avatar>
                         <div>
                           <p className="text-lg font-semibold">{userProfile.name}</p>
-                          <p className="text-sm text-muted-foreground">{userProfile.email}</p>
+                          <p className="text-sm text-muted-foreground">Peso actual: {userProfile.currentWeight} kg</p>
+                          <p className="text-sm text-muted-foreground">Peso objetivo: {userProfile.goalWeight} kg</p>
                         </div>
                       </div>
                       <div>
@@ -78,14 +84,14 @@ function ProfileContent() {
                         <CardTitle>Acciones del perfil</CardTitle>
                     </CardHeader>
                     <CardContent className="grid gap-2">
-                         <Button variant="outline" className="justify-start gap-2">
+                         <Button variant="outline" className="justify-start gap-2" disabled>
                            <User className="h-4 w-4" /> Editar perfil
                         </Button>
-                         <Button variant="outline" className="justify-start gap-2">
-                           <Settings className="h-4 w-4" /> Configuración de la cuenta
+                         <Button variant="outline" className="justify-start gap-2" disabled>
+                           <Settings className="h-4 w-4" /> Configuración
                         </Button>
-                         <Button variant="destructive" className="w-full justify-start gap-2" onClick={signOut}>
-                           <LogOut className="h-4 w-4" /> Cerrar sesión
+                         <Button variant="destructive" className="w-full justify-start gap-2" onClick={clearProfile}>
+                           <Trash2 className="h-4 w-4" /> Restablecer mis datos
                         </Button>
                     </CardContent>
                 </Card>
@@ -96,12 +102,4 @@ function ProfileContent() {
       </div>
     </>
   );
-}
-
-export default function ProfilePage() {
-    return (
-        <ProtectedRoute>
-            <ProfileContent />
-        </ProtectedRoute>
-    )
 }

@@ -1,18 +1,31 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Header } from '@/components/header';
 import { guideContent, type GuideChapter } from '@/lib/guide-content';
 import { cn } from '@/lib/utils';
 import { ChevronRight } from 'lucide-react';
-import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
+import { useProfile } from '@/hooks/use-profile';
+import { OnboardingForm } from '@/components/onboarding-form';
 
-function GuideContent() {
+export default function GuidePage() {
   const [activeChapter, setActiveChapter] = useState<GuideChapter>(guideContent[0]);
-  const { userProfile } = useAuth();
+  const { userProfile, loading } = useProfile();
   
-  const userName = userProfile?.name || 'Usuario';
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <p>Cargando...</p>
+      </div>
+    );
+  }
+
+  if (!userProfile) {
+    return <OnboardingForm />;
+  }
+  
+  const userName = userProfile.name || 'Usuario';
   
   const renderContent = (content: any) => {
     if (typeof content === 'string') {
@@ -93,12 +106,4 @@ function GuideContent() {
       </div>
     </>
   );
-}
-
-export default function GuidePage() {
-    return (
-        <ProtectedRoute>
-            <GuideContent />
-        </ProtectedRoute>
-    )
 }

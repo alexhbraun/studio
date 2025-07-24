@@ -1,26 +1,32 @@
+// src/app/dashboard/page.tsx
 'use client';
 
-import { ProtectedRoute, useAuth } from '@/hooks/use-auth';
+import { useProfile } from '@/hooks/use-profile';
 import Dashboard from "@/components/dashboard";
 import { Header } from "@/components/header";
 import { Droplets, Utensils, Bed, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { OnboardingForm } from '@/components/onboarding-form';
 
-function DashboardContent() {
-  const { userProfile } = useAuth();
+export default function DashboardPage() {
+  const { userProfile, loading } = useProfile();
   
-  const name = userProfile?.name || 'Usuario';
-  const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 5;
-  const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
-
-  if (!userProfile) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p>Cargando perfil...</p>
+        <p>Cargando...</p>
       </div>
     );
   }
+
+  if (!userProfile) {
+    return <OnboardingForm />;
+  }
+
+  const name = userProfile.name || 'Usuario';
+  const diff = userProfile.currentWeight - userProfile.goalWeight;
+  const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
   
   return (
     <>
@@ -33,7 +39,7 @@ function DashboardContent() {
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-             Bienvenido/a a SlimWalk, tu programa de caminata personalizado.
+             Bienvenido/a a StrideSculpt, tu programa de caminata personalizado.
           </p>
         </header>
 
@@ -105,12 +111,4 @@ function DashboardContent() {
       </main>
     </>
   );
-}
-
-export default function DashboardPage() {
-    return (
-        <ProtectedRoute>
-            <DashboardContent />
-        </ProtectedRoute>
-    )
 }

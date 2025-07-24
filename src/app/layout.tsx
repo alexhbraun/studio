@@ -2,11 +2,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { AuthProvider } from '@/hooks/use-auth';
+import { ProfileProvider } from '@/hooks/use-profile';
 
 export const metadata: Metadata = {
-  title: 'SlimWalk',
-  description: 'SlimWalk - Tu programa de caminata de 30 días para la salud y el fitness',
+  title: 'StrideSculpt',
+  description: 'StrideSculpt - Tu programa de caminata de 30 días para la salud y el fitness',
 };
 
 export default function RootLayout({
@@ -22,10 +22,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <AuthProvider>
+        <ProfileProvider>
           {children}
           <Toaster />
-        </AuthProvider>
+        </ProfileProvider>
       </body>
     </html>
   );

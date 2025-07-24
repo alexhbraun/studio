@@ -12,3 +12,9 @@ export interface WorkoutDay {
   description: string;
   exercises: WorkoutExercise[];
 }
+
+export interface UserProfile {
+  name: string;
+  currentWeight: number;
+  goalWeight: number;
+}
