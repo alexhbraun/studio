@@ -45,14 +45,14 @@ export function OnboardingForm() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
        <Image 
         src="/logo.png"
-        alt="StrideSculpt Logo" 
+        alt="SlimWalk Logo" 
         width={1040} 
         height={256}
         className="h-24 w-auto mb-8"
       />
       <Card className="mx-auto max-w-lg w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">¡Bienvenido a StrideSculpt!</CardTitle>
+          <CardTitle className="text-2xl">¡Bienvenido a SlimWalk!</CardTitle>
           <CardDescription>
             Comencemos con algunos datos para personalizar tu plan.
           </CardDescription>

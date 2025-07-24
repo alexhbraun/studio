@@ -56,7 +56,7 @@ export default function RegisterPage() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
       <Image 
         src="/logo.png"
-        alt="StrideSculpt Logo" 
+        alt="SlimWalk Logo" 
         width={1040} 
         height={256}
         className="h-20 w-auto mb-8"

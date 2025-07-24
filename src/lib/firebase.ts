@@ -3,13 +3,15 @@
 import { initializeApp, getApps, getApp, FirebaseOptions } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
+// IMPORTANT: Replace the placeholder values with your actual Firebase project configuration.
+// You can find this in your Firebase project settings.
 const firebaseConfig: FirebaseOptions = {
-  apiKey: "AIzaSyBk5oIWJ_ujhPF71He6LgncqAxdmM29cqQ",
-  authDomain: "slimwalk.firebaseapp.com",
-  projectId: "slimwalk-123",
-  storageBucket: "slimwalk-123.appspot.com",
-  messagingSenderId: "596337424461",
-  appId: "1:596337424461:web:203d266d5d4dce8d41c404"
+  apiKey: "YOUR_API_KEY", // Replace with your API Key
+  authDomain: "stridesculpt.firebaseapp.com",
+  projectId: "stridesculpt",
+  storageBucket: "stridesculpt.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Replace with your Messaging Sender ID
+  appId: "YOUR_APP_ID" // Replace with your App ID
 };
 
 // Initialize Firebase

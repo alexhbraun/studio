@@ -11,7 +11,7 @@ export function useProgress() {
 
   const getProgressKey = useCallback(() => {
     if (!user) return null;
-    return `strideSculptProgress_${user.uid}`;
+    return `slimwalkProgress_${user.uid}`;
   }, [user]);
 
   useEffect(() => {

@@ -26,7 +26,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
 
   const getProfileKey = useCallback(() => {
     if (!user) return null;
-    return `strideSculptProfile_${user.uid}`;
+    return `slimwalkProfile_${user.uid}`;
   }, [user]);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   
   const clearProfile = useCallback(() => {
       const profileKey = getProfileKey();
-      const progressKey = profileKey ? `strideSculptProgress_${user?.uid}` : null;
+      const progressKey = profileKey ? `slimwalkProgress_${user?.uid}` : null;
       
       if (profileKey) {
           try {
