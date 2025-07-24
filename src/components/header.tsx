@@ -32,11 +32,11 @@ import { cn } from '@/lib/utils';
 import { useProfile } from '@/hooks/use-profile';
 import { useAuth } from '@/contexts/auth-context';
 
-const SlimWalkLogo = () => (
+const StrideSculptLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
       src="/logo.png" 
-      alt="SlimWalk Logo" 
+      alt="StrideSculpt Logo" 
       width={1040} 
       height={256}
       className="h-20 w-auto"
@@ -90,7 +90,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-24 items-center justify-between border-b bg-white/80 px-4 backdrop-blur-sm md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2">
-        <SlimWalkLogo />
+        <StrideSculptLogo />
       </Link>
       <div className="flex items-center gap-2">
         <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
