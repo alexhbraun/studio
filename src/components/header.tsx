@@ -37,7 +37,7 @@ const SlimWalkLogo = () => (
       alt="SlimWalk Logo" 
       width={1040} 
       height={256}
-      className="h-16 w-auto"
+      className="h-20 w-auto"
     />
   </div>
 );
