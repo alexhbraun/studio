@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 // --- IMPORTANT ---
 // Replace this with your actual Firebase configuration
 const firebaseConfig: FirebaseOptions = {
-  apiKey: "REPLACE_WITH_YOUR_API_KEY",
-  authDomain: "REPLACE_WITH_YOUR_AUTH_DOMAIN",
-  projectId: "REPLACE_WITH_YOUR_PROJECT_ID",
-  storageBucket: "REPLACE_WITH_YOUR_STORAGE_BUCKET",
-  messagingSenderId: "REPLACE_WITH_YOUR_MESSAGING_SENDER_ID",
-  appId: "REPLACE_WITH_YOUR_APP_ID"
+  apiKey: "AIzaSyBk5oIWJ_ujhPF71He6LgncqAxdmM29cqQ",
+  authDomain: "stridesculpt.firebaseapp.com",
+  projectId: "stridesculpt",
+  storageBucket: "stridesculpt.firebasestorage.app",
+  messagingSenderId: "596337424461",
+  appId: "1:596337424461:web:203d266d5d4dce8d41c404"
 };
 
 // Initialize Firebase

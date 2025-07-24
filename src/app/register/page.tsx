@@ -11,24 +11,42 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FirebaseError } from 'firebase/app';
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { signup } = useAuth();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      await login(email, password);
+      await signup(email, password);
       router.push('/dashboard');
     } catch (err: any) {
-      setError(err.message || 'Failed to log in. Please check your credentials.');
+        if (err instanceof FirebaseError) {
+            switch (err.code) {
+                case 'auth/email-already-in-use':
+                    setError('This email address is already in use.');
+                    break;
+                case 'auth/invalid-email':
+                    setError('Please enter a valid email address.');
+                    break;
+                case 'auth/weak-password':
+                    setError('The password is too weak. Please use at least 6 characters.');
+                    break;
+                default:
+                    setError('An unexpected error occurred. Please try again.');
+            }
+        } else {
+             setError('An unexpected error occurred. Please try again.');
+        }
+        console.error(err);
     } finally {
         setLoading(false);
     }
@@ -46,19 +64,19 @@ export default function LoginPage() {
       />
       <Card className="mx-auto max-w-sm w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="text-2xl">Sign Up</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your information to create an account
           </CardDescription>
         </CardHeader>
         <CardContent>
           {error && (
             <Alert variant="destructive" className="mb-4">
-                <AlertTitle>Login Failed</AlertTitle>
+                <AlertTitle>Registration Failed</AlertTitle>
                 <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -81,13 +99,13 @@ export default function LoginPage() {
               />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
+              {loading ? 'Creating account...' : 'Create Account'}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{" "}
-            <Link href="/register" className="underline">
-              Sign up
+            Already have an account?{" "}
+            <Link href="/login" className="underline">
+              Login
             </Link>
           </div>
         </CardContent>
