@@ -46,19 +46,37 @@ const SlimWalkLogo = () => (
 
 const NavLink = React.forwardRef<
   React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link> & { icon: React.ReactNode, text: string, onClick?: () => void }
->(({ href, icon, text, className, onClick, ...props }, ref) => (
-  <Link
-    href={href}
-    ref={ref}
-    onClick={onClick}
-    className={cn("flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground", className)}
-    {...props}
-  >
-    {icon}
-    {text}
-  </Link>
-));
+  React.ComponentPropsWithoutRef<typeof Link> & { icon?: React.ReactNode, text: string, onClick?: () => void, variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined, size?: "default" | "sm" | "lg" | "icon" | null | undefined }
+>(({ href, icon, text, className, onClick, variant, size, ...props }, ref) => {
+  if (variant) {
+    return (
+      <Button asChild variant={variant} size={size} className={className}>
+        <Link
+          href={href}
+          ref={ref}
+          onClick={onClick}
+          {...props}
+        >
+          {icon}
+          {text}
+        </Link>
+      </Button>
+    )
+  }
+  
+  return (
+    <Link
+      href={href}
+      ref={ref}
+      onClick={onClick}
+      className={cn("flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground", className)}
+      {...props}
+    >
+      {icon}
+      {text}
+    </Link>
+  )
+});
 NavLink.displayName = 'NavLink';
 
 
@@ -90,11 +108,11 @@ export function Header() {
       <div className="flex items-center gap-4">
         <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
           <NavLink href="/dashboard" icon={<Home className="h-4 w-4" />} text="Inicio" />
-          <NavLink href="/guide" icon={<BookMarked className="h-4 w-4" />} text="Manual" />
+          <NavLink href="/guide" icon={<BookMarked className="h-4 w-4" />} text="Manual" variant="secondary" />
           <NavLink href="/settings" icon={<Settings className="h-4 w-4" />} text="Ajustes" />
         </nav>
         
-        <NavLink href="/guide" icon={<BookMarked className="h-5 w-5" />} text="Manual" className="md:hidden text-sm font-medium" />
+        <NavLink href="/guide" icon={<BookMarked className="h-5 w-5" />} text="Manual" variant="secondary" className="md:hidden text-sm font-medium" />
 
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>

@@ -5,14 +5,16 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Trophy, Leaf, BookOpen } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Trophy, Leaf, BookOpen, BookMarked } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { WorkoutCard } from '@/components/workout-card';
 import { WorkoutModal } from '@/components/workout-modal';
 import { MotivationalQuote } from '@/components/motivational-quote';
 import { useProfile } from '@/hooks/use-profile';
+import Link from 'next/link';
+import { Button } from './ui/button';
 
 export default function Dashboard() {
   const [selectedDay, setSelectedDay] = useState<WorkoutDay | null>(null);
@@ -83,9 +85,29 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <div className="bg-primary/90 text-primary-foreground rounded-lg p-6 text-center shadow-lg animate-hero-glow">
-        <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
-        <p>Cada paso te acerca a tu meta. ¡Continúa tu viaje hacia la salud!</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-primary/90 text-primary-foreground rounded-lg p-6 text-center shadow-lg animate-hero-glow flex flex-col justify-center">
+          <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
+          <p>Cada paso te acerca a tu meta. ¡Continúa tu viaje hacia la salud!</p>
+        </div>
+        <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow flex flex-col justify-between">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BookMarked className="h-6 w-6 text-primary" />
+              Tu Guía del Éxito
+            </CardTitle>
+            <CardDescription>
+              El Manual de SlimWalk es tu recurso esencial. Consulta técnicas, consejos de nutrición y estrategias de motivación para maximizar tus resultados.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Link href="/guide" passHref>
+              <Button className="w-full" variant="outline">
+                Leer el Manual
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="space-y-8">
