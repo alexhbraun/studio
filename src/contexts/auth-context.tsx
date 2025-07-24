@@ -2,9 +2,9 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { getAuth, onAuthStateChanged, User, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { User, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface AuthContextType {
   user: User | null;
@@ -24,22 +24,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
-      if (!user) {
-        // Redirect to login if not authenticated, but not if we are already on the login page
-        // This avoids a redirect loop.
-        if (window.location.pathname !== '/login') {
-            router.push('/login');
-        }
-      }
     });
 
     return () => unsubscribe();
-  }, [router]);
+  }, []);
+
+  useEffect(() => {
+    if (!loading && !user && pathname !== '/login') {
+      router.push('/login');
+    }
+  }, [user, loading, pathname, router]);
+
 
   const login = (email: string, password: string) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -64,18 +65,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     );
   }
   
-  // If not loading, and we are not on the login page, but there is no user,
-  // we render null to prevent flashing the content before the redirect in the useEffect completes.
-  if (!user && window.location.pathname !== '/login') {
-    return null;
+  // Render children if user is authenticated OR if we are on the login page
+  if (user || pathname === '/login') {
+      return (
+        <AuthContext.Provider value={value}>
+          {children}
+        </AuthContext.Provider>
+      );
   }
 
-  // If there's a user, or we are on the login page, render the children.
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  // If not authenticated and not on the login page, return null while redirecting
+  return null;
 };
 
 export const useAuth = () => {

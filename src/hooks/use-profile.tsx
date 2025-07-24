@@ -1,9 +1,9 @@
+
 'use client';
 
 import { useState, useEffect, createContext, useContext, ReactNode, useCallback } from 'react';
 import type { UserProfile } from '@/lib/types';
-
-const PROFILE_KEY = 'slimWalkProfile';
+import { useAuth } from '@/contexts/auth-context';
 
 interface ProfileContextType {
   userProfile: UserProfile | null;
@@ -20,44 +20,61 @@ const ProfileContext = createContext<ProfileContextType>({
 });
 
 export const ProfileProvider = ({ children }: { children: ReactNode }) => {
+  const { user } = useAuth();
   const [userProfile, setUserProfileState] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const getProfileKey = useCallback(() => {
+    if (!user) return null;
+    return `slimWalkProfile_${user.uid}`;
+  }, [user]);
+
   useEffect(() => {
-    try {
-      const storedProfile = localStorage.getItem(PROFILE_KEY);
-      if (storedProfile) {
-        setUserProfileState(JSON.parse(storedProfile));
+    const profileKey = getProfileKey();
+    if (profileKey) {
+      try {
+        const storedProfile = localStorage.getItem(profileKey);
+        if (storedProfile) {
+          setUserProfileState(JSON.parse(storedProfile));
+        } else {
+          setUserProfileState(null); // No profile found for this user
+        }
+      } catch (error) {
+        console.error("Failed to load profile from localStorage", error);
+        setUserProfileState(null);
       }
-    } catch (error) {
-      console.error("Failed to load profile from localStorage", error);
-      setUserProfileState(null);
-    } finally {
-      setLoading(false);
+    } else {
+        setUserProfileState(null); // No user, no profile
     }
-  }, []);
+    setLoading(false);
+  }, [user, getProfileKey]);
 
   const setUserProfile = useCallback((profile: UserProfile) => {
-    try {
-      localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
-      setUserProfileState(profile);
-    } catch (error) {
-      console.error("Failed to save profile to localStorage", error);
+    const profileKey = getProfileKey();
+    if (profileKey) {
+        try {
+          localStorage.setItem(profileKey, JSON.stringify(profile));
+          setUserProfileState(profile);
+        } catch (error) {
+          console.error("Failed to save profile to localStorage", error);
+        }
     }
-  }, []);
+  }, [getProfileKey]);
   
   const clearProfile = useCallback(() => {
-      try {
-          localStorage.removeItem(PROFILE_KEY);
-          // Also remove progress when profile is cleared
-          localStorage.removeItem('slimWalkProgress');
-          setUserProfileState(null);
-          // Force a reload to ensure the onboarding form is shown correctly.
-          window.location.reload();
-      } catch (error) {
-          console.error("Failed to clear profile from localStorage", error);
+      const profileKey = getProfileKey();
+      const progressKey = profileKey ? `slimWalkProgress_${user?.uid}` : null;
+      
+      if (profileKey) {
+          try {
+              localStorage.removeItem(profileKey);
+              if(progressKey) localStorage.removeItem(progressKey);
+              setUserProfileState(null);
+          } catch (error) {
+              console.error("Failed to clear profile from localStorage", error);
+          }
       }
-  }, []);
+  }, [getProfileKey, user]);
 
   return (
     <ProfileContext.Provider value={{ userProfile, loading, setUserProfile, clearProfile }}>

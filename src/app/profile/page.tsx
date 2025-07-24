@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -8,9 +9,11 @@ import { User, Settings, Trash2 } from 'lucide-react';
 import { Header } from '@/components/header';
 import { useProfile } from '@/hooks/use-profile';
 import { OnboardingForm } from '@/components/onboarding-form';
+import { useAuth } from '@/contexts/auth-context';
 
 export default function ProfilePage() {
   const { userProfile, loading, clearProfile } = useProfile();
+  const { logout } = useAuth();
   const [userInitials, setUserInitials] = useState('');
 
   useEffect(() => {
@@ -22,6 +25,12 @@ export default function ProfilePage() {
       setUserInitials(initials.substring(0, 2).toUpperCase());
     }
   }, [userProfile]);
+
+  const handleReset = async () => {
+    await logout();
+    clearProfile();
+    // The AuthProvider will handle the redirect to /login
+  }
   
   if (loading) {
     return (
@@ -90,7 +99,7 @@ export default function ProfilePage() {
                          <Button variant="outline" className="justify-start gap-2" disabled>
                            <Settings className="h-4 w-4" /> Configuración
                         </Button>
-                         <Button variant="destructive" className="w-full justify-start gap-2" onClick={clearProfile}>
+                         <Button variant="destructive" className="w-full justify-start gap-2" onClick={handleReset}>
                            <Trash2 className="h-4 w-4" /> Restablecer mis datos
                         </Button>
                     </CardContent>
