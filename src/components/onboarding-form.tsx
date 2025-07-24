@@ -27,8 +27,8 @@ export function OnboardingForm() {
     resolver: zodResolver(onboardingSchema),
     defaultValues: {
       name: '',
-      currentWeight: undefined,
-      goalWeightReduction: undefined,
+      currentWeight: '' as any,
+      goalWeightReduction: '' as any,
     },
   });
 
