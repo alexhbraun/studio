@@ -54,8 +54,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = () => {
-    return signOut(auth);
+  const logout = async () => {
+    await signOut(auth);
+    router.push('/login');
   };
   
   const value = {

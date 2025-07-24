@@ -27,14 +27,14 @@ export function OnboardingForm() {
     resolver: zodResolver(onboardingSchema),
     defaultValues: {
       name: '',
-      currentWeight: '',
-      goalWeightReduction: '',
+      currentWeight: undefined,
+      goalWeightReduction: undefined,
     },
   });
 
-  const onSubmit = (data: OnboardingFormValues) => {
+  const onSubmit = async (data: OnboardingFormValues) => {
     const goalWeight = data.currentWeight - data.goalWeightReduction;
-    setUserProfile({
+    await setUserProfile({
         name: data.name,
         currentWeight: data.currentWeight,
         goalWeight: goalWeight,
@@ -80,7 +80,7 @@ export function OnboardingForm() {
                   <FormItem>
                     <FormLabel>Peso actual (en kg)</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder="Ej: 75" {...field} />
+                      <Input type="number" placeholder="Ej: 75" {...field} value={field.value ?? ''} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -92,7 +92,7 @@ export function OnboardingForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Objetivo de pérdida de peso</FormLabel>
-                    <Select onValueChange={(value) => field.onChange(Number(value))} defaultValue={String(field.value)}>
+                    <Select onValueChange={(value) => field.onChange(Number(value))} defaultValue={field.value ? String(field.value) : ""}>
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Selecciona cuántos kg quieres perder" />

@@ -27,8 +27,8 @@ export default function ProfilePage() {
   }, [userProfile]);
 
   const handleReset = async () => {
+    await clearProfile();
     await logout();
-    clearProfile();
     // The AuthProvider will handle the redirect to /login
   }
   

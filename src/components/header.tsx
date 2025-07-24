@@ -8,7 +8,6 @@ import {
   Home,
   Settings,
   User,
-  Trash2,
   BookMarked,
   Menu,
   LogOut,
@@ -64,7 +63,7 @@ NavLink.displayName = 'NavLink';
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
-  const { userProfile, clearProfile } = useProfile();
+  const { userProfile } = useProfile();
   const { logout } = useAuth();
   const [userInitials, setUserInitials] = React.useState('U');
 
@@ -81,11 +80,6 @@ export function Header() {
   }, [userProfile]);
   
   const userName = userProfile?.name || 'Invitado';
-
-  const handleLogoutAndReset = async () => {
-    await logout();
-    clearProfile();
-  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex h-24 items-center justify-between border-b bg-white/80 px-4 backdrop-blur-sm md:px-6">
@@ -158,7 +152,7 @@ export function Header() {
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogoutAndReset} className="flex items-center gap-2 cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-50">
+            <DropdownMenuItem onClick={logout} className="flex items-center gap-2 cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-50">
                 <LogOut className="h-4 w-4" />
                 <span>Cerrar sesión</span>
             </DropdownMenuItem>
