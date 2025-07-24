@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 // IMPORTANT: Replace the placeholder values with your actual Firebase project configuration.
 // You can find this in your Firebase project settings under "Your apps" > "SDK setup and configuration" > "Config".
 const firebaseConfig: FirebaseOptions = {
-  apiKey: "YOUR_API_KEY", // Replace with your API Key
+  apiKey: "AIzaSyBk5oIWJ_ujhPF71He6LgncqAxdmM29cqQ", // Replace with your API Key
   authDomain: "stridesculpt.firebaseapp.com",
   projectId: "stridesculpt",
   storageBucket: "stridesculpt.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID", // Replace with your Messaging Sender ID
-  appId: "YOUR_APP_ID" // Replace with your App ID
+  messagingSenderId: "1:596337424461:web:203d266d5d4dce8d41c404", // Replace with your Messaging Sender ID
+  appId: "1:596337424461:web:203d266d5d4dce8d41c404" // Replace with your App ID
 };
 
 // This is a check to see if you have replaced the placeholder API key.

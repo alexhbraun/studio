@@ -39,6 +39,7 @@ const SlimWalkLogo = () => (
       width={1040} 
       height={256}
       className="h-20 w-auto"
+      data-ai-hint="logo"
     />
   </div>
 );
@@ -86,12 +87,14 @@ export function Header() {
       <Link href="/dashboard" className="flex items-center gap-2">
         <SlimWalkLogo />
       </Link>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <nav className="hidden items-center gap-4 text-sm font-medium md:flex">
           <NavLink href="/dashboard" icon={<Home className="h-4 w-4" />} text="Inicio" />
           <NavLink href="/guide" icon={<BookMarked className="h-4 w-4" />} text="Manual" />
           <NavLink href="/settings" icon={<Settings className="h-4 w-4" />} text="Ajustes" />
         </nav>
+        
+        <NavLink href="/guide" icon={<BookMarked className="h-5 w-5" />} text="Manual" className="md:hidden text-sm font-medium" />
 
         <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>
@@ -106,13 +109,6 @@ export function Header() {
                   href="/dashboard" 
                   icon={<Home className="h-5 w-5" />} 
                   text="Inicio"
-                  className="text-lg"
-                  onClick={() => setIsSheetOpen(false)}
-                />
-                <NavLink 
-                  href="/guide" 
-                  icon={<BookMarked className="h-5 w-5" />} 
-                  text="Manual"
                   className="text-lg"
                   onClick={() => setIsSheetOpen(false)}
                 />
