@@ -43,7 +43,7 @@ export function OnboardingForm() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
        <Image 
-        src="/logo.png" 
+        src="/SlimWalk.png"
         alt="StrideSculpt Logo" 
         width={1040} 
         height={256}
@@ -110,7 +110,7 @@ export function OnboardingForm() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full" size="lg" disabled={form.formState.isSubmitting}>
+              <Button type="submit" className="w-full bg-brand-green hover:bg-brand-green/90" size="lg" disabled={form.formState.isSubmitting}>
                 {form.formState.isSubmitting ? 'Guardando...' : 'Comenzar mi viaje'}
               </Button>
             </form>

@@ -1,5 +1,4 @@
-// src/components/header.tsx
-"use client";
+'use client';
 
 import * as React from 'react';
 import Link from 'next/link';
@@ -33,7 +32,7 @@ import { useProfile } from '@/hooks/use-profile';
 const StrideSculptLogo = () => (
   <div className="flex items-center gap-2">
     <Image 
-      src="/logo.png" 
+      src="/SlimWalk.png" 
       alt="StrideSculpt Logo" 
       width={1040} 
       height={256}
