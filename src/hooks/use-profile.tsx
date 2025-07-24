@@ -3,7 +3,7 @@
 import { useState, useEffect, createContext, useContext, ReactNode, useCallback } from 'react';
 import type { UserProfile } from '@/lib/types';
 
-const PROFILE_KEY = 'strideSculptProfile';
+const PROFILE_KEY = 'slimWalkProfile';
 
 interface ProfileContextType {
   userProfile: UserProfile | null;
@@ -49,7 +49,11 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
   const clearProfile = useCallback(() => {
       try {
           localStorage.removeItem(PROFILE_KEY);
+          // Also remove progress when profile is cleared
+          localStorage.removeItem('slimWalkProgress');
           setUserProfileState(null);
+          // Force a reload to ensure the onboarding form is shown correctly.
+          window.location.reload();
       } catch (error) {
           console.error("Failed to clear profile from localStorage", error);
       }

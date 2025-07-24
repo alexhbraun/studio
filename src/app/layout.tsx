@@ -5,8 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { ProfileProvider } from '@/hooks/use-profile';
 
 export const metadata: Metadata = {
-  title: 'StrideSculpt',
-  description: 'StrideSculpt - Tu programa de caminata de 30 días para la salud y el fitness',
+  title: 'SlimWalk',
+  description: 'SlimWalk - Tu programa de caminata de 30 días para la salud y el fitness',
 };
 
 export default function RootLayout({

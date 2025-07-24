@@ -39,7 +39,7 @@ export default function DashboardPage() {
             </h1>
           </div>
           <p className="text-muted-foreground mt-2 text-lg">
-             Bienvenido/a a StrideSculpt, tu programa de caminata personalizado.
+             Bienvenido/a a SlimWalk, tu programa de caminata personalizado.
           </p>
         </header>
 
