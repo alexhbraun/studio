@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    --background: 150 60% 98%; /* Light Green/Mint cream */
     --foreground: 222.2 84% 4.9%;
     --card: 210 40% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -77,7 +77,7 @@
 
 body {
   font-family: 'PT Sans', sans-serif;
-  background-color: #F0F8FF; /* Light Blue Background */
+  background-color: #F5FFFA; /* Mint Cream - Light Green Background */
 }
 
 @layer base {
