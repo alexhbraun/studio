@@ -45,8 +45,8 @@ const SlimWalkLogo = () => (
 );
 
 const NavLink = React.forwardRef<
-  React.ElementRef<typeof Link>,
-  React.ComponentPropsWithoutRef<typeof Link> & { icon?: React.ReactNode, text: string, onClick?: () => void, variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined, size?: "default" | "sm" | "lg" | "icon" | null | undefined }
+  HTMLAnchorElement,
+  React.ComponentPropsWithoutRef<typeof Link> & { icon?: React.ReactNode, text: string, onClick?: () => void, variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined, size?: "default" | "sm" | "lg" | "icon" | null | undefined, className?: string }
 >(({ href, icon, text, className, onClick, variant, size, ...props }, ref) => {
   if (variant) {
     return (
