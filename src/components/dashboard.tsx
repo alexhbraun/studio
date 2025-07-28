@@ -116,7 +116,7 @@ export default function Dashboard() {
             <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-6 w-6" />
-                Tu plan de 30 días
+                Tu plan de 30 días para {name}
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
