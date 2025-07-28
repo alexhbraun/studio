@@ -151,7 +151,7 @@ export default function Dashboard() {
         </Accordion>
 
         <div>
-          <h2 className="text-3xl font-bold mb-4">Tu plan de 30 días</h2>
+          <h2 className="text-3xl font-bold mb-4">Este es tu plan de 30 días, {name}</h2>
           <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {workouts.map((day, index) => (
