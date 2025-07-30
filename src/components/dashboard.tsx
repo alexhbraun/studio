@@ -168,9 +168,9 @@ export default function Dashboard() {
         </Accordion>
 
         {/* Daily Plan Section */}
-        <div>
+        <div className="mt-12 bg-card/40 backdrop-blur-sm border border-border/40 rounded-xl p-6 shadow-lg">
           <h2 className="text-3xl font-bold mb-2">Este es tu plan de 30 días, {name}</h2>
-          <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento. La tarjeta de hoy está resaltada.</p>
+          <p className="text-muted-foreground mb-8">Haz clic en una tarjeta de día para empezar el entrenamiento. La tarjeta de hoy está resaltada.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {workouts.map((day, index) => (
               <WorkoutCard
@@ -240,4 +240,5 @@ export default function Dashboard() {
       </footer>
     </div>
   );
-}
+
+    
