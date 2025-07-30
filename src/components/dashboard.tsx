@@ -92,7 +92,7 @@ export default function Dashboard() {
 
       {/* Hero Action Blocks */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-primary/90 text-primary-foreground rounded-lg p-6 text-center shadow-lg animate-hero-glow flex flex-col justify-center">
+        <div className="bg-gradient-to-br from-primary via-green-900 to-cyan-900 text-primary-foreground rounded-lg p-6 text-center shadow-lg animate-hero-glow flex flex-col justify-center">
           <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
           <p>Cada paso te acerca a tu meta. ¡Continúa tu viaje hacia la salud!</p>
         </div>
