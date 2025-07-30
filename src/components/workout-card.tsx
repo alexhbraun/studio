@@ -29,28 +29,34 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
       onClick={onClick}
       style={style}
       className={cn(
-        "cursor-pointer transition-all duration-300 group bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up relative",
+        "cursor-pointer transition-all duration-300 group bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up",
         isCompleted ? 'border-primary/50 pulse-glow-completed' : 'hover:border-primary/80'
       )}
     >
-      <CardContent className="p-4 flex flex-col h-full">
-        <div className="flex-grow space-y-3">
-          <div className="flex justify-between items-start">
-              <div className="flex items-center gap-3">
-                  <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{day.day}</div>
-                   <h3 className="font-bold text-md pr-16">{day.title}</h3>
-              </div>
-               {isCompleted ? (
-                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-              ) : (
-                <Circle className="h-5 w-5 text-muted-foreground/50 flex-shrink-0" />
-              )}
-          </div>
-          
+      <CardContent className="p-4 flex flex-col h-full justify-between">
+        {/* --- Top Section --- */}
+        <div className="flex justify-between items-start mb-2">
+            <div className="flex items-center gap-3">
+                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold transition-colors group-hover:bg-primary group-hover:text-primary-foreground flex-shrink-0">{day.day}</div>
+                 <h3 className="font-bold text-md leading-tight">{day.title}</h3>
+            </div>
+             <div className="flex items-center gap-2 flex-shrink-0 pl-2">
+                {isCompleted ? (
+                  <CheckCircle2 className="h-5 w-5 text-primary" />
+                ) : (
+                  <Circle className="h-5 w-5 text-muted-foreground/50" />
+                )}
+                <Badge variant="outline" className={cn("text-xs px-1.5 py-0.5 h-fit", difficulty.className)}>{difficulty.text}</Badge>
+            </div>
+        </div>
+        
+        {/* --- Middle Section (Description) --- */}
+        <div className="flex-grow my-2 h-10">
           <p className="text-sm text-muted-foreground line-clamp-2">{day.description}</p>
         </div>
         
-        <div className="mt-4 pt-4 border-t border-border/60">
+        {/* --- Bottom Section (Metrics) --- */}
+        <div className="mt-2 pt-4 border-t border-border/60">
             <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-muted-foreground text-xs">
                 <div className="flex items-center gap-1.5">
                     <Clock className="h-4 w-4 flex-shrink-0" />
@@ -70,9 +76,6 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
                 </div>
             </div>
         </div>
-
-        <Badge variant="outline" className={cn("absolute top-3 right-3 text-xs", difficulty.className)}>{difficulty.text}</Badge>
-
       </CardContent>
     </Card>
   );
