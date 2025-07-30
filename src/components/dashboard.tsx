@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Trophy, Leaf, BookOpen, BookMarked } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -39,6 +39,10 @@ export default function Dashboard() {
   const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 0;
   const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
 
+  const completedWorkouts = workouts.filter(w => completedDays.includes(w.day));
+  const totalCalories = completedWorkouts.reduce((sum, workout) => sum + workout.calories, 0);
+  const totalSteps = completedWorkouts.reduce((sum, workout) => sum + workout.steps, 0);
+
   return (
     <div className="flex flex-col gap-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -55,12 +59,12 @@ export default function Dashboard() {
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Racha</CardTitle>
+            <CardTitle className="text-sm font-medium text-muted-foreground">Calorías quemadas</CardTitle>
             <Flame className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">0</div>
-            <p className="text-xs text-muted-foreground">Días seguidos</p>
+            <div className="text-2xl font-bold">{totalCalories.toLocaleString()}</div>
+            <p className="text-xs text-muted-foreground">kcal totales</p>
           </CardContent>
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-400">
@@ -75,12 +79,12 @@ export default function Dashboard() {
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-600">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Logros</CardTitle>
-            <Trophy className="h-4 w-4 text-primary" />
+            <CardTitle className="text-sm font-medium text-muted-foreground">Pasos totales</CardTitle>
+            <Footprints className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{Math.floor(completedDays.length / 5)}</div>
-            <p className="text-xs text-muted-foreground">Insignias desbloqueadas</p>
+            <div className="text-2xl font-bold">{totalSteps.toLocaleString()}</div>
+            <p className="text-xs text-muted-foreground">pasos dados</p>
           </CardContent>
         </Card>
       </div>
@@ -116,7 +120,7 @@ export default function Dashboard() {
             <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
                 <BookOpen className="h-6 w-6" />
-                Tu plan de 30 días para {name}
+                Tu plan de 30 días para {userProfile && name}
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
@@ -127,7 +131,7 @@ export default function Dashboard() {
                 <p>
                   No estarás solo/a en este camino. Te brindaremos apoyo, motivación y todas las herramientas necesarias para que celebres cada logro, por pequeño que sea. Recuerda: el cambio se construye día a día. Confía en el proceso, sé paciente contigo mismo/a y permítete disfrutar cada paso.
                 </p>
-                <p className="font-bold text-foreground">¡Este es tu momento, {name}! Tu meta está más cerca de lo que imaginas.</p>
+                <p className="font-bold text-foreground">¡Este es tu momento, {userProfile && name}! Tu meta está más cerca de lo que imaginas.</p>
               </div>
             </AccordionContent>
           </AccordionItem>
@@ -151,7 +155,7 @@ export default function Dashboard() {
         </Accordion>
 
         <div>
-          <h2 className="text-3xl font-bold mb-4">Este es tu plan de 30 días, {name}</h2>
+          <h2 className="text-3xl font-bold mb-4">Este es tu plan de 30 días, {userProfile && name}</h2>
           <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {workouts.map((day, index) => (
