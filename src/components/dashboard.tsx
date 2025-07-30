@@ -44,11 +44,24 @@ export default function Dashboard() {
   const totalSteps = completedWorkouts.reduce((sum, workout) => sum + workout.steps, 0);
 
   // Calculate streak
-  const currentStreak = isLoaded ? completedDays.slice().sort((a, b) => b - a).reduce((streak, day, index, arr) => {
-    if (index === 0 && completedDays.length > 0) return 1;
-    if (day === arr[index - 1] - 1) return streak + 1;
-    return streak;
-  }, 0) : 0;
+  let currentStreak = 0;
+  if (isLoaded && completedDays.length > 0) {
+    const sortedDays = [...completedDays].sort((a, b) => b - a); // Sort days in descending order
+    let streak = 0;
+    if (sortedDays.length > 0) {
+        streak = 1; // Start with a streak of 1 for the most recent day
+        for (let i = 0; i < sortedDays.length - 1; i++) {
+            // Check if the next day in the sorted array is one less than the current day
+            if (sortedDays[i] - 1 === sortedDays[i + 1]) {
+                streak++;
+            } else {
+                // If the sequence is broken, stop counting
+                break;
+            }
+        }
+    }
+    currentStreak = streak;
+  }
 
 
   return (
