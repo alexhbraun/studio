@@ -45,8 +45,14 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
               <Circle className="h-5 w-5 text-muted-foreground/50" />
             )}
         </div>
-        <p className="text-sm text-muted-foreground line-clamp-2">{day.description}</p>
-        <div className="flex items-end justify-between text-muted-foreground text-xs pt-2">
+        
+        <div className="flex justify-between items-center">
+            <Badge variant="outline" className={cn("text-xs shrink-0", difficulty.className)}>{difficulty.text}</Badge>
+        </div>
+
+        <p className="text-sm text-muted-foreground line-clamp-2 pt-1">{day.description}</p>
+        
+        <div className="text-muted-foreground text-xs pt-2">
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 <div className="flex items-center gap-1.5">
                     <Clock className="h-4 w-4" />
@@ -65,7 +71,6 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
                     <span>{day.steps} pasos</span>
                 </div>
             </div>
-             <Badge variant="outline" className={cn("text-xs shrink-0", difficulty.className)}>{difficulty.text}</Badge>
         </div>
       </CardContent>
     </Card>
