@@ -29,49 +29,50 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
       onClick={onClick}
       style={style}
       className={cn(
-        "cursor-pointer transition-all duration-300 group bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up",
+        "cursor-pointer transition-all duration-300 group bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 hover:-translate-y-2 animate-fade-in-up relative",
         isCompleted ? 'border-primary/50 pulse-glow-completed' : 'hover:border-primary/80'
       )}
     >
-      <CardContent className="p-4 space-y-3">
-        <div className="flex justify-between items-start">
-            <div className="flex items-center gap-3">
-                <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{day.day}</div>
-                 <h3 className="font-bold text-md">{day.title}</h3>
-            </div>
-             {isCompleted ? (
-              <CheckCircle2 className="h-5 w-5 text-primary" />
-            ) : (
-              <Circle className="h-5 w-5 text-muted-foreground/50" />
-            )}
+      <CardContent className="p-4 flex flex-col h-full">
+        <div className="flex-grow space-y-3">
+          <div className="flex justify-between items-start">
+              <div className="flex items-center gap-3">
+                  <div className="bg-muted rounded-full h-8 w-8 flex items-center justify-center text-sm font-bold transition-colors group-hover:bg-primary group-hover:text-primary-foreground">{day.day}</div>
+                   <h3 className="font-bold text-md pr-16">{day.title}</h3>
+              </div>
+               {isCompleted ? (
+                <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+              ) : (
+                <Circle className="h-5 w-5 text-muted-foreground/50 flex-shrink-0" />
+              )}
+          </div>
+          
+          <p className="text-sm text-muted-foreground line-clamp-2">{day.description}</p>
         </div>
         
-        <p className="text-sm text-muted-foreground line-clamp-2 pt-1">{day.description}</p>
-        
-        <div className="flex justify-between items-center">
-            <Badge variant="outline" className={cn("text-xs shrink-0", difficulty.className)}>{difficulty.text}</Badge>
-        </div>
-        
-        <div className="text-muted-foreground text-xs pt-2">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+        <div className="mt-4 pt-4 border-t border-border/60">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-muted-foreground text-xs">
                 <div className="flex items-center gap-1.5">
-                    <Clock className="h-4 w-4" />
+                    <Clock className="h-4 w-4 flex-shrink-0" />
                     <span>{totalDuration} min</span>
                 </div>
                  <div className="flex items-center gap-1.5">
-                    <Dumbbell className="h-4 w-4" />
+                    <Dumbbell className="h-4 w-4 flex-shrink-0" />
                     <span>{day.exercises.length} ejer.</span>
                 </div>
                  <div className="flex items-center gap-1.5">
-                    <Flame className="h-4 w-4" />
+                    <Flame className="h-4 w-4 flex-shrink-0" />
                     <span>{day.calories} kcal</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                    <Footprints className="h-4 w-4" />
+                    <Footprints className="h-4 w-4 flex-shrink-0" />
                     <span>{day.steps} pasos</span>
                 </div>
             </div>
         </div>
+
+        <Badge variant="outline" className={cn("absolute top-3 right-3 text-xs", difficulty.className)}>{difficulty.text}</Badge>
+
       </CardContent>
     </Card>
   );
