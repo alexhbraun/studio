@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
-import { Dumbbell, Repeat, Timer, RotateCcw } from 'lucide-react';
+import { Dumbbell, Repeat, Timer, RotateCcw, Flame } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -17,7 +17,6 @@ import {
 import { Badge } from '@/components/ui/badge';
 import type { WorkoutDay } from '@/lib/types';
 import { Card, CardContent } from './ui/card';
-import { ScrollArea } from './ui/scroll-area';
 
 interface WorkoutModalProps {
   isOpen: boolean;
@@ -98,6 +97,10 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                             {exercise.repetitions}
                             </Badge>
                         )}
+                        <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                            <Flame className="h-4 w-4" />
+                            {exercise.calories} kcal
+                        </Badge>
                         </div>
                     </div>
                     </CardContent>

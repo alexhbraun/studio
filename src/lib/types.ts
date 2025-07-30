@@ -4,6 +4,7 @@ export interface WorkoutExercise {
   description: string;
   duration: string;
   repetitions: string | null;
+  calories: number;
 }
 
 export interface WorkoutDay {
