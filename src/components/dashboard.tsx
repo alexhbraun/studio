@@ -96,23 +96,26 @@ export default function Dashboard() {
           <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
           <p>Cada paso te acerca a tu meta. ¡Continúa tu viaje hacia la salud!</p>
         </div>
-        <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow flex flex-col justify-between">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <BookMarked className="h-6 w-6 text-primary" />
-              Tu Guía del Éxito
-            </CardTitle>
-            <CardDescription>
-              El Manual de SlimWalk es tu recurso esencial. Consulta técnicas, consejos de nutrición y estrategias de motivación para maximizar tus resultados.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Link href="/guide" passHref>
-              <Button className="w-full" variant="outline">
-                Leer el Manual
-              </Button>
-            </Link>
-          </CardContent>
+        <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg hover:shadow-primary/20 transition-shadow flex flex-col justify-between p-6">
+            <div className="flex items-start gap-4">
+                <div className="bg-primary/10 text-primary p-3 rounded-full">
+                    <BookMarked className="h-8 w-8" />
+                </div>
+                <div className="flex-1">
+                    <h3 className="text-xl font-bold">Tu Guía de Transformación</h3>
+                    <p className="text-muted-foreground mt-1">
+                        Descubre consejos y técnicas para sacar el máximo de tu plan personalizado.
+                    </p>
+                </div>
+            </div>
+            <div className="mt-4 flex flex-col items-start gap-3">
+                 <p className="text-xs text-muted-foreground font-medium bg-muted px-2 py-1 rounded-full">Disponible solo para miembros SlimWalk.</p>
+                <Link href="/guide" passHref className="w-full">
+                    <Button className="w-full" variant="outline">
+                        Abrir mi Guía
+                    </Button>
+                </Link>
+            </div>
         </Card>
       </div>
       
@@ -231,3 +234,4 @@ export default function Dashboard() {
     </div>
   );
 }
+
