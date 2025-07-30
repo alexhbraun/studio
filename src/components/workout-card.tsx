@@ -46,11 +46,11 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
             )}
         </div>
         
+        <p className="text-sm text-muted-foreground line-clamp-2 pt-1">{day.description}</p>
+        
         <div className="flex justify-between items-center">
             <Badge variant="outline" className={cn("text-xs shrink-0", difficulty.className)}>{difficulty.text}</Badge>
         </div>
-
-        <p className="text-sm text-muted-foreground line-clamp-2 pt-1">{day.description}</p>
         
         <div className="text-muted-foreground text-xs pt-2">
             <div className="grid grid-cols-2 gap-x-4 gap-y-2">
