@@ -44,7 +44,7 @@ export default function Dashboard() {
   const totalSteps = completedWorkouts.reduce((sum, workout) => sum + workout.steps, 0);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-10">
       {/* KPI Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down">
@@ -120,7 +120,7 @@ export default function Dashboard() {
       </div>
       
       {/* Collapsible Info Sections */}
-      <div className="space-y-4">
+      <div className="space-y-6">
         <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
           <AccordionItem value="item-1" className="border-b-0">
             <AccordionTrigger className="p-6 font-semibold text-primary hover:no-underline">
@@ -162,7 +162,7 @@ export default function Dashboard() {
 
         {/* Daily Plan Section */}
         <div>
-          <h2 className="text-3xl font-bold mb-2">Este es tu plan de 30 días</h2>
+          <h2 className="text-3xl font-bold mb-2">Este es tu plan de 30 días, {name}</h2>
           <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento. La tarjeta de hoy está resaltada.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {workouts.map((day, index) => (
@@ -171,7 +171,7 @@ export default function Dashboard() {
                 day={day}
                 isCompleted={isCompleted(day.day)}
                 onClick={() => handleCardClick(day)}
-                isToday={!isCompleted(day.day) && (completedDays.length === 0 ? day.day === 1 : day.day === Math.max(...completedDays) + 1)}
+                isToday={!isCompleted(day.day) && (completedDays.length === 0 ? day.day === 1 : day.day === Math.max(...(completedDays.length > 0 ? completedDays : [0])) + 1)}
                 style={{ animationDelay: `${index * 50}ms` }}
               />
             ))}
@@ -234,4 +234,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
