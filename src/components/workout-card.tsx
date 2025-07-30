@@ -1,3 +1,4 @@
+
 "use client";
 
 import { CheckCircle2, Circle, Clock, Dumbbell, Flame, Footprints } from 'lucide-react';
@@ -44,23 +45,23 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
               <Circle className="h-5 w-5 text-muted-foreground/50" />
             )}
         </div>
-        <p className="text-sm text-muted-foreground">{day.description}</p>
-        <div className="flex items-center justify-between text-muted-foreground text-xs pt-2">
-            <div className="flex flex-wrap gap-x-4 gap-y-1">
+        <p className="text-sm text-muted-foreground line-clamp-2">{day.description}</p>
+        <div className="flex items-end justify-between text-muted-foreground text-xs pt-2">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
                 <div className="flex items-center gap-1.5">
-                    <Clock className="h-3 w-3" />
+                    <Clock className="h-4 w-4" />
                     <span>{totalDuration} min</span>
                 </div>
                  <div className="flex items-center gap-1.5">
-                    <Dumbbell className="h-3 w-3" />
+                    <Dumbbell className="h-4 w-4" />
                     <span>{day.exercises.length} ejer.</span>
                 </div>
                  <div className="flex items-center gap-1.5">
-                    <Flame className="h-3 w-3" />
+                    <Flame className="h-4 w-4" />
                     <span>{day.calories} kcal</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                    <Footprints className="h-3 w-3" />
+                    <Footprints className="h-4 w-4" />
                     <span>{day.steps} pasos</span>
                 </div>
             </div>
