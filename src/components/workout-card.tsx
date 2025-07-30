@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Circle, Clock, Dumbbell } from 'lucide-react';
+import { CheckCircle2, Circle, Clock, Dumbbell, Flame } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { WorkoutDay } from '@/lib/types';
@@ -49,11 +49,15 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
             <div className="flex gap-4">
                 <div className="flex items-center gap-1.5">
                     <Clock className="h-3 w-3" />
-                    <span>{totalDuration} minutos</span>
+                    <span>{totalDuration} min</span>
                 </div>
                  <div className="flex items-center gap-1.5">
                     <Dumbbell className="h-3 w-3" />
-                    <span>{day.exercises.length} ejercicios</span>
+                    <span>{day.exercises.length} ejer.</span>
+                </div>
+                 <div className="flex items-center gap-1.5">
+                    <Flame className="h-3 w-3" />
+                    <span>{day.calories} kcal</span>
                 </div>
             </div>
              <Badge variant="outline" className={cn("text-xs", difficulty.className)}>{difficulty.text}</Badge>

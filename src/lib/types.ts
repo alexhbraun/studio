@@ -10,6 +10,7 @@ export interface WorkoutDay {
   day: number;
   title:string;
   description: string;
+  calories: number;
   exercises: WorkoutExercise[];
 }
 
