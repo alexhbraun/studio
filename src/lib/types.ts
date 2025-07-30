@@ -5,6 +5,7 @@ export interface WorkoutExercise {
   duration: string;
   repetitions: string | null;
   calories: number;
+  steps: number;
 }
 
 export interface WorkoutDay {
@@ -12,6 +13,7 @@ export interface WorkoutDay {
   title:string;
   description: string;
   calories: number;
+  steps: number;
   exercises: WorkoutExercise[];
 }
 

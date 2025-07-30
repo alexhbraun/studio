@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
-import { Dumbbell, Repeat, Timer, RotateCcw, Flame } from 'lucide-react';
+import { Dumbbell, Repeat, Timer, RotateCcw, Flame, Footprints } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -100,6 +100,10 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
                         <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
                             <Flame className="h-4 w-4" />
                             {exercise.calories} kcal
+                        </Badge>
+                         <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                            <Footprints className="h-4 w-4" />
+                            {exercise.steps} pasos
                         </Badge>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Circle, Clock, Dumbbell, Flame } from 'lucide-react';
+import { CheckCircle2, Circle, Clock, Dumbbell, Flame, Footprints } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { WorkoutDay } from '@/lib/types';
@@ -46,7 +46,7 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
         </div>
         <p className="text-sm text-muted-foreground">{day.description}</p>
         <div className="flex items-center justify-between text-muted-foreground text-xs pt-2">
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
                 <div className="flex items-center gap-1.5">
                     <Clock className="h-3 w-3" />
                     <span>{totalDuration} min</span>
@@ -59,8 +59,12 @@ export function WorkoutCard({ day, isCompleted, onClick, style }: WorkoutCardPro
                     <Flame className="h-3 w-3" />
                     <span>{day.calories} kcal</span>
                 </div>
+                <div className="flex items-center gap-1.5">
+                    <Footprints className="h-3 w-3" />
+                    <span>{day.steps} pasos</span>
+                </div>
             </div>
-             <Badge variant="outline" className={cn("text-xs", difficulty.className)}>{difficulty.text}</Badge>
+             <Badge variant="outline" className={cn("text-xs shrink-0", difficulty.className)}>{difficulty.text}</Badge>
         </div>
       </CardContent>
     </Card>
