@@ -62,11 +62,15 @@ export default function RegisterPage() {
         className="h-20 w-auto mb-8"
         data-ai-hint="logo"
       />
+      <div className="text-center mb-8 max-w-md">
+        <h1 className="text-3xl font-bold text-primary mb-2">¡Gracias por tu compra!</h1>
+        <p className="text-muted-foreground">Estamos muy contentos de que te hayas unido al programa SlimWalk. Para comenzar tu viaje hacia una vida más saludable, por favor, crea tu cuenta a continuación.</p>
+      </div>
       <Card className="mx-auto max-w-sm w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Sign Up</CardTitle>
+          <CardTitle className="text-2xl">Crea tu cuenta</CardTitle>
           <CardDescription>
-            Enter your information to create an account
+            Ingresa tu información para crear una cuenta
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -89,7 +93,7 @@ export default function RegisterPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">Contraseña</Label>
               <Input 
                 id="password" 
                 type="password" 
@@ -99,13 +103,13 @@ export default function RegisterPage() {
               />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create Account'}
+              {loading ? 'Creando cuenta...' : 'Crear mi cuenta'}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            Already have an account?{" "}
+            ¿Ya tienes una cuenta?{" "}
             <Link href="/login" className="underline">
-              Login
+              Iniciar sesión
             </Link>
           </div>
         </CardContent>
