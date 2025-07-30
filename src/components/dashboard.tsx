@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked, Bed, Utensils, Droplets } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -45,6 +45,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col gap-8">
+      {/* KPI Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -54,7 +55,7 @@ export default function Dashboard() {
           <CardContent>
             <div className="text-2xl font-bold">{progressPercentage.toFixed(0)}%</div>
             <p className="text-xs text-muted-foreground">{completedDays.length} de 30 días</p>
-            <Progress value={progressPercentage} className="mt-2 h-2" />
+            <Progress value={progressPercentage} className="mt-2 h-3" />
           </CardContent>
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-200">
@@ -89,6 +90,7 @@ export default function Dashboard() {
         </Card>
       </div>
 
+      {/* Hero Action Blocks */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-primary/90 text-primary-foreground rounded-lg p-6 text-center shadow-lg animate-hero-glow flex flex-col justify-center">
           <h2 className="text-2xl font-bold">¡Es hora de empezar la aventura!</h2>
@@ -113,14 +115,15 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
-
-      <div className="space-y-8">
-        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg" defaultValue="item-1">
+      
+      {/* Collapsible Info Sections */}
+      <div className="space-y-4">
+        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
           <AccordionItem value="item-1" className="border-b-0">
-            <AccordionTrigger className="p-6 text-lg font-semibold text-primary hover:no-underline">
+            <AccordionTrigger className="p-6 font-semibold text-primary hover:no-underline">
               <div className="flex items-center gap-3">
-                <BookOpen className="h-6 w-6" />
-                Tu plan de 30 días para {userProfile && name}
+                <BookOpen className="h-5 w-5" />
+                Tu plan de 30 días para {name}
               </div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6 text-muted-foreground">
@@ -131,15 +134,15 @@ export default function Dashboard() {
                 <p>
                   No estarás solo/a en este camino. Te brindaremos apoyo, motivación y todas las herramientas necesarias para que celebres cada logro, por pequeño que sea. Recuerda: el cambio se construye día a día. Confía en el proceso, sé paciente contigo mismo/a y permítete disfrutar cada paso.
                 </p>
-                <p className="font-bold text-foreground">¡Este es tu momento, {userProfile && name}! Tu meta está más cerca de lo que imaginas.</p>
+                <p className="font-bold text-foreground">¡Este es tu momento, {name}! Tu meta está más cerca de lo que imaginas.</p>
               </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
 
-         <Accordion type="single" collapsible defaultValue="item-1" className="mb-8 rounded-lg bg-green-100/50 dark:bg-green-900/20 border border-green-200/50 dark:border-green-800/30 text-green-900 dark:text-green-200">
+        <Accordion type="single" collapsible defaultValue="item-1" className="mb-8 rounded-lg bg-green-100/50 dark:bg-green-900/20 border border-green-200/50 dark:border-green-800/30 text-green-900 dark:text-green-200">
           <AccordionItem value="item-1" className="border-b-0">
-            <AccordionTrigger className="p-6 font-bold text-lg hover:no-underline">
+            <AccordionTrigger className="p-6 font-semibold text-lg hover:no-underline">
               <div className="flex items-center gap-2"><Leaf size={20} /> Antes de empezar…</div>
             </AccordionTrigger>
             <AccordionContent className="px-6 pb-6">
@@ -154,9 +157,10 @@ export default function Dashboard() {
           </AccordionItem>
         </Accordion>
 
+        {/* Daily Plan Section */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">Este es tu plan de 30 días, {userProfile && name}</h2>
-          <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento</p>
+          <h2 className="text-3xl font-bold mb-2">Este es tu plan de 30 días</h2>
+          <p className="text-muted-foreground mb-6">Haz clic en una tarjeta de día para empezar el entrenamiento. La tarjeta de hoy está resaltada.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {workouts.map((day, index) => (
               <WorkoutCard
@@ -164,6 +168,7 @@ export default function Dashboard() {
                 day={day}
                 isCompleted={isCompleted(day.day)}
                 onClick={() => handleCardClick(day)}
+                isToday={!isCompleted(day.day) && (completedDays.length === 0 ? day.day === 1 : day.day === Math.max(...completedDays) + 1)}
                 style={{ animationDelay: `${index * 50}ms` }}
               />
             ))}
@@ -181,6 +186,48 @@ export default function Dashboard() {
       
       <MotivationalQuote />
 
+      {/* Bottom info cards */}
+      <footer className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in-up">
+        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
+           <AccordionItem value="item-1" className="border-b-0">
+             <AccordionTrigger className="p-6 font-semibold hover:no-underline">
+                <div className="flex items-center gap-2 text-lg text-primary">
+                  <Droplets className="h-5 w-5" />
+                  Consejo del día
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6 text-muted-foreground">
+                Recuerda beber agua regularmente durante el entrenamiento. La hidratación es la clave para una quema de calorías efectiva.
+              </AccordionContent>
+           </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
+           <AccordionItem value="item-1" className="border-b-0">
+             <AccordionTrigger className="p-6 font-semibold hover:no-underline">
+                <div className="flex items-center gap-2 text-lg text-primary">
+                  <Utensils className="h-5 w-5" />
+                  Alimentación saludable
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6 text-muted-foreground">
+                 Combina el entrenamiento con una comida ligera y rica en proteínas 30 minutos después del ejercicio.
+              </AccordionContent>
+           </AccordionItem>
+        </Accordion>
+        <Accordion type="single" collapsible className="w-full bg-card/60 backdrop-blur-sm border-border/60 shadow-lg rounded-lg">
+           <AccordionItem value="item-1" className="border-b-0">
+             <AccordionTrigger className="p-6 font-semibold hover:no-underline">
+                <div className="flex items-center gap-2 text-lg text-primary">
+                  <Bed className="h-5 w-5" />
+                  Recuperación
+                </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 pb-6 text-muted-foreground">
+                 Un buen sueño es la base de la regeneración. Intenta dormir de 7 a 8 horas para obtener resultados óptimos.
+              </AccordionContent>
+           </AccordionItem>
+        </Accordion>
+      </footer>
     </div>
   );
 }
