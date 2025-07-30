@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked, Bed, Utensils, Droplets, Trophy } from 'lucide-react';
+import { Flame, TrendingUp, Footprints, Leaf, BookOpen, BookMarked, Bed, Utensils, Droplets } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { WorkoutCard } from '@/components/workout-card';
 import { WorkoutModal } from '@/components/workout-modal';
@@ -15,21 +15,6 @@ import { MotivationalQuote } from '@/components/motivational-quote';
 import { useProfile } from '@/hooks/use-profile';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  ChartConfig,
-} from "@/components/ui/chart";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
-
-
-const chartConfig = {
-  calories: {
-    label: "Calorías",
-    color: "hsl(var(--primary))",
-  },
-} satisfies ChartConfig;
 
 export default function Dashboard() {
   const [selectedDay, setSelectedDay] = useState<WorkoutDay | null>(null);
@@ -64,9 +49,6 @@ export default function Dashboard() {
     if (day === arr[index - 1] - 1) return streak + 1;
     return streak;
   }, completedDays.length > 0 ? 0 : 0) : 0;
-
-  // Chart data
-  const last7Completed = completedWorkouts.slice(-7).map(w => ({ day: `Día ${w.day}`, calories: w.calories }));
 
   return (
     <div className="flex flex-col gap-10">
@@ -143,40 +125,6 @@ export default function Dashboard() {
             </div>
         </Card>
       </div>
-
-      {/* Progress Chart */}
-      <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg">
-        <CardHeader>
-          <CardTitle>Progreso de Calorías (Últimos 7 Entrenamientos)</CardTitle>
-          <CardDescription>
-            Visualiza las calorías quemadas en tus sesiones completadas más recientes.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ChartContainer config={chartConfig} className="h-[250px] w-full">
-            <BarChart accessibilityLayer data={last7Completed}>
-              <CartesianGrid vertical={false} />
-              <XAxis
-                dataKey="day"
-                tickLine={false}
-                tickMargin={10}
-                axisLine={false}
-              />
-              <YAxis
-                tickLine={false}
-                axisLine={false}
-                tickMargin={10}
-                width={30}
-              />
-              <ChartTooltip
-                cursor={false}
-                content={<ChartTooltipContent />}
-              />
-              <Bar dataKey="calories" fill="var(--color-calories)" radius={8} />
-            </BarChart>
-          </ChartContainer>
-        </CardContent>
-      </Card>
       
       {/* Collapsible Info Sections */}
       <div className="space-y-6">

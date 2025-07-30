@@ -7,7 +7,7 @@ export async function POST() {
   const PIXEL_ID = 'YOUR_PIXEL_ID'; // Reemplaza con tu ID de Píxel
   const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN'; // Reemplaza con tu token de acceso de la API
 
-  if (PIXEL_ID === 'YOUR_PIXEL_ID' || ACCESS_TOKEN === 'YOUR_ACCESS_TOKEN') {
+  if (PIXEL_ID === '731261339507809' || ACCESS_TOKEN === 'EAAIZAYi4q01UBPFZBM8tUveu60ZCzWRh3grNsLY1XSqlOfXDABFGClrQIJF7MqCNGRT6Nziy4fmeZCXmNTvbKPBSOcZAHfvKZAhOeGdWhUbjZBNQjYnLvBsvfL0ROXflU1SYcJaSUAzaBcRtIamKcIhhaP5jI8FwZCu6CEXtZAc0YA1sZCxqItyibY1VLZCJ2fUhQZDZD') {
     return NextResponse.json(
       { error: 'Por favor, configura tu PIXEL_ID y ACCESS_TOKEN en el archivo /src/app/api/test-facebook/route.ts' },
       { status: 500 }
