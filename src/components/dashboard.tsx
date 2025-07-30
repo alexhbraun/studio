@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
@@ -45,10 +45,11 @@ export default function Dashboard() {
 
   // Calculate streak
   const currentStreak = isLoaded ? completedDays.slice().sort((a, b) => b - a).reduce((streak, day, index, arr) => {
-    if (index === 0) return 1;
+    if (index === 0 && completedDays.length > 0) return 1;
     if (day === arr[index - 1] - 1) return streak + 1;
     return streak;
-  }, completedDays.length > 0 ? 0 : 0) : 0;
+  }, 0) : 0;
+
 
   return (
     <div className="flex flex-col gap-10">
@@ -240,5 +241,4 @@ export default function Dashboard() {
       </footer>
     </div>
   );
-
-    
+}
