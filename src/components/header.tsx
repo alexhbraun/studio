@@ -11,6 +11,7 @@ import {
   BookMarked,
   Menu,
   LogOut,
+  Trophy,
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -157,6 +158,12 @@ export function Header() {
               <Link href="/profile" className="flex items-center gap-2">
                 <User className="h-4 w-4" />
                 <span>Perfil</span>
+              </Link>
+            </DropdownMenuItem>
+             <DropdownMenuItem asChild>
+              <Link href="/achievements" className="flex items-center gap-2">
+                <Trophy className="h-4 w-4" />
+                <span>Logros</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>

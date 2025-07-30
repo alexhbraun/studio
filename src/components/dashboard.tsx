@@ -1,11 +1,11 @@
 
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { workouts } from '@/lib/workouts';
 import { useProgress } from '@/hooks/use-progress';
 import { WorkoutDay } from '@/lib/types';
-import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked, Bed, Utensils, Droplets } from 'lucide-react';
+import { Flame, TrendingUp, Calendar, Footprints, Leaf, BookOpen, BookMarked, Bed, Utensils, Droplets, Trophy } from 'lucide-react';
 import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -15,6 +15,21 @@ import { MotivationalQuote } from '@/components/motivational-quote';
 import { useProfile } from '@/hooks/use-profile';
 import Link from 'next/link';
 import { Button } from './ui/button';
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  ChartConfig,
+} from "@/components/ui/chart";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+
+
+const chartConfig = {
+  calories: {
+    label: "Calorías",
+    color: "hsl(var(--primary))",
+  },
+} satisfies ChartConfig;
 
 export default function Dashboard() {
   const [selectedDay, setSelectedDay] = useState<WorkoutDay | null>(null);
@@ -34,7 +49,7 @@ export default function Dashboard() {
   };
 
   const progressPercentage = isLoaded ? (completedDays.length / workouts.length) * 100 : 0;
-  const currentWeek = isLoaded ? Math.floor(completedDays.length / 7) + 1 : 1;
+  
   const name = userProfile?.name || 'Usuario';
   const diff = userProfile ? userProfile.currentWeight - userProfile.goalWeight : 0;
   const weightGoalText = diff > 0 ? `perder ${diff} kg` : 'mejorar tu estilo de vida';
@@ -42,6 +57,16 @@ export default function Dashboard() {
   const completedWorkouts = workouts.filter(w => completedDays.includes(w.day));
   const totalCalories = completedWorkouts.reduce((sum, workout) => sum + workout.calories, 0);
   const totalSteps = completedWorkouts.reduce((sum, workout) => sum + workout.steps, 0);
+
+  // Calculate streak
+  const currentStreak = isLoaded ? completedDays.slice().sort((a, b) => b - a).reduce((streak, day, index, arr) => {
+    if (index === 0) return 1;
+    if (day === arr[index - 1] - 1) return streak + 1;
+    return streak;
+  }, completedDays.length > 0 ? 0 : 0) : 0;
+
+  // Chart data
+  const last7Completed = completedWorkouts.slice(-7).map(w => ({ day: `Día ${w.day}`, calories: w.calories }));
 
   return (
     <div className="flex flex-col gap-10">
@@ -60,22 +85,22 @@ export default function Dashboard() {
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Racha de días</CardTitle>
+            <Flame className="h-4 w-4 text-orange-500" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{currentStreak}</div>
+            <p className="text-xs text-muted-foreground">días consecutivos</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-400">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Calorías quemadas</CardTitle>
             <Flame className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{totalCalories.toLocaleString()}</div>
             <p className="text-xs text-muted-foreground">kcal totales</p>
-          </CardContent>
-        </Card>
-        <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-400">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Semana actual</CardTitle>
-            <Calendar className="h-4 w-4 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{currentWeek}</div>
-            <p className="text-xs text-muted-foreground">de 5 semanas del programa</p>
           </CardContent>
         </Card>
         <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg animate-fade-in-down animation-delay-600">
@@ -118,6 +143,40 @@ export default function Dashboard() {
             </div>
         </Card>
       </div>
+
+      {/* Progress Chart */}
+      <Card className="bg-card/60 backdrop-blur-sm border-border/60 shadow-lg">
+        <CardHeader>
+          <CardTitle>Progreso de Calorías (Últimos 7 Entrenamientos)</CardTitle>
+          <CardDescription>
+            Visualiza las calorías quemadas en tus sesiones completadas más recientes.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ChartContainer config={chartConfig} className="h-[250px] w-full">
+            <BarChart accessibilityLayer data={last7Completed}>
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="day"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={false}
+              />
+              <YAxis
+                tickLine={false}
+                axisLine={false}
+                tickMargin={10}
+                width={30}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent />}
+              />
+              <Bar dataKey="calories" fill="var(--color-calories)" radius={8} />
+            </BarChart>
+          </ChartContainer>
+        </CardContent>
+      </Card>
       
       {/* Collapsible Info Sections */}
       <div className="space-y-6">
