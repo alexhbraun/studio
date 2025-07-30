@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
-import { Dumbbell, Repeat, Timer, RotateCcw, Flame, Footprints, Smile, Frown, Meh } from 'lucide-react';
+import { Dumbbell, Repeat, Timer, RotateCcw, Flame, Footprints, Smile, Frown, Meh, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -15,9 +15,11 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import type { WorkoutDay } from '@/lib/types';
+import type { WorkoutDay, WorkoutExercise } from '@/lib/types';
 import { Card, CardContent } from './ui/card';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Checkbox } from './ui/checkbox';
+import { cn } from '@/lib/utils';
 
 interface WorkoutModalProps {
   isOpen: boolean;
@@ -49,6 +51,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
   const [showConfetti, setShowConfetti] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [checkedExercises, setCheckedExercises] = useState(new Set<number>());
 
   useEffect(() => {
     const handleResize = () => {
@@ -70,11 +73,28 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     };
   }, []);
   
+  useEffect(() => {
+    // Reset state when a new day is opened
+    if (dayData) {
+      setCheckedExercises(new Set<number>());
+    }
+  }, [dayData]);
+  
+  useEffect(() => {
+    if (!dayData || isCompleted) return;
+
+    if (checkedExercises.size === dayData.exercises.length) {
+      handleCompleteDay();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkedExercises, dayData, isCompleted]);
+
+
   if (!dayData) {
     return null;
   }
   
-  const handleToggleComplete = () => {
+  const handleCompleteDay = () => {
     if (!isCompleted) {
       setShowConfetti(true);
       setShowFeedback(true);
@@ -85,7 +105,6 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
 
   const handleFeedback = () => {
     setShowFeedback(false);
-    // You could save the feedback here
   }
   
   const handleClose = () => {
@@ -94,6 +113,20 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
     onClose();
   }
   
+  const handleCheckChange = (exerciseId: number) => {
+    setCheckedExercises(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(exerciseId)) {
+        newSet.delete(exerciseId);
+      } else {
+        newSet.add(exerciseId);
+      }
+      return newSet;
+    });
+  };
+
+  const allExercisesCompleted = dayData ? checkedExercises.size === dayData.exercises.length : false;
+  
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent className="sm:max-w-3xl bg-background/95 backdrop-blur-sm border-border max-h-[90vh] flex flex-col">
@@ -101,7 +134,7 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
         <DialogHeader>
           <DialogTitle className="font-headline text-3xl">Día {dayData.day}: {dayData.title}</DialogTitle>
           <DialogDescription>
-            {dayData.description}
+            {isCompleted ? "¡Ya has completado este entrenamiento! Puedes revisar los ejercicios." : "Marca cada ejercicio a medida que lo completes."}
           </DialogDescription>
         </DialogHeader>
 
@@ -140,33 +173,42 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
               exit={{ opacity: 0 }}
               className="flex-grow overflow-y-auto -mx-6 px-6"
             >
-                <div className="space-y-6">
+                <div className="space-y-4">
                     {dayData.exercises.map((exercise) => (
-                    <Card key={exercise.id} className="bg-card/80 border-border/60">
-                        <CardContent className="p-6">
-                        <div className="space-y-3">
-                            <h3 className="text-xl font-bold font-headline text-primary">{exercise.name}</h3>
-                            <p className="text-muted-foreground whitespace-pre-line">{exercise.description}</p>
-                            <div className="flex flex-wrap gap-2 pt-2">
-                            <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                                <Timer className="h-4 w-4" />
-                                {exercise.duration} minutos
-                            </Badge>
-                            {exercise.repetitions && (
+                    <Card key={exercise.id} className={cn("bg-card/80 border-border/60 transition-colors", checkedExercises.has(exercise.id) && 'bg-primary/10 border-primary/30')}>
+                        <CardContent className="p-4">
+                        <div className="flex items-start gap-4">
+                           <Checkbox
+                              id={`exercise-${exercise.id}`}
+                              checked={isCompleted || checkedExercises.has(exercise.id)}
+                              onCheckedChange={() => handleCheckChange(exercise.id)}
+                              disabled={isCompleted}
+                              className="mt-1 h-5 w-5"
+                           />
+                           <div className="flex-1 space-y-3">
+                              <h3 className="text-xl font-bold font-headline text-primary">{exercise.name}</h3>
+                              <p className="text-muted-foreground whitespace-pre-line">{exercise.description}</p>
+                              <div className="flex flex-wrap gap-2 pt-2">
                                 <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                                <Repeat className="h-4 w-4" />
-                                {exercise.repetitions}
+                                    <Timer className="h-4 w-4" />
+                                    {exercise.duration} minutos
                                 </Badge>
-                            )}
-                            <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                                <Flame className="h-4 w-4" />
-                                {exercise.calories} kcal
-                            </Badge>
-                            <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
-                                <Footprints className="h-4 w-4" />
-                                {exercise.steps} pasos
-                            </Badge>
-                            </div>
+                                {exercise.repetitions && (
+                                    <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                                    <Repeat className="h-4 w-4" />
+                                    {exercise.repetitions}
+                                    </Badge>
+                                )}
+                                <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                                    <Flame className="h-4 w-4" />
+                                    {exercise.calories} kcal
+                                </Badge>
+                                <Badge variant="secondary" className="flex items-center gap-2 text-base bg-muted text-muted-foreground">
+                                    <Footprints className="h-4 w-4" />
+                                    {exercise.steps} pasos
+                                </Badge>
+                              </div>
+                           </div>
                         </div>
                         </CardContent>
                     </Card>
@@ -176,32 +218,13 @@ export function WorkoutModal({ isOpen, onClose, dayData, isCompleted, onComplete
           )}
         </AnimatePresence>
         
-        {!showFeedback && (
-          <DialogFooter className="sm:justify-between gap-2 pt-4 flex-shrink-0">
-              <DialogClose asChild>
-                  <Button type="button" variant="outline" className="w-full sm:w-auto">
-                      Cerrar
-                  </Button>
-              </DialogClose>
-              <Button
-                  onClick={handleToggleComplete}
-                  className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90"
-                  size="lg"
-              >
-                  {isCompleted ? (
-                  <>
-                      <RotateCcw className="mr-2 h-5 w-5" />
-                      Deshacer
-                  </>
-                  ) : (
-                  <>
-                      <Dumbbell className="mr-2 h-5 w-5" />
-                      Marcar como completado
-                  </>
-                  )}
+        <DialogFooter className="pt-4 flex-shrink-0">
+          <DialogClose asChild>
+              <Button type="button" variant="outline" className="w-full">
+                  { isCompleted ? "Cerrar" : (allExercisesCompleted ? "Hecho" : "Cerrar por ahora")}
               </Button>
-          </DialogFooter>
-        )}
+          </DialogClose>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
